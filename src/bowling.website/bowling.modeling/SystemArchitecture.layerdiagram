@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="2a36f780-a916-4f72-9b6e-8f62bcda5810" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="d878f357-e781-4aaa-ad1f-89fb4be41434" name="DBMS / data" />
+    <layer Id="3121c532-6624-4c5b-ad89-a87090d22550" name="Business Logic&#xD;&#xA;">
+      <childLayers>
+        <layer Id="40b73363-fd8d-4af0-95d8-b089836d05a8" name="data model">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="f08e2a33-40d2-4763-a285-7297367f38d3" direction="Forward">
+              <layerMoniker Id="d878f357-e781-4aaa-ad1f-89fb4be41434" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="370cdadd-4421-4e86-8eef-6513abd15bf9" name="Lane scheduling&#xD;&#xA;">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="20c3dcb3-b757-4d9f-a099-95537b25ce32" direction="Forward">
+              <layerMoniker Id="40b73363-fd8d-4af0-95d8-b089836d05a8" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="11319023-a2a9-4cd6-9908-e7241e8c2fb7" name="API&#xD;&#xA;">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="12202b5b-344c-47a8-88c0-b18e25a707d7" direction="Forward">
+          <layerMoniker Id="3121c532-6624-4c5b-ad89-a87090d22550" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="c7501f4d-efd1-40be-b6e7-5f11aba2d89f" name="Service logic" />
+      </childLayers>
+    </layer>
+    <layer Id="85284fcc-d833-4d14-8b9d-7c2d97dff914" name="Customer website&#xD;&#xA;">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="139fb53c-61e2-44ad-9096-7770971189c1" direction="Forward">
+          <layerMoniker Id="11319023-a2a9-4cd6-9908-e7241e8c2fb7" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+  </layers>
+</layerModel>
