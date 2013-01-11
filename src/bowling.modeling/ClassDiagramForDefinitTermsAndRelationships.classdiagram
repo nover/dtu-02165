@@ -36,6 +36,9 @@
           <property Id="e9ce8090-2390-4d04-99b4-ebbbedd99974" name="username" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="ef885c7c-1c1c-4335-8235-70b457bfa69f" />
           </property>
+          <property Id="4b89abf0-8ef8-4564-a1e7-ed352c0f2d0a" name="id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7382f93c-4dda-44b1-a624-142f1aafc2e9" />
+          </property>
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -120,6 +123,16 @@
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="88c7679c-38e5-4eb4-9c42-a1c732a7fb11" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="690fb98f-766e-4d0f-8931-44d15f320543" name="Lower" value="*">
+                      <elementDefinition Id="13a2d193-f2a1-433d-8705-8e2a1c13f143" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="c41103bc-3849-4bd8-971b-41a505873c6e" name="Upper" value="*">
+                      <elementDefinition Id="b6b51e88-cc74-49f3-96c0-50912c56a40a" />
+                    </literalString>
+                  </upperValueInternal>
                   <elementDefinition Id="fee89879-4eee-4fd7-9302-c6a179f9e014" />
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -190,6 +203,12 @@
           </property>
           <property Id="167492db-bccc-4ae1-96c0-493f643296d4" name="status" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="4f789370-24e5-4c1f-8bcb-d113023577e6" />
+          </property>
+          <property Id="8ec0e6a9-32c1-4b03-be2c-ea739f1cc5f0" name="lane" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4666dd64-81c5-43c9-88dd-5b298c45eefd" />
+          </property>
+          <property Id="28d8c93b-add8-4c39-8bbe-b8cc31081675" name="timeslot" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ecbe9e80-0264-46e6-bfd7-fedfa7a02baa" />
           </property>
         </ownedAttributesInternal>
       </class>
