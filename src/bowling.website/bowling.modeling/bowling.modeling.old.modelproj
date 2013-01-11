@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{ca50c916-974e-4323-a299-5299e2723ff7}</ProjectGuid>
     <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
-    <Name>bowling.modeling</Name>
+    <Name>bowling.modeling.old</Name>
     <RootNamespace>bowling.modeling</RootNamespace>
     <SccProjectName>SAK</SccProjectName>
     <SccProvider>SAK</SccProvider>
@@ -33,18 +33,5 @@
     <Content Include="ModelDefinition\bowling.modeling.uml">
       <SubType>Content</SubType>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Validate Include="SystemArchitecture.layerdiagram">
-      <SubType>Content</SubType>
-    </Validate>
-    <Validate Include="SystemArchitecture.layerdiagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>SystemArchitecture.layerdiagram</DependentUpon>
-    </Validate>
-    <Validate Include="SystemArchitecture.layerdiagram.suppressions">
-      <SubType>Content</SubType>
-      <DependentUpon>SystemArchitecture.layerdiagram</DependentUpon>
-    </Validate>
   </ItemGroup>
 </Project>

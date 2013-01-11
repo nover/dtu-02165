@@ -87,5 +87,16 @@
       <SubType>Content</SubType>
       <DependentUpon>LayerDiagram1.layerdiagram</DependentUpon>
     </Validate>
+    <Validate Include="SystemArchitecture.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="SystemArchitecture.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>SystemArchitecture.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="SystemArchitecture.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>SystemArchitecture.layerdiagram</DependentUpon>
+    </Validate>
   </ItemGroup>
 </Project>
