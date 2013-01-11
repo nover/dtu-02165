@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="45239cca-68d4-4a6d-b08f-eb4ce0b314d5" name="UMLComponentDiagram1" linkedPackageId="e5c0b9b3-0fb4-447c-b9b0-03942543be4a" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="cf12d673-eda7-4e7f-b7e5-0f8926795c2a">
+      <profileInstance Id="deb661de-41ec-49f0-88a2-2d4ec9ba1a41" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="8c0d0975-ef23-451f-af09-68ba7de3894b">
+      <profileInstance Id="d7f0b030-7152-4a16-acd2-a9e8cfd120dc" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <componentModelHasComponents>
+      <component Id="a698f45b-4f80-4e57-817a-23f8f3a557e6" name="Database" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="497ca532-5d3e-4b8b-a5e3-1f48ef496c6e" />
+        <ownedAttributesInternal>
+          <providedInterface Id="9d28b65c-e310-48c1-887b-8ca3b8036232" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="e882f736-f608-406a-a43b-0a18d7622f00" />
+            <type_NamedElement>
+              <interfaceMoniker Id="23a47f19-01d7-4bd8-a556-6cbe482480c7" LastKnownName="DBAccess" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="28d507ea-f5f8-46ac-bef0-7170498382d7" name="Webserver" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0b543e2c-15e8-4b35-b2d2-d3bc2b47d2ee" />
+        <suppliersInternal>
+          <dependency Id="d9e9059c-931c-442f-b7d6-e71c34587de6">
+            <providedInterfaceMoniker Id="0dde923f-cc18-4a32-8be5-ef897207777a" LastKnownName="Port1" />
+            <elementDefinition Id="5535b48c-ccfb-4ce2-9ec6-92a8c21532f9" />
+          </dependency>
+          <dependency Id="76c81afa-54cd-4446-9400-3d675cdf0ce8">
+            <providedInterfaceMoniker Id="e6a185d7-3402-4494-b7f6-5269b6afbf01" LastKnownName="Port2" />
+            <elementDefinition Id="9191f28f-4cc5-4064-bb8f-0aeced473aca" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <modelContainsNamedElements>
+      <Interface Id="23a47f19-01d7-4bd8-a556-6cbe482480c7" name="DBAccess" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="09ae34c8-144c-4c07-8309-0ade508c6310" />
+      </Interface>
+    </modelContainsNamedElements>
+    <componentModelHasComponents>
+      <component Id="48dbb656-cb31-49f8-bf7e-2547993205a5" name="Trusted Application Server" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7e4cebdb-ac1d-4828-9f58-fa578dd0f5ef" />
+        <suppliersInternal>
+          <dependency Id="b6fd05e2-28a8-4e23-a2c7-71fb6c993703">
+            <providedInterfaceMoniker Id="9d28b65c-e310-48c1-887b-8ca3b8036232" LastKnownName="Port1" />
+            <elementDefinition Id="c5ee06d9-e6be-45fb-9dd5-5f72e8d5e09a" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <providedInterface Id="0dde923f-cc18-4a32-8be5-ef897207777a" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="aa53e7cf-9f43-481b-92aa-b0b930f29b57" />
+            <type_NamedElement>
+              <interfaceMoniker Id="44babc77-b220-4ce7-8ec2-e93b3001fbdf" LastKnownName="Administration" />
+            </type_NamedElement>
+          </providedInterface>
+          <providedInterface Id="e6a185d7-3402-4494-b7f6-5269b6afbf01" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="d80564aa-145f-4604-9808-dfcedc26544a" />
+            <type_NamedElement>
+              <interfaceMoniker Id="fd5f21dc-c9b1-4081-922a-fe1c6fd88aa3" LastKnownName="Reservation System" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <modelContainsNamedElements>
+      <Interface Id="44babc77-b220-4ce7-8ec2-e93b3001fbdf" name="Administration" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b3eb1bed-255a-475e-9c48-1c6682c48c8a" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="fd5f21dc-c9b1-4081-922a-fe1c6fd88aa3" name="Reservation System" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f4804f8d-6dbd-4808-b56b-af6719db2e32" />
+      </Interface>
+    </modelContainsNamedElements>
+  </packagedElements>
+  <package Id="e5c0b9b3-0fb4-447c-b9b0-03942543be4a" name="ModelingProject1">
+    <elementDefinition Id="ea48f2fd-be87-4931-a086-78a8f56eb5a3" />
+  </package>
+</componentModel>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="3d8bc7a5-f3c5-48c3-8590-c7828c9669e8" name="ClassDiagramForDefinitTermsAndRelationships" linkedPackageId="b267f396-4290-42e2-aa55-260982810903" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="b8490cf7-9ca0-4fb2-87d4-82240c194865">
+      <profileInstance Id="8aa5252d-caa4-4fee-8fc7-df86c8f01430" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="d7159059-650d-4e05-bfd5-c97d14e0f794">
+      <profileInstance Id="bad8c73e-360b-4ef5-aed1-fde342591600" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="10a5d94c-1314-454b-b45c-e8915c49d316" name="Lane" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4133bc5d-1a5d-4e5a-9e7e-d673ae849c93" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="34380151-b40c-4440-9e57-33ef9035d281" name="Customer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="cefd7a22-4815-43a0-9e79-765a190c9c41" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8233fa0f-96c9-4efa-9173-41a3afb3e42f" name="Reservation" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="596d034e-88eb-4e52-b39d-9e90a8507766" />
+        <targetEnds>
+          <association Id="d46d6fe5-9d45-42c1-96e6-bbd2681db6ef" isDerived="false" sourceEndRoleName="Reservation" targetEndRoleName="Lane" isLeaf="false" isAbstract="false">
+            <classMoniker Id="10a5d94c-1314-454b-b45c-e8915c49d316" LastKnownName="Lane" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7462d993-80bd-4e7b-935d-72f6f727c85d" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="78420e64-2832-41fd-b52c-e22a57e0f0db" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="071ed4e2-3acb-410b-a01e-03baa49e66b1" name="Lane" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="b0150322-913c-42d8-a0db-492b48772032" name="Lower" value="*">
+                      <elementDefinition Id="90864f87-683c-4dc5-8e44-44f40b8a4a51" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="ebcafd6d-76ed-450f-812d-3c1404069e9b" name="Upper" value="*">
+                      <elementDefinition Id="63ba86a8-541b-4223-ba75-edc0b98c1993" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="961fb6f2-77b5-495e-92fd-9f94e3f7f366" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3506ecc9-88cb-4521-bad5-3c418131242e" />
+          </association>
+          <association Id="c3adfbe7-a549-40d7-bd11-dce810d98f1c" isDerived="false" sourceEndRoleName="Reservation" targetEndRoleName="Customer" isLeaf="false" isAbstract="false">
+            <classMoniker Id="34380151-b40c-4440-9e57-33ef9035d281" LastKnownName="Customer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ed1af44d-1c35-4864-a157-c47bd5a95db3" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1b7fa7e4-8a24-4c3b-b4d1-3abb0d32f6b0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b3a2d884-60db-44b4-9092-c87fe436c6d4" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="2410e422-395d-4d15-b7f6-2ee4dbe22c7a" name="Lower" value="*">
+                      <elementDefinition Id="1097bf32-c4c3-4531-9af3-21c83b9897f8" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="1ffea251-30c3-45d0-be6a-41e1e859f9d7" name="Upper" value="*">
+                      <elementDefinition Id="e1fef4e0-0503-4cb2-9809-137b8f3d787d" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="cf8b7d91-b72e-4fff-b721-4241a3bf5c43" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="76ed5db1-0a62-4f40-abe4-6793a2944d7f" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="b267f396-4290-42e2-aa55-260982810903" name="ModelingProject1">
+    <elementDefinition Id="ea48f2fd-be87-4931-a086-78a8f56eb5a3" />
+  </package>
+</logicalClassDesignerModel>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="690dce3d-5d4b-43ea-97dc-1b5bc2dfb62a" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="e603f1c1-1670-4560-baf8-4892c1456846" name="Client layer&#xD;&#xA;">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="487210d6-e314-416b-aae2-a6bf06e7bd78" direction="Forward">
+          <layerMoniker Id="38c7dcd9-5de0-4401-b870-d9620bd16d6c" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="b0e252c8-7047-46c0-a13d-bb2bb625c052" name="ClientNS">
+          <ArtifactNode Label="ClientNS" Category="CodeSchema_Namespace" Id="(Namespace=ClientNS)" />
+          <ExpandedNode Id="(Assembly=ClassLibrary1)" Label="ClassLibrary1.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Namespace=ClientNS)" Label="ClientNS" Category="CodeSchema_Namespace">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="38c7dcd9-5de0-4401-b870-d9620bd16d6c" name="Server layer">
+      <childLayers>
+        <layer Id="7a7e8b0d-f863-42b9-a34d-f2144fafc8a0" name="Shared&#xD;&#xA;">
+          <references>
+            <reference Id="d7ec377f-5063-4333-b3f5-0ac0524a5bd6" name="ServerNS">
+              <ArtifactNode Label="ServerNS" Category="CodeSchema_Namespace" Id="(Namespace=ServerNS)" />
+              <ExpandedNode Id="(Assembly=ClassLibrary1)" Label="ClassLibrary1.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Namespace=ServerNS)" Label="ServerNS" Category="CodeSchema_Namespace">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="cc1c270b-f78a-4699-996a-f2cd52d586e2" name="Specific&#xD;&#xA;">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="38c9d5a4-4d55-4456-944a-859c5da80289" direction="Forward">
+              <layerMoniker Id="7a7e8b0d-f863-42b9-a34d-f2144fafc8a0" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="c04df17b-d025-4657-8c21-3722b04e954c" name="ServerClass2">
+              <ArtifactNode Label="ServerClass2" Category="CodeSchema_Class" Id="(Assembly=&quot;$(PersonalUri)/visual studio 2012/Projects/ModelingProject1/ClassLibrary1/bin/Debug/ClassLibrary1.dll&quot; Namespace=ServerNS Type=ServerClass2)" />
+              <ExpandedNode Id="(Assembly=ClassLibrary1 Namespace=ServerNS Type=ServerClass2)" Label="ServerClass2" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+    </layer>
+  </layers>
+</layerModel>
