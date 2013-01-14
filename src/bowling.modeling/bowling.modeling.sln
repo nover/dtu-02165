@@ -9,9 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.rest.servicemodel",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.rest.webservice", "..\bowling.rest.webservice\bowling.rest.webservice.csproj", "{96AAF02B-456D-400F-BAD4-A5B388813B6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.businesslogic.entitiy", "..\bowling.entitiy\bowling.businesslogic.entitiy.csproj", "{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
+		SccNumberOfProjects = 6
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://w20:8080/tfs/defaultcollection
 		SccProjectUniqueName0 = bowling.modeling.modelproj
@@ -26,6 +28,9 @@ Global
 		SccProjectUniqueName4 = ..\\bowling.rest.webservice\\bowling.rest.webservice.csproj
 		SccProjectName4 = ../bowling.rest.webservice
 		SccLocalPath4 = ..\\bowling.rest.webservice
+		SccProjectUniqueName5 = ..\\bowling.entitiy\\bowling.businesslogic.entitiy.csproj
+		SccProjectName5 = ../bowling.entitiy
+		SccLocalPath5 = ..\\bowling.entitiy
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +53,10 @@ Global
 		{96AAF02B-456D-400F-BAD4-A5B388813B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96AAF02B-456D-400F-BAD4-A5B388813B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96AAF02B-456D-400F-BAD4-A5B388813B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
