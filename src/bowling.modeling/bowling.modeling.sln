@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "bowling.modeling", "bowling.modeling.modelproj", "{F96C74E5-26F9-471C-B1D7-0BE382C3C5DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.rest.serviceinterface", "..\bowling.rest.serviceinterface\bowling.rest.serviceinterface.csproj", "{5FDB8605-9042-4D78-B95D-DA6B6140AEE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.rest.servicemodel", "..\bowling.rest.servicemodel\bowling.rest.servicemodel.csproj", "{FB1F8289-827D-435A-B437-2359D7DF4BA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.rest.webservice", "..\bowling.rest.webservice\bowling.rest.webservice.csproj", "{96AAF02B-456D-400F-BAD4-A5B388813B6B}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://w20:8080/tfs/defaultcollection
+		SccProjectUniqueName0 = bowling.modeling.modelproj
+		SccLocalPath0 = .
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ..\\bowling.rest.serviceinterface\\bowling.rest.serviceinterface.csproj
+		SccProjectName2 = ../bowling.rest.serviceinterface
+		SccLocalPath2 = ..\\bowling.rest.serviceinterface
+		SccProjectUniqueName3 = ..\\bowling.rest.servicemodel\\bowling.rest.servicemodel.csproj
+		SccProjectName3 = ../bowling.rest.servicemodel
+		SccLocalPath3 = ..\\bowling.rest.servicemodel
+		SccProjectUniqueName4 = ..\\bowling.rest.webservice\\bowling.rest.webservice.csproj
+		SccProjectName4 = ../bowling.rest.webservice
+		SccLocalPath4 = ..\\bowling.rest.webservice
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F96C74E5-26F9-471C-B1D7-0BE382C3C5DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F96C74E5-26F9-471C-B1D7-0BE382C3C5DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F96C74E5-26F9-471C-B1D7-0BE382C3C5DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F96C74E5-26F9-471C-B1D7-0BE382C3C5DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FDB8605-9042-4D78-B95D-DA6B6140AEE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FDB8605-9042-4D78-B95D-DA6B6140AEE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FDB8605-9042-4D78-B95D-DA6B6140AEE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FDB8605-9042-4D78-B95D-DA6B6140AEE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB1F8289-827D-435A-B437-2359D7DF4BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB1F8289-827D-435A-B437-2359D7DF4BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB1F8289-827D-435A-B437-2359D7DF4BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB1F8289-827D-435A-B437-2359D7DF4BA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96AAF02B-456D-400F-BAD4-A5B388813B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96AAF02B-456D-400F-BAD4-A5B388813B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96AAF02B-456D-400F-BAD4-A5B388813B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96AAF02B-456D-400F-BAD4-A5B388813B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
