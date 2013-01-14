@@ -43,6 +43,9 @@
     <Content Include="Graph1.dgml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ModelDefinition\Package_1356.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="UMLComponentDiagram1.componentdiagram">
       <SubType>Content</SubType>
     </Content>
