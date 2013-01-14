@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="d35aed3b-710e-4c66-aaaf-8feef9f0c729" name="Flemming" linkedPackageId="86fe6dcf-a0c6-4428-81be-aeafe4aa9085" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="c665b8e0-1a2f-43c7-ab0a-004816d51361">
+      <profileInstance Id="9397309e-b3ef-41e5-8cd7-7ff4a945cfa0" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="ddc6cc00-61e7-4138-980f-00f511b38216">
+      <profileInstance Id="a94995c1-f297-4d44-a826-e08da0ffe57a" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="474fd798-98fa-4d20-aea3-8f607cc1f291" name="Flemming       &quot;The wizard&quot;" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5ea032c0-36e9-46c0-916e-7b9b73308fc0" />
+        <targetEnds>
+          <association Id="41d3f420-65c5-4103-b020-b3b8753b3675" isDerived="false" sourceEndRoleName="Gurli-Margrethe" targetEndRoleName="Create reservation" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9d17e006-a2cc-46eb-8a9d-0f57fd41c794" LastKnownName="Create reservation with addons" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a24fb9a6-3271-4813-a503-fab350315f6e" name="Gurli-Margrethe" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4b69bd9e-3547-4256-9f89-708ecc1f5a58" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7bbb3c88-c9ea-4722-aa8a-1583638b4525" name="Create reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ed0a05c7-21c1-4501-a74c-a82dbd227510" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7d9aca5a-3533-4544-855d-7dd586feb0d8" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9d17e006-a2cc-46eb-8a9d-0f57fd41c794" name="Create reservation with addons" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="12ab0f59-af74-4d4e-bf56-ac71867de3de" />
+        <additions>
+          <include Id="62e6f38f-ae0c-4af2-a9c5-f816fc37268a">
+            <useCaseMoniker Id="009b4ea3-89ef-4407-81e2-5023b1500411" LastKnownName="Select date" />
+            <elementDefinition Id="ecac8e8c-cf10-43f1-8531-b996ba7bba93" />
+          </include>
+          <include Id="84f8b9e2-7919-4140-a7d2-65138d5ec828">
+            <useCaseMoniker Id="bd8d7e1b-2a12-4fef-92c7-df83d3546629" LastKnownName="Enter players" />
+            <elementDefinition Id="42946d18-1115-46e8-9457-006f028efe1d" />
+          </include>
+          <include Id="eb6f2e2e-2ca7-4cf4-b4fa-6fac4b35ce2b">
+            <useCaseMoniker Id="88d76889-42fd-49f5-b45c-51e8261cae71" LastKnownName="Select service" />
+            <elementDefinition Id="847536b7-edaf-434a-8187-dec295f05cf2" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="ea7c47aa-810f-41c0-8cf6-b35ecd4d8394" name="Frontend" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="087735a6-768c-4194-bbba-a1e42d22903d" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="009b4ea3-89ef-4407-81e2-5023b1500411" name="Select date" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6c989a89-4e2e-43ec-b1ca-f399e7849d99" />
+        <subjects>
+          <subsystemMoniker Id="ea7c47aa-810f-41c0-8cf6-b35ecd4d8394" LastKnownName="Frontend" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="bd8d7e1b-2a12-4fef-92c7-df83d3546629" name="Enter players" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e549fc8d-ce5f-458a-adc0-c51c94e11873" />
+        <additions>
+          <include Id="361cdd60-d727-460f-91c9-72fc3292d306">
+            <useCaseMoniker Id="db7493a6-2009-44b3-83c5-1a66fef08c41" LastKnownName="Query for free days" />
+            <elementDefinition Id="507d8ea0-bb4e-455a-981b-62349b9b89b6" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="ea7c47aa-810f-41c0-8cf6-b35ecd4d8394" LastKnownName="Frontend" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="560de636-6e14-4107-bd30-60849626789c" name="Backend" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6a77bbfa-4ee4-4e19-8fcf-5ee3e4652f0f" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="db7493a6-2009-44b3-83c5-1a66fef08c41" name="Query for free days" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9897c70f-ed62-43eb-8515-e0265efa72d4" />
+        <subjects>
+          <subsystemMoniker Id="560de636-6e14-4107-bd30-60849626789c" LastKnownName="Backend" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="88d76889-42fd-49f5-b45c-51e8261cae71" name="Select service" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6d721a6b-3192-4056-ab7a-0ee8648f36e7" />
+        <subjects>
+          <subsystemMoniker Id="ea7c47aa-810f-41c0-8cf6-b35ecd4d8394" LastKnownName="Frontend" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="86fe6dcf-a0c6-4428-81be-aeafe4aa9085" name="ModelingProject1">
+    <elementDefinition Id="ea48f2fd-be87-4931-a086-78a8f56eb5a3" />
+  </package>
+</useCaseModelRoot>
