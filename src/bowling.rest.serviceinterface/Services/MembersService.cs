@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Bowling.Rest.Service.Interface.Services
 {
-    class MembersService : RestServiceBase<MembersRequest>
+    class MembersService : RestServiceBase<Members>
     {
-        public override object OnGet(MembersRequest request)
+        public override object OnGet(Members request)
         {
-            if (request.Id == null)
+            if (request.Email == null)
             {
                 return this.OnGetCollection(request);
             }
@@ -22,13 +22,22 @@ namespace Bowling.Rest.Service.Interface.Services
             }
         }
 
-        private MembersResponse OnGetItem(MembersRequest request)
+        private MembersResponse OnGetItem(Members request)
         {
             throw new NotImplementedException();
         }
 
-        private MembersResponse OnGetCollection(MembersRequest request)
+        private MembersResponse OnGetCollection(Members request)
         {
+            throw new NotImplementedException();
+        }
+
+
+        public override object OnPost(Members request)
+        {
+            //return base.OnPost(request);
+            /*Add the code for inserting the new memeber into the appropriate 
+             database table*/
             throw new NotImplementedException();
         }
     }

@@ -1,7 +1,9 @@
 ﻿using Bowling.Rest.Service.Interface.Services;
+using Bowling.Rest.Service.Interface.Validation;
 using Funq;
 using ServiceStack.CacheAccess;
 using ServiceStack.CacheAccess.Providers;
+using ServiceStack.ServiceInterface.Validation;
 using ServiceStack.WebHost.Endpoints;
 using System;
 using System.Collections.Generic;
@@ -28,6 +30,15 @@ namespace Bowling.Rest.Service.Interface
         /// <param name="container">The built-in IoC used with ServiceStack.</param>
         public override void Configure(Container container)
         {
+            // enable fluent validation
+            Plugins.Add(new ValidationFeature());
+
+            //This method scans the assembly for validators
+            container.RegisterValidators(typeof(MembersValidator).Assembly);
+
+            // Register our own custom validators
+            container.Register<IEmailValidator>(new EmailValidator());
+
             //Using an in-memory cache
             container.Register<ICacheClient>(new MemoryCacheClient());
         }
