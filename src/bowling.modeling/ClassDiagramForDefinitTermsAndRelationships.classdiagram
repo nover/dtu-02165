@@ -46,78 +46,6 @@
       <class Id="8233fa0f-96c9-4efa-9173-41a3afb3e42f" name="Reservation" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="596d034e-88eb-4e52-b39d-9e90a8507766" />
         <targetEnds>
-          <association Id="d46d6fe5-9d45-42c1-96e6-bbd2681db6ef" isDerived="false" sourceEndRoleName="Reservation" targetEndRoleName="Lane" isLeaf="false" isAbstract="false">
-            <classMoniker Id="10a5d94c-1314-454b-b45c-e8915c49d316" LastKnownName="Lane" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="7462d993-80bd-4e7b-935d-72f6f727c85d" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <lowerValueInternal>
-                    <literalString Id="3a0bb831-ffe8-4440-80e7-6abaeaf122be" name="Lower" value="1">
-                      <elementDefinition Id="47ad99db-2e71-4553-86b3-ae8eba81ebbc" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="da089aad-6188-450c-aeda-68f959ea5652" name="Upper" value="*">
-                      <elementDefinition Id="30fe8098-5516-4e33-b48d-aeb05c18d367" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="78420e64-2832-41fd-b52c-e22a57e0f0db" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="071ed4e2-3acb-410b-a01e-03baa49e66b1" name="Lane" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <lowerValueInternal>
-                    <literalString Id="b0150322-913c-42d8-a0db-492b48772032" name="Lower" value="1">
-                      <elementDefinition Id="90864f87-683c-4dc5-8e44-44f40b8a4a51" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="ebcafd6d-76ed-450f-812d-3c1404069e9b" name="Upper" value="*">
-                      <elementDefinition Id="63ba86a8-541b-4223-ba75-edc0b98c1993" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="961fb6f2-77b5-495e-92fd-9f94e3f7f366" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="3506ecc9-88cb-4521-bad5-3c418131242e" />
-          </association>
-          <association Id="c3adfbe7-a549-40d7-bd11-dce810d98f1c" isDerived="false" sourceEndRoleName="Reservation" targetEndRoleName="Customer" isLeaf="false" isAbstract="false">
-            <classMoniker Id="34380151-b40c-4440-9e57-33ef9035d281" LastKnownName="Customer" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="ed1af44d-1c35-4864-a157-c47bd5a95db3" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <lowerValueInternal>
-                    <literalString Id="c9690d7b-67fb-44f6-86aa-5650c48a269d" name="Lower" value="1">
-                      <elementDefinition Id="04818cc1-9088-4b28-874b-67a149d603dd" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="e017514a-aa80-4f33-aa93-76b798655322" name="Upper" value="*">
-                      <elementDefinition Id="30091170-9ddc-4d96-91f3-b5b1e7703f5d" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="1b7fa7e4-8a24-4c3b-b4d1-3abb0d32f6b0" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="b3a2d884-60db-44b4-9092-c87fe436c6d4" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <lowerValueInternal>
-                    <literalString Id="2410e422-395d-4d15-b7f6-2ee4dbe22c7a" name="Lower" value="1">
-                      <elementDefinition Id="1097bf32-c4c3-4531-9af3-21c83b9897f8" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="1ffea251-30c3-45d0-be6a-41e1e859f9d7" name="Upper" value="1">
-                      <elementDefinition Id="e1fef4e0-0503-4cb2-9809-137b8f3d787d" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="cf8b7d91-b72e-4fff-b721-4241a3bf5c43" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="76ed5db1-0a62-4f40-abe4-6793a2944d7f" />
-          </association>
           <association Id="0d9183b9-7375-4f69-a255-a83b2cfdb88b" isDerived="false" sourceEndRoleName="Reservation" targetEndRoleName="Service" isLeaf="false" isAbstract="false">
             <classMoniker Id="555d10c4-c99b-4bde-9819-6866f2506602" LastKnownName="Service" />
             <relationshipOwnedElementsInternal>
@@ -154,41 +82,103 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="b361bcc4-8a5a-4c83-ae0c-4daae62c0598" />
           </association>
-          <association Id="d381cc6d-5db1-45d1-b15a-2019b36bcadf" isDerived="false" sourceEndRoleName="Reservation" targetEndRoleName="TimeSlot" isLeaf="false" isAbstract="false">
-            <classMoniker Id="e14fe5d8-bc75-4423-9aae-239881caa9b5" LastKnownName="TimeSlot" />
+          <association Id="0ba51128-68b4-4d12-bf8c-ad0c148e1c15" isDerived="false" sourceEndRoleName="Reservation" targetEndRoleName="Customer" isLeaf="false" isAbstract="false">
+            <classMoniker Id="34380151-b40c-4440-9e57-33ef9035d281" LastKnownName="Customer" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="632da3f5-da0c-4036-b96f-8d0574a58e3b" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                <memberEnd Id="e4011acc-e9ca-4941-a444-e9e013b715d7" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
                   <lowerValueInternal>
-                    <literalString Id="09fbd8b5-ff72-445b-bd99-bc2a825d2308" name="Lower" value="1">
-                      <elementDefinition Id="b5c5fe3f-80f1-4ddb-917a-2624ef765858" />
+                    <literalString Id="230d5e78-5f47-48c8-b701-f146480e3665" name="Lower" value="1">
+                      <elementDefinition Id="b48f665e-7677-461b-9641-a60191c4dfe7" />
                     </literalString>
                   </lowerValueInternal>
                   <upperValueInternal>
-                    <literalString Id="7466cb13-2257-4946-a2f3-d7ab2dcacf00" name="Upper" value="*">
-                      <elementDefinition Id="4253c4a8-ebd3-41cf-b9c4-6e7223178961" />
+                    <literalString Id="ccea337b-7766-4be0-9b41-1b282ef03034" name="Upper" value="*">
+                      <elementDefinition Id="3592b026-5f80-4add-86cb-727274957eb0" />
                     </literalString>
                   </upperValueInternal>
-                  <elementDefinition Id="b7f64936-3440-443d-bd4f-ec8abfe80d2c" />
+                  <elementDefinition Id="f657c30e-4040-4b09-8933-468f119d4d25" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="9400ade6-357c-4db5-bd6a-4498aa5a779b" name="TimeSlot" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <lowerValueInternal>
-                    <literalString Id="447f7b2f-0816-4b2c-8a38-3a61bca5f530" name="Lower" value="1">
-                      <elementDefinition Id="9976ec8c-7b30-4f28-92c4-fba1c09fc885" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="53d36d3f-68b8-4a11-a1fe-8f154b5c165e" name="Upper" value="*">
-                      <elementDefinition Id="d7519b9c-2025-4aec-a6ee-6ef6446c9a0f" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="ba6c151d-cf74-4b16-8250-70f9317a149e" />
+                <memberEnd Id="89e30c0f-5995-4833-afc1-d98e4ff2c9e3" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="afd77eff-2e46-4de9-b225-9de5533a7fff" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="f60bb7b9-6185-456c-920c-be4036c00556" />
+            <elementDefinition Id="6dc8eb33-6fd9-4f11-9815-a99a7ae7d95b" />
+          </association>
+          <association Id="eed8afbb-4542-475a-a01b-6d1aef3eedb1" isDerived="false" sourceEndRoleName="Reservation" targetEndRoleName="Lane" isLeaf="false" isAbstract="false">
+            <classMoniker Id="10a5d94c-1314-454b-b45c-e8915c49d316" LastKnownName="Lane" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="14094dd2-3e2a-4268-85b1-2175593746df" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="b11c371e-83ee-402e-b4f5-690ee2321015" name="Lower" value="*">
+                      <elementDefinition Id="db8b7140-68f4-47e5-b827-477ca98ca488" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="32293aac-9f69-4fbd-b0d3-0390d2015faa" name="Upper" value="*">
+                      <elementDefinition Id="515c937a-ab62-47b2-bcd7-b6f8479aa1b6" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="63e36ce7-2943-436b-af28-6a3f7f7551c4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="85564659-002b-4ae6-8a8f-39ed77b15f0a" name="Lane" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="ad9477e3-963b-4a5b-b6a9-bc01022477be" name="Lower" value="1">
+                      <elementDefinition Id="7499811e-7eb2-4dd6-bf7d-0b1ee3dea647" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="c7a288ad-d16f-4667-9678-b22b4942b2db" name="Upper" value="*">
+                      <elementDefinition Id="a6f397f5-16b8-4fe4-9e48-e6e8b3e9ac3f" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="43f63f39-17ce-4875-bc4b-f04eac8a8441" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b6a76113-3a0f-4c62-845d-bcd04197af0b" />
+          </association>
+          <association Id="60d2de3b-783b-4e99-9c8b-4375e1105b04" isDerived="false" sourceEndRoleName="Reservation" targetEndRoleName="TimeSlot" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e14fe5d8-bc75-4423-9aae-239881caa9b5" LastKnownName="TimeSlot" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fbe0e362-8cb1-4c81-a1a8-cc8af3b9b3f8" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="22ffb9d3-f7d5-4a05-9eae-2442d7ac4b80" name="Lower" value="0">
+                      <elementDefinition Id="fb01d289-c7c3-43d5-98b4-b6ce4ef6a3f3" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="856c7064-dbd1-4ca6-bb0c-853fdc41b37c" name="Upper" value="1">
+                      <elementDefinition Id="f3708958-992f-4ef4-8395-0bad658576a5" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="bfe182c7-1c53-41b7-ac3f-1e2f1fcdd413" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c22fc84a-c87f-48fd-a59a-81900be3123d" name="TimeSlot" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="a6f94dc2-4169-4482-8503-70d7e3078208" name="Lower" value="1">
+                      <elementDefinition Id="b733fb9e-764e-45f2-8579-cd6c4bb353f3" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="e8f0c8d9-f69e-4fb0-83b6-f956d30d5113" name="Upper" value="*">
+                      <elementDefinition Id="9beb0888-e127-4593-9250-19f2f22db290" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="e1118fa3-b2ef-4895-acd7-772681d533dd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="07ae85a1-044f-4c3f-a960-7eda8a1ac291" />
           </association>
         </targetEnds>
         <ownedAttributesInternal>
@@ -197,9 +187,6 @@
           </property>
           <property Id="a9e4f8d3-b52d-4508-baaa-06c054647084" name="id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="249a676e-3a9f-4357-b621-400fe6e40783" />
-          </property>
-          <property Id="8ebb9f16-20d5-4577-8156-16f03035c515" name="customer" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="a505e7b1-d597-4e2c-99db-87e63bd7bc75" />
           </property>
           <property Id="167492db-bccc-4ae1-96c0-493f643296d4" name="status" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="4f789370-24e5-4c1f-8bcb-d113023577e6" />
