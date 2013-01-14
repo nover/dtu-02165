@@ -10,6 +10,6 @@ namespace Bowling.Rest.Service.Model.Operations
     [Route("/members")]
     public class MembersRequest
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
     }
 }
