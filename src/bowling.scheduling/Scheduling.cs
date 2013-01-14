@@ -482,6 +482,7 @@ namespace Bowling.Scheduling
             // Reservation(int id, int numLanes, int numTimeSlots, int startTimeSlot)
             bool run = true;
             State state = new State(numberOfLanes, numberOfTimeSlots, reservations);
+            State emptyState = new State(numberOfLanes, numberOfTimeSlots, reservations);
             int i = 0;
             long timeSpent = 0;
             while (run) {
@@ -490,19 +491,18 @@ namespace Bowling.Scheduling
                 int numTimeSlots = random.Next(1, 3);
                 int startTimeSlot = random.Next(0, 23);
                 long time1 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
-                Reservation reservation = new Reservation(i, numLanes, numTimeSlots, startTimeSlot);
+                Reservation reservation = new Reservation(i+1, numLanes, numTimeSlots, startTimeSlot);
                 Debug.WriteLine("Making reservation at of " + numLanes + " for " + numTimeSlots + " hours, at timeslot " + startTimeSlot);
                 List<Reservation> newReservations = new List<Reservation>(reservations);
                 newReservations.Add(reservation);
 
-                newState = Program.Search(state, reservations);
+                newState = Program.Search(emptyState, newReservations);
                 long time2 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
                 timeSpent = time2 - time1;
                 Debug.WriteLine("    Scheduling took: " + timeSpent + " miliseconds");
                 if (newState != null)
                 {
                     Debug.WriteLine("    It succeeded");
-                    state = newState;
                     reservations = newReservations;
                     i++;
                 }
