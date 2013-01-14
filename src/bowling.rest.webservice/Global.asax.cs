@@ -1,32 +1,49 @@
-﻿using System;
+﻿using Bowling.Rest.Service.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Optimization;
-using System.Web.Routing;
 using System.Web.Security;
-using bowling.rest.webservice;
+using System.Web.SessionState;
 
-namespace bowling.rest.webservice
+namespace Bowling.Rest.Webservice
 {
-    public class Global : HttpApplication
+    public class Global : System.Web.HttpApplication
     {
-        void Application_Start(object sender, EventArgs e)
+
+        protected void Application_Start(object sender, EventArgs e)
         {
-            // Code that runs on application startup
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AuthConfig.RegisterOpenAuth();
+            var app = new AppHost();
+            app.Init();
         }
 
-        void Application_End(object sender, EventArgs e)
+        protected void Session_Start(object sender, EventArgs e)
         {
-            //  Code that runs on application shutdown
 
         }
 
-        void Application_Error(object sender, EventArgs e)
+        protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            // Code that runs when an unhandled error occurs
+
+        }
+
+        protected void Application_AuthenticateRequest(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Session_End(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Application_End(object sender, EventArgs e)
+        {
 
         }
     }
