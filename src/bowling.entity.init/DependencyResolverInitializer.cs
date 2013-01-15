@@ -4,13 +4,16 @@ using NHibernate;
 using SharpLite.Domain.DataInterfaces;
 using SharpLite.NHibernateProvider;
 using StructureMap;
+using System;
+using ServiceStack.ServiceClient.Web;
 
 namespace TemplateSrc.Init
 {
     public class DependencyResolverInitializer
     {
         public static void Initialize() {
-            Container container = new Container(x => {
+            _container = new Container(x =>
+            {
                 x.For<ISessionFactory>()
                     .Singleton()
                     .Use(() => NHibernateInitializer.Initialize().BuildSessionFactory());
@@ -19,7 +22,14 @@ namespace TemplateSrc.Init
                 x.For(typeof(IRepositoryWithTypedId<,>)).Use(typeof(RepositoryWithTypedId<,>));
             });
 
-            DependencyResolver.SetResolver(new StructureMapDependencyResolver(container));
+            DependencyResolver.SetResolver(new StructureMapDependencyResolver(_container));
         }
+
+        public static void AddDependency(Type pluginType, Type concreteType)
+        {
+            _container.Configure(x => x.For(pluginType).Use(concreteType));
+        }
+
+        private static Container _container;
     }
 }

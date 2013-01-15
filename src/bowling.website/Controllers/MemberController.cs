@@ -1,5 +1,8 @@
-﻿using BootstrapMvcSample.Controllers;
+﻿using AutoMapper;
+using BootstrapMvcSample.Controllers;
+using Bowling.Rest.Service.Model.Operations;
 using Bowling.Web.CustomerSite.Models;
+using ServiceStack.ServiceClient.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +31,13 @@ namespace Bowling.Web.CustomerSite.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				Error("Model state is valid, but commit is not implemented yet");
-				//Success("Your information was saved!");
+
+                var jsonClient = this.CurrentAPIClient;
+                Members request = Mapper.Map<MemberInputModel, Members>(model);
+
+                var response = jsonClient.Post<MembersResponse>("/members", request);
+
+				Success("User created successfully!");
 				return RedirectToAction("Index");
 			}
 

@@ -55,6 +55,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\resources\servicestack\ServiceStack.ServiceInterface.dll</HintPath>
     </Reference>
+    <Reference Include="SharpLite.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f2f64e823dfaf078, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\resources\sharp-lite\SharpLite.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpLite.NHibernateProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f2f64e823dfaf078, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\resources\sharp-lite\SharpLite.NHibernateProvider.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -182,7 +190,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>2799</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:24920/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

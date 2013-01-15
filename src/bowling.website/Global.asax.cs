@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bowling.Rest.Service.Interface;
+using ServiceStack.ServiceClient.Web;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +15,8 @@ namespace Bowling.Web.CustomerSite
 	// visit http://go.microsoft.com/?LinkId=9394801
 	public class MvcApplication : System.Web.HttpApplication
 	{
+        public AppHost ServiceAppHost { get; set; }
+
 		protected void Application_Start()
 		{
 			AreaRegistration.RegisterAllAreas();
@@ -22,6 +26,13 @@ namespace Bowling.Web.CustomerSite
             BootstrapSupport.BootstrapBundleConfig.RegisterBundles(System.Web.Optimization.BundleTable.Bundles);
 
             DependencyResolverInitializer.Initialize();
+
+            AutomapperConfig.ApplyConfiguration();
 		}
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+
+        }
 	}
 }

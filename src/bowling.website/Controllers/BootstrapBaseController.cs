@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using BootstrapSupport;
+using ServiceStack.ServiceClient.Web;
 
 namespace BootstrapMvcSample.Controllers
 {
@@ -23,6 +24,22 @@ namespace BootstrapMvcSample.Controllers
         public void Error(string message)
         {
             TempData.Add(Alerts.ERROR, message);
+        }
+
+        public ServiceClientBase CurrentAPIClient
+        {
+            get
+            {
+                ServiceClientBase instance = Session["apiclient"] as JsonServiceClient;
+
+                if (instance == null)
+                {
+                    instance = new JsonServiceClient("http://localhost:24920/");
+                    Session["apiclient"] = instance;
+                }
+
+                return instance;
+            }
         }
     }
 }
