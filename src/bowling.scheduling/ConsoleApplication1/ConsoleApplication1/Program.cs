@@ -14,7 +14,7 @@ namespace Bowling.Scheduling
         {
             Debug.WriteLine("Starting");
 
-            PerformanceTests.Test_n_reservations(10, 16, 40, 500);
+            PerformanceTests.Test_n_reservations(20, 16, 80, 500);
 
             //UnitTests.Test4_ProblematicReservation();
             Debug.WriteLine("Done");
@@ -236,25 +236,6 @@ namespace Bowling.Scheduling
             //Debug.WriteLine("Weights are now:  " + weightString);
         }
 
-
-        public State Apply_old(Action action)
-        {
-            State newState = new State(this.numberOfLanes, this.numberOfTimeSlots, new List<Reservation>());
-            newState.weight = this.CopyWeight(); // (float[])this.weight.Clone();
-            newState.state = this.CopyState(); // (int[,])this.state.Clone();
-            for (int i = action.lowestTimeSlot; i < action.lowestTimeSlot + action.numTimeSlots; i++)
-            {
-                for (int j = action.leftmostLane; j < action.leftmostLane + action.numLanes; j++)
-                {
-                    if (i < newState.numberOfTimeSlots && j < newState.numberOfLanes)
-                    {
-                        newState.state[i, j] = action.reservation.id;
-                    }
-                }
-            }
-            return newState;
-        }
-
         public State Apply(Action action)
         {
             for (int i = action.lowestTimeSlot; i < action.lowestTimeSlot + action.numTimeSlots; i++)
@@ -283,28 +264,6 @@ namespace Bowling.Scheduling
                 }
             }
             return this;
-        }
-
-        public float[] CopyWeight() {
-            float[] weight = new float[this.weight.Length];
-
-            for (int i = 0; i < this.weight.Length; i++) { 
-                weight[i] = this.weight[i];
-            }
-            return weight;
-        }
-
-        public int[,] CopyState()
-        {
-            int[,] stateCopy = new int[this.numberOfTimeSlots, this.numberOfLanes];
-
-            for (int i = 0; i < this.numberOfTimeSlots; i++)
-            {
-                for (int j = 0; j < this.numberOfLanes; j++) {
-                    stateCopy[i, j] = this.state[i, j];
-                }
-            }
-            return stateCopy;
         }
 
         public bool isPossible(Reservation reservation)
@@ -419,20 +378,6 @@ namespace Bowling.Scheduling
         public float getCellWeight(int timeslot)
         {
             return this.weight[timeslot];
-        }
-
-        public float GetReservationWeight(Reservation reservation) {
-            float weight = 0.0f;
-            for (int i = reservation.startTimeSlot; i < reservation.startTimeSlot + reservation.numTimeSlots; i++)
-            {
-
-                for (int j = 0; j < reservation.numLanes; j++)
-                {
-                    weight += this.getCellWeight(i);
-                    //Debug.WriteLine("Weight updated with: " + this.getCellWeight(i) + " to: " + weight);
-                }
-            }
-            return weight;
         }
 
         public string toString()
