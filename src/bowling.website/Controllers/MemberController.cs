@@ -28,9 +28,9 @@ namespace Bowling.Web.CustomerSite.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				throw new NotImplementedException("Model state is valid, but commit is not implemented yet");
+				Error("Model state is valid, but commit is not implemented yet");
 				//Success("Your information was saved!");
-				//return RedirectToAction("Index");
+				return RedirectToAction("Index");
 			}
 
 			Error("there were some errors in your form.");
