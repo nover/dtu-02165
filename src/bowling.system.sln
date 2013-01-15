@@ -15,9 +15,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.website", "bowling.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.website.tests", "bowling.website.tests\bowling.website.tests.csproj", "{99DE07D0-225D-465D-AF65-581BB65C2459}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.entity.init", "bowling.entity.init\bowling.entity.init.csproj", "{7112AC6B-C406-481D-99D4-56BA796B7173}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.entity.nhibernateprovider", "bowling.entity.nhibernateprovider\bowling.entity.nhibernateprovider.csproj", "{4E471CAC-A108-49AE-A4D6-155DC35712C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.entity.tests", "bowling.entity.tests\bowling.entity.tests.csproj", "{CEF24DDD-1D15-42BC-B035-4A33388C3F8C}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 8
+		SccNumberOfProjects = 11
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://w20:8080/tfs/defaultcollection
 		SccLocalPath0 = .
@@ -42,6 +48,15 @@ Global
 		SccProjectUniqueName7 = bowling.entitiy\\bowling.entitiy.csproj
 		SccProjectName7 = bowling.entitiy
 		SccLocalPath7 = bowling.entitiy
+		SccProjectUniqueName8 = bowling.entity.init\\bowling.entity.init.csproj
+		SccProjectName8 = bowling.entity.init
+		SccLocalPath8 = bowling.entity.init
+		SccProjectUniqueName9 = bowling.entity.nhibernateprovider\\bowling.entity.nhibernateprovider.csproj
+		SccProjectName9 = bowling.entity.nhibernateprovider
+		SccLocalPath9 = bowling.entity.nhibernateprovider
+		SccProjectUniqueName10 = bowling.entity.tests\\bowling.entity.tests.csproj
+		SccProjectName10 = bowling.entity.tests
+		SccLocalPath10 = bowling.entity.tests
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,6 +91,18 @@ Global
 		{99DE07D0-225D-465D-AF65-581BB65C2459}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99DE07D0-225D-465D-AF65-581BB65C2459}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99DE07D0-225D-465D-AF65-581BB65C2459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7112AC6B-C406-481D-99D4-56BA796B7173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7112AC6B-C406-481D-99D4-56BA796B7173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7112AC6B-C406-481D-99D4-56BA796B7173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7112AC6B-C406-481D-99D4-56BA796B7173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E471CAC-A108-49AE-A4D6-155DC35712C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E471CAC-A108-49AE-A4D6-155DC35712C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E471CAC-A108-49AE-A4D6-155DC35712C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E471CAC-A108-49AE-A4D6-155DC35712C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF24DDD-1D15-42BC-B035-4A33388C3F8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF24DDD-1D15-42BC-B035-4A33388C3F8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF24DDD-1D15-42BC-B035-4A33388C3F8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF24DDD-1D15-42BC-B035-4A33388C3F8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
