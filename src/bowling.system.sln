@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.businesslogic.entitiy", "bowling.entitiy\bowling.businesslogic.entitiy.csproj", "{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.rest.serviceinterface", "bowling.rest.serviceinterface\bowling.rest.serviceinterface.csproj", "{5FDB8605-9042-4D78-B95D-DA6B6140AEE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.rest.servicemodel", "bowling.rest.servicemodel\bowling.rest.servicemodel.csproj", "{FB1F8289-827D-435A-B437-2359D7DF4BA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.rest.webservice", "bowling.rest.webservice\bowling.rest.webservice.csproj", "{96AAF02B-456D-400F-BAD4-A5B388813B6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "bowling.scheduling\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.csproj", "{EFB72D51-8681-4AF0-84DA-7566A22F8181}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.website", "bowling.website\bowling.website.csproj", "{ABAC7F45-2523-4010-9417-410F9494D2F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.website.tests", "bowling.website.tests\bowling.website.tests.csproj", "{99DE07D0-225D-465D-AF65-581BB65C2459}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://w20.b45x.dtu.dk:8080/tfs/defaultcollection
+		SccProjectUniqueName0 = bowling.entitiy\\bowling.businesslogic.entitiy.csproj
+		SccProjectName0 = bowling.entitiy
+		SccLocalPath0 = bowling.entitiy
+		SccProjectUniqueName1 = bowling.rest.serviceinterface\\bowling.rest.serviceinterface.csproj
+		SccProjectName1 = bowling.rest.serviceinterface
+		SccLocalPath1 = bowling.rest.serviceinterface
+		SccProjectUniqueName2 = bowling.rest.servicemodel\\bowling.rest.servicemodel.csproj
+		SccProjectName2 = bowling.rest.servicemodel
+		SccLocalPath2 = bowling.rest.servicemodel
+		SccProjectUniqueName3 = bowling.rest.webservice\\bowling.rest.webservice.csproj
+		SccProjectName3 = bowling.rest.webservice
+		SccLocalPath3 = bowling.rest.webservice
+		SccLocalPath4 = .
+		SccProjectUniqueName5 = bowling.scheduling\\ConsoleApplication1\\ConsoleApplication1\\ConsoleApplication1.csproj
+		SccProjectName5 = bowling.scheduling/ConsoleApplication1/ConsoleApplication1
+		SccLocalPath5 = bowling.scheduling\\ConsoleApplication1\\ConsoleApplication1
+		SccProjectUniqueName6 = bowling.website.tests\\bowling.website.tests.csproj
+		SccProjectName6 = bowling.website.tests
+		SccLocalPath6 = bowling.website.tests
+		SccProjectUniqueName7 = bowling.website\\bowling.website.csproj
+		SccProjectName7 = bowling.website
+		SccLocalPath7 = bowling.website
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FDB8605-9042-4D78-B95D-DA6B6140AEE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FDB8605-9042-4D78-B95D-DA6B6140AEE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FDB8605-9042-4D78-B95D-DA6B6140AEE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FDB8605-9042-4D78-B95D-DA6B6140AEE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB1F8289-827D-435A-B437-2359D7DF4BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB1F8289-827D-435A-B437-2359D7DF4BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB1F8289-827D-435A-B437-2359D7DF4BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB1F8289-827D-435A-B437-2359D7DF4BA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96AAF02B-456D-400F-BAD4-A5B388813B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96AAF02B-456D-400F-BAD4-A5B388813B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96AAF02B-456D-400F-BAD4-A5B388813B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96AAF02B-456D-400F-BAD4-A5B388813B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFB72D51-8681-4AF0-84DA-7566A22F8181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFB72D51-8681-4AF0-84DA-7566A22F8181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFB72D51-8681-4AF0-84DA-7566A22F8181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFB72D51-8681-4AF0-84DA-7566A22F8181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABAC7F45-2523-4010-9417-410F9494D2F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABAC7F45-2523-4010-9417-410F9494D2F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABAC7F45-2523-4010-9417-410F9494D2F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABAC7F45-2523-4010-9417-410F9494D2F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99DE07D0-225D-465D-AF65-581BB65C2459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DE07D0-225D-465D-AF65-581BB65C2459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DE07D0-225D-465D-AF65-581BB65C2459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DE07D0-225D-465D-AF65-581BB65C2459}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
