@@ -15,55 +15,105 @@ namespace Bowling.Scheduling
         {
             Debug.WriteLine("Starting");
 
-            PerformanceTests.Test_n_reservations(20, 16, 80, 500);
+            PerformanceTests.Test_n_reservations(10, 16, 40, 500);
 
             //UnitTests.Test4_ProblematicReservation();
             Debug.WriteLine("Done");
             Console.Read();
         }
+        /*
+        public static State Search(State state, List<Reservation> reservations, int depth)
+        {
+            //if(closedStateList.ContainsKey(state.Repr())) {
+            //    Debug.WriteLine("    Backtracking-0");
+            //    return null;
+            //}
 
+            Debug.WriteLine("Reached depth: " + depth);
+            if (reservations.Count == 0 || state == null)
+            {
+                return state;
+            }
+            // Get applicable actions
+            
+            reservations = (from y in reservations
+                       select y).OrderByDescending(y => y.weight).ToList<Reservation>();
+            // Loop for actions in a depth-first manner, backtracking if no solution is found. 
+            foreach (Reservation reservation in reservations) {
+                List<Action> actions = Expand(state, reservation);
+                actions = (from y in actions
+                           select y).OrderByDescending(y => y.weight).ToList<Action>();
+                // If there are no applicable actions, break and backtrack.
+                if (actions.Count == 0)
+                {
+                    Debug.WriteLine("    Backtracking-1");
+                    return null;
+                }
+                foreach (Action action in actions)
+                {
+                    State newState = state.Apply(action);
+                    if (newState != null)
+                    {
+                        List<Reservation> remainingReservations = new List<Reservation>(reservations);
+                        remainingReservations.Remove(action.reservation);
+                        int newDepth = depth + 1;
+                        State solution = Search(newState, remainingReservations, newDepth);
+                        if (solution != null)
+                        {
+                            return solution;
+                        }
+                    }
+                }
+            }
+             
+            //closedStateList.Add(state.Repr(), "");
+            Debug.WriteLine("    Backtracking-2");
+            return null;
+        }
+        */
 
         public static State Search(State state, List<Reservation> reservations, int depth)
         {
-            if(closedStateList.ContainsKey(state.Repr())) {
-                Debug.WriteLine("    Backtracking-0");
-                return null;
-            }
-            //Debug.WriteLine("Reached depth: " + depth);
-            //Debug.WriteLine("Search is running. Number of reservations: " + reservations.Count);
+            //if(closedStateList.ContainsKey(state.Repr())) {
+            //    Debug.WriteLine("    Backtracking-0");
+            //    return null;
+            //}
+
+            Debug.WriteLine("Reached depth: " + depth);
             if (reservations.Count == 0)
             {
                 return state;
             }
-            // Get applicable action
-            //Debug.WriteLine("Getting actions");
+            // Get applicable actions
             List<Action> actions = GetActions(state, reservations);
-            //Debug.WriteLine("Number of Actions: " + actions.Count);
 
             // If there are no applicable actions, break and backtrack.
-            if (actions.Count == 0 || state == null)
-            {
-                Debug.WriteLine("    Backtracking-1");
-                return null;
-            }
+            //if (actions.Count == 0 || state == null)
+            //{
+            //    Debug.WriteLine("    Backtracking-1");
+            //    return null;
+            //}
             actions = (from y in actions
                        select y).OrderByDescending(y => y.weight).ToList<Action>();
-            //Debug.WriteLine("Number of Actions: " + actions.Count);
+
             // Loop for actions in a depth-first manner, backtracking if no solution is found. 
             foreach (Action action in actions)
-            {
-                //Debug.WriteLine("    Trying action for reservation: " + action.reservation.id + " with weight: " + action.weight + " placing at: " + action.lowestTimeSlot + " , " + action.leftmostLane + " for " + action.numLanes + " lanes");
+                {
                 State newState = state.Apply(action);
                 if (newState != null)
                 {
                     List<Reservation> remainingReservations = new List<Reservation>(reservations);
                     remainingReservations.Remove(action.reservation);
                     int newDepth = depth + 1;
-                    return Search(newState, remainingReservations, newDepth);
+                    State solution = Search(newState, remainingReservations, newDepth);
+                    if(solution != null) {
+                        return solution;
+                    }
                 }
             }
-            closedStateList.Add(state.Repr(), "");
+            //closedStateList.Add(state.Repr(), "");
             Debug.WriteLine("    Backtracking-2");
+            Debug.WriteLine(state.toString());
             return null;
         }
 
@@ -109,6 +159,7 @@ namespace Bowling.Scheduling
         public int numLanes;
         public int numTimeSlots;
         public int startTimeSlot;
+        public float weight;
 
         public Reservation(int id, int numLanes, int numTimeSlots, int startTimeSlot)
         {
@@ -174,6 +225,11 @@ namespace Bowling.Scheduling
                 }
                 //Debug.WriteLine("Weight for timeslot: " + reservation.startTimeSlot + "  is now:  " + this.weight[reservation.startTimeSlot]);
             }
+
+            foreach (Reservation reservation in reservations) {
+                reservation.weight = this.GetReservationWeight(reservation);
+            }
+
             string weightString = "[";
             for (int i = 0; i < this.weight.Length; i++)
             {
@@ -336,6 +392,20 @@ namespace Bowling.Scheduling
         public float getCellWeight(int timeslot)
         {
             return this.weight[timeslot];
+        }
+
+        public float GetReservationWeight(Reservation reservation) {
+            float weight = 0.0f;
+            for (int i = reservation.startTimeSlot; i < reservation.startTimeSlot + reservation.numTimeSlots; i++)
+            {
+
+                for (int j = 0; j < reservation.numLanes; j++)
+                {
+                    weight += this.getCellWeight(i);
+                    //Debug.WriteLine("Weight updated with: " + this.getCellWeight(i) + " to: " + weight);
+                }
+            }
+            return weight;
         }
 
         public string toString()
