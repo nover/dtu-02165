@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.businesslogic.entitiy", "bowling.entitiy\bowling.businesslogic.entitiy.csproj", "{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.entitiy", "bowling.entitiy\bowling.entitiy.csproj", "{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.rest.serviceinterface", "bowling.rest.serviceinterface\bowling.rest.serviceinterface.csproj", "{5FDB8605-9042-4D78-B95D-DA6B6140AEE7}"
 EndProject
@@ -19,10 +19,8 @@ Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 8
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://w20.b45x.dtu.dk:8080/tfs/defaultcollection
-		SccProjectUniqueName0 = bowling.entitiy\\bowling.businesslogic.entitiy.csproj
-		SccProjectName0 = bowling.entitiy
-		SccLocalPath0 = bowling.entitiy
+		SccTeamFoundationServer = http://w20:8080/tfs/defaultcollection
+		SccLocalPath0 = .
 		SccProjectUniqueName1 = bowling.rest.serviceinterface\\bowling.rest.serviceinterface.csproj
 		SccProjectName1 = bowling.rest.serviceinterface
 		SccLocalPath1 = bowling.rest.serviceinterface
@@ -32,16 +30,18 @@ Global
 		SccProjectUniqueName3 = bowling.rest.webservice\\bowling.rest.webservice.csproj
 		SccProjectName3 = bowling.rest.webservice
 		SccLocalPath3 = bowling.rest.webservice
-		SccLocalPath4 = .
-		SccProjectUniqueName5 = bowling.scheduling\\ConsoleApplication1\\ConsoleApplication1\\ConsoleApplication1.csproj
-		SccProjectName5 = bowling.scheduling/ConsoleApplication1/ConsoleApplication1
-		SccLocalPath5 = bowling.scheduling\\ConsoleApplication1\\ConsoleApplication1
-		SccProjectUniqueName6 = bowling.website.tests\\bowling.website.tests.csproj
-		SccProjectName6 = bowling.website.tests
-		SccLocalPath6 = bowling.website.tests
-		SccProjectUniqueName7 = bowling.website\\bowling.website.csproj
-		SccProjectName7 = bowling.website
-		SccLocalPath7 = bowling.website
+		SccProjectUniqueName4 = bowling.scheduling\\ConsoleApplication1\\ConsoleApplication1\\ConsoleApplication1.csproj
+		SccProjectName4 = bowling.scheduling/ConsoleApplication1/ConsoleApplication1
+		SccLocalPath4 = bowling.scheduling\\ConsoleApplication1\\ConsoleApplication1
+		SccProjectUniqueName5 = bowling.website.tests\\bowling.website.tests.csproj
+		SccProjectName5 = bowling.website.tests
+		SccLocalPath5 = bowling.website.tests
+		SccProjectUniqueName6 = bowling.website\\bowling.website.csproj
+		SccProjectName6 = bowling.website
+		SccLocalPath6 = bowling.website
+		SccProjectUniqueName7 = bowling.entitiy\\bowling.entitiy.csproj
+		SccProjectName7 = bowling.entitiy
+		SccLocalPath7 = bowling.entitiy
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

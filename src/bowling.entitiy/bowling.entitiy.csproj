@@ -7,8 +7,8 @@
     <ProjectGuid>{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>bowling.entitiy</RootNamespace>
-    <AssemblyName>Bowling.BusinessLogic.Entity</AssemblyName>
+    <RootNamespace>Bowling.Entity</RootNamespace>
+    <AssemblyName>Bowling.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
