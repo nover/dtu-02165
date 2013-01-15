@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using TemplateSrc.Init;
 
 namespace Bowling.Web.CustomerSite
 {
@@ -19,6 +20,8 @@ namespace Bowling.Web.CustomerSite
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
             BootstrapSupport.BootstrapBundleConfig.RegisterBundles(System.Web.Optimization.BundleTable.Bundles);
+
+            DependencyResolverInitializer.Initialize();
 		}
 	}
 }

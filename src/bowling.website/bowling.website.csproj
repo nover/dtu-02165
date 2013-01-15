@@ -184,6 +184,12 @@
   <ItemGroup>
     <Content Include="Views\shared\_html5shiv.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\bowling.entity.init\bowling.entity.init.csproj">
+      <Project>{7112ac6b-c406-481d-99d4-56ba796b7173}</Project>
+      <Name>bowling.entity.init</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
