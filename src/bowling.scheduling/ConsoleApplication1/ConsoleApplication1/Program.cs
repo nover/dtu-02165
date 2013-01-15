@@ -14,62 +14,12 @@ namespace Bowling.Scheduling
         {
             Debug.WriteLine("Starting");
 
-            PerformanceTests.Test_n_reservations(20, 16, 100, 500);
+            PerformanceTests.Test_n_reservations(10, 16, 40, 500);
 
             //UnitTests.Test4_ProblematicReservation();
             Debug.WriteLine("Done");
             Console.Read();
         }
-        /*
-        public static State Search(State state, List<Reservation> reservations, int depth)
-        {
-            //if(closedStateList.ContainsKey(state.Repr())) {
-            //    Debug.WriteLine("    Backtracking-0");
-            //    return null;
-            //}
-
-            Debug.WriteLine("Reached depth: " + depth);
-            if (reservations.Count == 0 || state == null)
-            {
-                return state;
-            }
-            // Get applicable actions
-            
-            reservations = (from y in reservations
-                       select y).OrderByDescending(y => y.weight).ToList<Reservation>();
-            // Loop for actions in a depth-first manner, backtracking if no solution is found. 
-            foreach (Reservation reservation in reservations) {
-                List<Action> actions = Expand(state, reservation);
-                actions = (from y in actions
-                           select y).OrderByDescending(y => y.weight).ToList<Action>();
-                // If there are no applicable actions, break and backtrack.
-                if (actions.Count == 0)
-                {
-                    Debug.WriteLine("    Backtracking-1");
-                    return null;
-                }
-                foreach (Action action in actions)
-                {
-                    State newState = state.Apply(action);
-                    if (newState != null)
-                    {
-                        List<Reservation> remainingReservations = new List<Reservation>(reservations);
-                        remainingReservations.Remove(action.reservation);
-                        int newDepth = depth + 1;
-                        State solution = Search(newState, remainingReservations, newDepth);
-                        if (solution != null)
-                        {
-                            return solution;
-                        }
-                    }
-                }
-            }
-             
-            //closedStateList.Add(state.Repr(), "");
-            Debug.WriteLine("    Backtracking-2");
-            return null;
-        }
-        */
 
         public static State Search(State state, List<Reservation> reservations, int depth)
         {
@@ -82,30 +32,26 @@ namespace Bowling.Scheduling
             List<Action> actions = GetActions(state, reservations);
 
             actions = (from y in actions
-                       select y).OrderByDescending(y => y.weight).ToList<Action>();
-            if (actions.Count > 0)
-            {
+                       select y).OrderBy(y => y.weight).ToList<Action>(); // OrderByDescending
+            //if (actions.Count > 0)
+                //{
                 //Debug.WriteLine("Weight at top: " + actions[0].weight);
                 //Debug.WriteLine("Weight at bottom: " + actions[actions.Count - 1].weight);
-            }
+            //}
             // Loop for actions in a depth-first manner, backtracking if no solution is found. 
             for (int num = 0; num < actions.Count; num++)
             {
                 Action action = actions[num];
                 state.Apply(action);
-                if (state != null)
+                List<Reservation> remainingReservations = new List<Reservation>(reservations);
+                remainingReservations.Remove(action.reservation);
+                int newDepth = depth + 1;
+                State solution = Search(state, remainingReservations, newDepth);
+                if (solution != null)
                 {
-                    List<Reservation> remainingReservations = new List<Reservation>(reservations);
-                    remainingReservations.Remove(action.reservation);
-                    int newDepth = depth + 1;
-                    State solution = Search(state, remainingReservations, newDepth);
-                    if (solution != null)
-                    {
-                        //Debug.WriteLine("Placed reservation: " + action.reservation.id);
-                        return solution;
-                    }
-                }
-                else {
+                    //Debug.WriteLine("Placed reservation: " + action.reservation.id);
+                    return solution;
+                } else {
                     state.Unapply(action);
                 }
             }
@@ -156,7 +102,6 @@ namespace Bowling.Scheduling
         public int numLanes;
         public int numTimeSlots;
         public int startTimeSlot;
-        public float weight;
 
         public Reservation(int id, int numLanes, int numTimeSlots, int startTimeSlot)
         {
@@ -629,7 +574,7 @@ namespace Bowling.Scheduling
             while (run)
             {
                 int numLanes = 1;
-                int numTimeSlots = 1;
+                int numTimeSlots = random.Next(1, 3);
                 int startTimeSlot = 6; //  random.Next(0, numberOfTimeSlots);
                 if(random.Next(0, 100) < 10) { // 10 percent will be parties and outings
                     numLanes = random.Next(2, 5);
@@ -637,14 +582,6 @@ namespace Bowling.Scheduling
                     numLanes = random.Next(1, 3);
                 }
 
-                if (random.Next(0, 100) < 5) // 5 percent will be longer sessions
-                { 
-                    numTimeSlots = random.Next(2, 4);
-                }
-                else
-                {
-                    numTimeSlots = random.Next(1, 3);
-                }
                 if (random.Next(0, 100) < 15)
                 {
                     startTimeSlot = random.Next(0, numberOfTimeSlots);
@@ -702,10 +639,10 @@ namespace Bowling.Scheduling
                 runs++;
             }
             Debug.WriteLine("The last scheduling took: " + timeSpent + " miliseconds");
-            /*if (state != null)
+            if (state != null)
             {
                 Debug.WriteLine(state.toString());
-            }*/
+            }
             return true;
         }
     }
