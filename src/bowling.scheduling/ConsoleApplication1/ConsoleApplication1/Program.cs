@@ -10,7 +10,6 @@ namespace Bowling.Scheduling
 {
     class Scheduler
     {
-        static Dictionary<string, string> closedStateList = new Dictionary<string, string>();
         static void Main(string[] args)
         {
             Debug.WriteLine("Starting");
@@ -74,8 +73,7 @@ namespace Bowling.Scheduling
 
         public static State Search(State state, List<Reservation> reservations, int depth)
         {
-
-            Debug.WriteLine("Reached depth: " + depth);
+            //Debug.WriteLine("Reached depth: " + depth);
             if (reservations.Count == 0)
             {
                 return state;
@@ -85,24 +83,34 @@ namespace Bowling.Scheduling
 
             actions = (from y in actions
                        select y).OrderByDescending(y => y.weight).ToList<Action>();
-
+            if (actions.Count > 0)
+            {
+                //Debug.WriteLine("Weight at top: " + actions[0].weight);
+                //Debug.WriteLine("Weight at bottom: " + actions[actions.Count - 1].weight);
+            }
             // Loop for actions in a depth-first manner, backtracking if no solution is found. 
-            foreach (Action action in actions)
-                {
-                State newState = state.Apply(action);
-                if (newState != null)
+            for (int num = 0; num < actions.Count; num++)
+            {
+                Action action = actions[num];
+                state.Apply(action);
+                if (state != null)
                 {
                     List<Reservation> remainingReservations = new List<Reservation>(reservations);
                     remainingReservations.Remove(action.reservation);
                     int newDepth = depth + 1;
-                    State solution = Search(newState, remainingReservations, newDepth);
-                    if(solution != null) {
+                    State solution = Search(state, remainingReservations, newDepth);
+                    if (solution != null)
+                    {
+                        //Debug.WriteLine("Placed reservation: " + action.reservation.id);
                         return solution;
                     }
                 }
+                else {
+                    state.Unapply(action);
+                }
             }
-            Debug.WriteLine("    Backtracking-2");
-            Debug.WriteLine(state.toString());
+            //Debug.WriteLine("    Backtracking-2");
+            //Debug.WriteLine(state.toString());
             return null;
         }
 
@@ -229,7 +237,7 @@ namespace Bowling.Scheduling
         }
 
 
-        public State Apply(Action action)
+        public State Apply_old(Action action)
         {
             State newState = new State(this.numberOfLanes, this.numberOfTimeSlots, new List<Reservation>());
             newState.weight = this.CopyWeight(); // (float[])this.weight.Clone();
@@ -245,6 +253,36 @@ namespace Bowling.Scheduling
                 }
             }
             return newState;
+        }
+
+        public State Apply(Action action)
+        {
+            for (int i = action.lowestTimeSlot; i < action.lowestTimeSlot + action.numTimeSlots; i++)
+            {
+                for (int j = action.leftmostLane; j < action.leftmostLane + action.numLanes; j++)
+                {
+                    if (i < this.numberOfTimeSlots && j < this.numberOfLanes)
+                    {
+                        this.state[i, j] = action.reservation.id;
+                    }
+                }
+            }
+            return this;
+        }
+
+        public State Unapply(Action action)
+        {
+            for (int i = action.lowestTimeSlot; i < action.lowestTimeSlot + action.numTimeSlots; i++)
+            {
+                for (int j = action.leftmostLane; j < action.leftmostLane + action.numLanes; j++)
+                {
+                    if (i < this.numberOfTimeSlots && j < this.numberOfLanes)
+                    {
+                        this.state[i, j] = 0;
+                    }
+                }
+            }
+            return this;
         }
 
         public float[] CopyWeight() {
@@ -306,7 +344,7 @@ namespace Bowling.Scheduling
                     }
                     else
                     {
-                        weight += this.getCellWeight(i);
+                        weight = weight + this.getCellWeight(i);
                         //Debug.WriteLine("Weight updated with: " + this.getCellWeight(i) + " to: " + weight);
                     }
                 }
@@ -412,11 +450,14 @@ namespace Bowling.Scheduling
                     else if (this.state[i, j] < 10)
                     {
                         numRepr = "0" + this.state[i, j];
+                        //numRepr = "" + this.getCellWeight(i);
                     }
                     else
                     {
                         numRepr = "" + this.state[i, j];
+                        //numRepr = "" + this.getCellWeight(i);
                     }
+                    
                     builder.Append("  " + numRepr);
                 }
                 builder.Append("\n");
