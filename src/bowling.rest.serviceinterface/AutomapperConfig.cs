@@ -12,6 +12,7 @@ namespace Bowling.Rest.Service.Interface
         public static void CreateMapping()
         {
             Mapper.CreateMap<Bowling.Rest.Service.Model.Operations.Members, Bowling.Entity.Domain.Member>();
+            Mapper.CreateMap<Bowling.Entity.Domain.Member,Bowling.Rest.Service.Model.Operations.MembersResponse>();
         }
     }
 }

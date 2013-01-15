@@ -53,8 +53,8 @@ namespace Bowling.Rest.Service.Interface.Services
             repository.DbContext.CommitTransaction();
 
             // TODO: Create return data to website
-            
-            throw new NotImplementedException();
+            MembersResponse response = Mapper.Map<Member, MembersResponse>(member);
+            return response;
         }
     }
 }
