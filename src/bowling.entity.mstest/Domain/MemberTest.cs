@@ -20,6 +20,12 @@ namespace TemplateSrc.Tests.Domain
                 .CheckProperty(c => c.Id, 1)
                 .CheckProperty(c => c.Name, "John Doe")
                 .CheckProperty(c => c.Email, "john@doe.dk")
+                .CheckProperty(c => c.Password, "blabla")
+                .CheckProperty(c => c.Title, "Mr.")
+                .CheckProperty(c => c.DialCode, "+45")
+                .CheckProperty(c => c.CellPhone, "28123456")
+                .CheckProperty(c => c.DefaultNumOfPlayers, 2)
+                .CheckProperty(c => c.ReceiveNewsLetter, true)
                 .VerifyTheMappings();
         }
     }
