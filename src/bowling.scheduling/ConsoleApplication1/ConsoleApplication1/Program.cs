@@ -74,10 +74,6 @@ namespace Bowling.Scheduling
 
         public static State Search(State state, List<Reservation> reservations, int depth)
         {
-            //if(closedStateList.ContainsKey(state.Repr())) {
-            //    Debug.WriteLine("    Backtracking-0");
-            //    return null;
-            //}
 
             Debug.WriteLine("Reached depth: " + depth);
             if (reservations.Count == 0)
@@ -87,12 +83,6 @@ namespace Bowling.Scheduling
             // Get applicable actions
             List<Action> actions = GetActions(state, reservations);
 
-            // If there are no applicable actions, break and backtrack.
-            //if (actions.Count == 0 || state == null)
-            //{
-            //    Debug.WriteLine("    Backtracking-1");
-            //    return null;
-            //}
             actions = (from y in actions
                        select y).OrderByDescending(y => y.weight).ToList<Action>();
 
@@ -111,7 +101,6 @@ namespace Bowling.Scheduling
                     }
                 }
             }
-            //closedStateList.Add(state.Repr(), "");
             Debug.WriteLine("    Backtracking-2");
             Debug.WriteLine(state.toString());
             return null;
