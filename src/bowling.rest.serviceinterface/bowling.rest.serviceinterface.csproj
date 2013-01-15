@@ -80,6 +80,7 @@
     <Compile Include="AppHost.cs" />
     <Compile Include="AutomapperConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MembersLoginService.cs" />
     <Compile Include="Services\MembersService.cs" />
     <Compile Include="Validation\Helpers\EmailValidator.cs" />
     <Compile Include="Validation\Helpers\IEmailValidator.cs" />

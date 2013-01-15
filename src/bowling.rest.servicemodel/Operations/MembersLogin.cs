@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace Bowling.Rest.Service.Model.Operations
 {
     [Route("/members_login")]
-    class MembersLogin
+    public class MembersLogin
     {
         public String Email { get; set; }
-        public String password { get; set; }
+        public String Password { get; set; }
     }
 }

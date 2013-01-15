@@ -40,14 +40,14 @@ namespace Bowling.Rest.Service.Interface.Services
 
         public override object OnPost(Members request)
         {
-            //return base.OnPost(request);
-            /*Add the code for inserting the new memeber into the appropriate 
-             database table*/
-
+            // it maps the Members instance coming from the ServiceStack to the Member Entity, where member entity resembles a
+            // row in the Member table
             Member member = Mapper.Map<Members, Member>(request);
 
+            //the repository describes a manager that handles a certain table, Member table in that case
             var repository =  DependencyResolver.Current.GetService<IRepository<Member>>();
 
+            //use the Member table manager to insert a new Member instance
             repository.DbContext.BeginTransaction();
             repository.SaveOrUpdate(member);
             repository.DbContext.CommitTransaction();

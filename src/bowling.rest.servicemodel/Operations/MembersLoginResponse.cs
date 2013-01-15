@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bowling.Rest.Service.Model.Operations
 {
-    class MembersLoginResponse
+    public class MembersLoginResponse
     {
         public String Title { get; set; }
         public String Name { get; set; }

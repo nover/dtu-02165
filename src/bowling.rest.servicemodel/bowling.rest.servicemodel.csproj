@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Operations\Members.cs" />
+    <Compile Include="Operations\MembersLogin.cs" />
+    <Compile Include="Operations\MembersLoginResponse.cs" />
     <Compile Include="Operations\MembersResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
