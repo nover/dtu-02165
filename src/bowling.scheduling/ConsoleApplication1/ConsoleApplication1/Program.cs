@@ -14,7 +14,7 @@ namespace Bowling.Scheduling
         {
             Debug.WriteLine("Starting");
 
-            PerformanceTests.Test_n_reservations(20, 16, 80, 500);
+            PerformanceTests.Test_n_reservations(20, 16, 100, 500);
 
             //UnitTests.Test4_ProblematicReservation();
             Debug.WriteLine("Done");
@@ -221,10 +221,6 @@ namespace Bowling.Scheduling
                     }
                 }
                 //Debug.WriteLine("Weight for timeslot: " + reservation.startTimeSlot + "  is now:  " + this.weight[reservation.startTimeSlot]);
-            }
-
-            foreach (Reservation reservation in reservations) {
-                reservation.weight = this.GetReservationWeight(reservation);
             }
 
             string weightString = "[";
