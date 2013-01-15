@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.entity.init", "bowl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.entity.nhibernateprovider", "bowling.entity.nhibernateprovider\bowling.entity.nhibernateprovider.csproj", "{4E471CAC-A108-49AE-A4D6-155DC35712C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.entity.tests", "bowling.entity.tests\bowling.entity.tests.csproj", "{CEF24DDD-1D15-42BC-B035-4A33388C3F8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.entity.mstest", "bowling.entity.mstest\bowling.entity.mstest.csproj", "{338A3E7C-7562-4D35-A997-0BA77B256DA1}"
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
@@ -54,9 +54,9 @@ Global
 		SccProjectUniqueName9 = bowling.entity.nhibernateprovider\\bowling.entity.nhibernateprovider.csproj
 		SccProjectName9 = bowling.entity.nhibernateprovider
 		SccLocalPath9 = bowling.entity.nhibernateprovider
-		SccProjectUniqueName10 = bowling.entity.tests\\bowling.entity.tests.csproj
-		SccProjectName10 = bowling.entity.tests
-		SccLocalPath10 = bowling.entity.tests
+		SccProjectUniqueName10 = bowling.entity.mstest\\bowling.entity.mstest.csproj
+		SccProjectName10 = bowling.entity.mstest
+		SccLocalPath10 = bowling.entity.mstest
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,10 +99,10 @@ Global
 		{4E471CAC-A108-49AE-A4D6-155DC35712C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E471CAC-A108-49AE-A4D6-155DC35712C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E471CAC-A108-49AE-A4D6-155DC35712C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CEF24DDD-1D15-42BC-B035-4A33388C3F8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CEF24DDD-1D15-42BC-B035-4A33388C3F8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CEF24DDD-1D15-42BC-B035-4A33388C3F8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CEF24DDD-1D15-42BC-B035-4A33388C3F8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{338A3E7C-7562-4D35-A997-0BA77B256DA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{338A3E7C-7562-4D35-A997-0BA77B256DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{338A3E7C-7562-4D35-A997-0BA77B256DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{338A3E7C-7562-4D35-A997-0BA77B256DA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

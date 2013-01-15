@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="ServiceStack">
       <HintPath>..\packages\ServiceStack.3.9.33\lib\net35\ServiceStack.dll</HintPath>
     </Reference>
@@ -68,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppHost.cs" />
+    <Compile Include="AutomapperConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MembersService.cs" />
     <Compile Include="Validation\Helpers\EmailValidator.cs" />
@@ -75,6 +79,10 @@
     <Compile Include="Validation\MembersValidator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\bowling.entitiy\bowling.entitiy.csproj">
+      <Project>{86aee7c3-aaf9-48fd-8b1c-c7a3d02704b0}</Project>
+      <Name>bowling.entitiy</Name>
+    </ProjectReference>
     <ProjectReference Include="..\bowling.rest.servicemodel\bowling.rest.servicemodel.csproj">
       <Project>{fb1f8289-827d-435a-b437-2359d7df4ba2}</Project>
       <Name>bowling.rest.servicemodel</Name>

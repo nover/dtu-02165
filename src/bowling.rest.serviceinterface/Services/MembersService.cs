@@ -1,4 +1,6 @@
-﻿using Bowling.Rest.Service.Model.Operations;
+﻿using AutoMapper;
+using Bowling.Entity.Domain;
+using Bowling.Rest.Service.Model.Operations;
 using ServiceStack.ServiceInterface;
 using System;
 using System.Collections.Generic;
@@ -38,6 +40,10 @@ namespace Bowling.Rest.Service.Interface.Services
             //return base.OnPost(request);
             /*Add the code for inserting the new memeber into the appropriate 
              database table*/
+
+            Member member = Mapper.Map<Members, Member>(request);
+            
+
             throw new NotImplementedException();
         }
     }

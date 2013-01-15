@@ -41,6 +41,8 @@ namespace Bowling.Rest.Service.Interface
 
             //Using an in-memory cache
             container.Register<ICacheClient>(new MemoryCacheClient());
+
+            AutomapperConfig.CreateMapping();
         }
     }
 }
