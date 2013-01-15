@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SharpLite.NHibernateProvider;
+using System.Web.Mvc;
+using SharpLite.Domain.DataInterfaces;
 
 namespace Bowling.Rest.Service.Interface.Services
 {
@@ -42,8 +45,15 @@ namespace Bowling.Rest.Service.Interface.Services
              database table*/
 
             Member member = Mapper.Map<Members, Member>(request);
-            
 
+            var repository =  DependencyResolver.Current.GetService<IRepository<Member>>();
+
+            repository.DbContext.BeginTransaction();
+            repository.SaveOrUpdate(member);
+            repository.DbContext.CommitTransaction();
+
+            // TODO: Create return data to website
+            
             throw new NotImplementedException();
         }
     }

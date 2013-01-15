@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TemplateSrc.Init;
 
 namespace Bowling.Rest.Service.Interface
 {
@@ -43,6 +44,8 @@ namespace Bowling.Rest.Service.Interface
             container.Register<ICacheClient>(new MemoryCacheClient());
 
             AutomapperConfig.CreateMapping();
+
+            DependencyResolverInitializer.Initialize();
         }
     }
 }

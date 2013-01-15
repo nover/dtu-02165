@@ -61,8 +61,15 @@
     <Reference Include="ServiceStack.Text">
       <HintPath>..\packages\ServiceStack.Text.3.9.33\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
+    <Reference Include="SharpLite.Domain">
+      <HintPath>..\resources\sharp-lite\SharpLite.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpLite.NHibernateProvider">
+      <HintPath>..\resources\sharp-lite\SharpLite.NHibernateProvider.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -82,6 +89,10 @@
     <ProjectReference Include="..\bowling.entitiy\bowling.entitiy.csproj">
       <Project>{86aee7c3-aaf9-48fd-8b1c-c7a3d02704b0}</Project>
       <Name>bowling.entitiy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bowling.entity.init\bowling.entity.init.csproj">
+      <Project>{7112ac6b-c406-481d-99d4-56ba796b7173}</Project>
+      <Name>bowling.entity.init</Name>
     </ProjectReference>
     <ProjectReference Include="..\bowling.rest.servicemodel\bowling.rest.servicemodel.csproj">
       <Project>{fb1f8289-827d-435a-b437-2359d7df4ba2}</Project>
