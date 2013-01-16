@@ -104,5 +104,14 @@ namespace Bowling.Web.CustomerSite.Controllers
 			throw new NotImplementedException();
 		}
 
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session["member"] = null;
+
+            Information("Successfully logged out");
+            return RedirectToAction("Index", "Home");
+        }
+
 	}
 }
