@@ -65,7 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Mapping\MemberMap.cs" />
+    <Compile Include="Domain\Mapping\ReservationMap.cs" />
     <Compile Include="Domain\Member.cs" />
+    <Compile Include="Domain\Reservation.cs" />
+    <Compile Include="Domain\ReservationStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\MemberQueryExtension.cs" />
   </ItemGroup>

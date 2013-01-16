@@ -72,11 +72,10 @@
     <Compile Include="Operations\MembersLogin.cs" />
     <Compile Include="Operations\MembersLoginResponse.cs" />
     <Compile Include="Operations\MembersResponse.cs" />
-    <Compile Include="Operations\Reservation.cs" />
+    <Compile Include="Operations\Reservations.cs" />
     <Compile Include="Operations\ReservationsResponse.cs" />
     <Compile Include="Operations\TimeSlot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Types\MemberType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Bowling.Rest.Service.Interface.Services
 {
-    public class ReservationsService : RestServiceBase<Reservation>
+    public class ReservationsService : RestServiceBase<Reservations>
     {
-        public override object OnGet(Reservation request)
+        public override object OnPost(Reservations request)
         {
-
-            return null; 
+            throw new NotImplementedException();
         }
+
     }
 }
