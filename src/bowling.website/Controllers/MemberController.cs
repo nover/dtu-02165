@@ -29,7 +29,7 @@ namespace Bowling.Web.CustomerSite.Controllers
             var member = Session["member"] as MemberInputModel;
             if (member != null)
             {
-                View(member);
+                return View(member);
             }
 
             return View(new MemberInputModel());
@@ -51,6 +51,8 @@ namespace Bowling.Web.CustomerSite.Controllers
 
                 var response = jsonClient.Post<MembersResponse>("/members", request);
                 var member = Mapper.Map<MemberType, MemberInputModel>(response.Member);
+                // if we get here, all is OK
+                FormsAuthentication.SetAuthCookie(model.Email, false);
                 Session.Add("member", member);
 
 				Success("User created successfully!");
@@ -85,6 +87,8 @@ namespace Bowling.Web.CustomerSite.Controllers
                     }
                     // if we get here, all is OK
                     FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
+                    Session.Add("member", Mapper.Map<MemberInputModel>(response.Member));
+
                     Success("You are now logged in!");
                     return Redirect("MyProfile");
                 }
@@ -93,17 +97,6 @@ namespace Bowling.Web.CustomerSite.Controllers
                     Error("Oh no, the API went away - login failed. Please try again in a few minutes...");
                     return RedirectToAction("Index", "Home");
                 }
-
-
-                //if (model.IsValid(model.UserName, model.Password))
-                //{
-                
-
-                //}
-                //else
-                //{
-                //    
-                //}
             }
 
 
