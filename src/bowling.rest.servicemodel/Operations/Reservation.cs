@@ -7,14 +7,10 @@ using System.Threading.Tasks;
 
 namespace Bowling.Rest.Service.Model.Operations
 {
+    [Route("/reservation")]
     public class Reservation
     {
-        [Route("/reservation")]
-        public class Reservation
-        {
-            public DateTime Date { get; set; }
-            public String Status { get; set; }
-
-        }
+        public DateTime Date { get; set; }
+        public String Status { get; set; }
     }
 }
