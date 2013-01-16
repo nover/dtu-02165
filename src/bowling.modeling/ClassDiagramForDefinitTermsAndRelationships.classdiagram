@@ -1,11 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" dslVersion="1.0.0.0" Id="3d8bc7a5-f3c5-48c3-8590-c7828c9669e8" name="ClassDiagramForDefinitTermsAndRelationships" linkedPackageId="b267f396-4290-42e2-aa55-260982810903" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <ownedCommentsInternal>
-    <comment Id="1aaba71f-37f3-468f-9276-9a28a980f9d7">
-      <elementDefinition Id="94e0f2a8-e2c0-4d2a-9934-0f1289ec356e" />
-      <body>Nicklas made a comment in regards with the need to allow reservation without the user being registered..how could we live up this ?</body>
-    </comment>
-  </ownedCommentsInternal>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="3d8bc7a5-f3c5-48c3-8590-c7828c9669e8" name="ClassDiagramForDefinitTermsAndRelationships" linkedPackageId="b267f396-4290-42e2-aa55-260982810903" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="10a5d94c-1314-454b-b45c-e8915c49d316" name="Lane" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -18,23 +12,32 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="34380151-b40c-4440-9e57-33ef9035d281" name="Customer" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="34380151-b40c-4440-9e57-33ef9035d281" name="Member" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="cefd7a22-4815-43a0-9e79-765a190c9c41" />
         <ownedAttributesInternal>
-          <property Id="e060ad93-443c-4597-af65-1972cd0e1a77" name="firstName" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="e060ad93-443c-4597-af65-1972cd0e1a77" name="email" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="4634f3ce-1259-44da-acb0-824735d5a9f5" />
           </property>
-          <property Id="b1bd5c83-d151-4acf-bdc6-a9df5f395195" name="lastName" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="b1bd5c83-d151-4acf-bdc6-a9df5f395195" name="password" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="8504e575-801d-417d-be78-ea86ede31556" />
           </property>
-          <property Id="df9deac1-c75e-4021-b01e-1704185f6401" name="address" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="aa89a531-2003-4d56-8dfc-d0d92cff65a3" />
-          </property>
-          <property Id="77dee354-2bd0-45b1-b2af-8e285c20ddec" name="password" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="77dee354-2bd0-45b1-b2af-8e285c20ddec" name="name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="a54d2c9d-b39e-494e-a653-af507538e969" />
           </property>
-          <property Id="e9ce8090-2390-4d04-99b4-ebbbedd99974" name="username" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="e9ce8090-2390-4d04-99b4-ebbbedd99974" name="title" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="ef885c7c-1c1c-4335-8235-70b457bfa69f" />
+          </property>
+          <property Id="11d92dc5-9bf2-4078-85fe-cfd2da5f1848" name="dialCode" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c79f2686-4c2d-4db0-8dad-28af15e28215" />
+          </property>
+          <property Id="b843e3e5-1d0a-4ec7-a7a8-3a4178f8a4ff" name="cellPhone" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="73404e7b-32be-4377-89b1-7c5c455478b6" />
+          </property>
+          <property Id="95a72660-2b40-4cd2-9d71-40625cbe2fc1" name="defaultNumOfPlayers" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="94148cae-fcaa-4e89-b811-647d81b68ff9" />
+          </property>
+          <property Id="ddd63b29-3028-4804-a0d6-81d92cb40e00" name="receiveNewsletter" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="03d78c81-4032-42a1-b110-7e97ffd6aa4b" />
           </property>
         </ownedAttributesInternal>
       </class>
@@ -79,8 +82,8 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="b361bcc4-8a5a-4c83-ae0c-4daae62c0598" />
           </association>
-          <association Id="0ba51128-68b4-4d12-bf8c-ad0c148e1c15" isDerived="false" sourceEndRoleName="Reservation" targetEndRoleName="Customer" isLeaf="false" isAbstract="false">
-            <classMoniker Id="34380151-b40c-4440-9e57-33ef9035d281" LastKnownName="Customer" />
+          <association Id="0ba51128-68b4-4d12-bf8c-ad0c148e1c15" isDerived="false" sourceEndRoleName="Reservation" targetEndRoleName="Member" isLeaf="false" isAbstract="false">
+            <classMoniker Id="34380151-b40c-4440-9e57-33ef9035d281" LastKnownName="Member" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="e4011acc-e9ca-4941-a444-e9e013b715d7" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
@@ -98,7 +101,7 @@
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="89e30c0f-5995-4833-afc1-d98e4ff2c9e3" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                <memberEnd Id="89e30c0f-5995-4833-afc1-d98e4ff2c9e3" name="Member" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <elementDefinition Id="afd77eff-2e46-4de9-b225-9de5533a7fff" />
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -209,66 +212,6 @@
         <elementDefinition Id="f5ccf7ff-c549-46ae-9cbd-cb53f72f073a" />
       </package>
     </logicalClassDesignerModelHasPackages>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="d82a8b81-df30-444d-ad9c-da5e23dbf544" name="Address" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="f4ef07dd-14d6-45bc-aa0e-464f710d3bfc" />
-        <targetEnds>
-          <association Id="f5588a34-9f61-4d31-b7d5-4e2336a3c55d" isDerived="false" sourceEndRoleName="Address" targetEndRoleName="Customer" isLeaf="false" isAbstract="false">
-            <classMoniker Id="34380151-b40c-4440-9e57-33ef9035d281" LastKnownName="Customer" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="eb24a358-9408-424a-9c07-d903204bc08f" name="Address" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <lowerValueInternal>
-                    <literalString Id="2398b0d0-cd81-4a85-87b0-ee278942bb16" name="Lower" value="1">
-                      <elementDefinition Id="d0a80c10-a667-4721-a8b0-dfaff4f713dd" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="516481a1-9c9e-42c1-8c90-0eede4a69578" name="Upper" value="*">
-                      <elementDefinition Id="9b5a423c-38f4-41ea-af35-a022fd84599b" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="8d32a99b-7afc-48d5-a29d-166720ffe768" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="80b1dfe5-0fe3-4c6d-9eca-a4dbe44b2b04" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <lowerValueInternal>
-                    <literalString Id="c51db16a-24a3-41fe-86da-0b27ff9110bd" name="Lower" value="1">
-                      <elementDefinition Id="a4446e21-103b-4036-b780-dbf92641ece5" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="a9181e4b-41ec-4a89-ac06-db22983491bc" name="Upper" value="*">
-                      <elementDefinition Id="d4610921-deaa-4c09-a2b5-5259406a3d50" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="5e0cf33e-8fed-4700-94db-8ed5fb8bbdc3" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="65fd4b99-5e91-4aa0-aa77-81a510bed951" />
-          </association>
-        </targetEnds>
-        <ownedAttributesInternal>
-          <property Id="dad7a744-b479-4deb-9945-4f398afbd6ce" name="street" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="ad1734f7-8b15-4213-9789-352cb17ba66e" />
-          </property>
-          <property Id="54786041-7ab7-4b90-8573-d8a39479dd42" name="city" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="2aa44491-a789-48eb-8dbc-aebd30ac8c43" />
-          </property>
-          <property Id="f742dbc1-b51b-43d7-bbbc-7d0d495c17ee" name="country" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="09b49f25-f519-43b3-bc83-8989f2c3cefe" />
-          </property>
-          <property Id="cb2ed621-6d99-4c30-a6f0-c0b7a7eed4b0" name="postalCode" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="f96421e9-8a04-4c68-b537-c8cd61dd4e95" />
-          </property>
-          <property Id="bd8432a1-d734-401f-abbd-c634bbfa2184" name="number" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="a9d6ccb2-09e4-497c-9317-098a850befa0" />
-          </property>
-        </ownedAttributesInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <enumeration Id="f3414961-f29b-4e90-8a8b-416553858c40" name="ServiceType" isAbstract="false" isLeaf="false">
         <elementDefinition Id="397ce270-7044-4a17-8014-8511c3f3c468" />
