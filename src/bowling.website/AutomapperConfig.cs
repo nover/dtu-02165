@@ -13,6 +13,7 @@ namespace Bowling.Web.CustomerSite
         public static void ApplyConfiguration()
         {
             Mapper.CreateMap<MemberInputModel, Members>();
+            Mapper.CreateMap<MembersResponse, MemberInputModel>();
         }
     }
 }

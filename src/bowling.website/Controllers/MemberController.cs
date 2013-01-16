@@ -21,6 +21,16 @@ namespace Bowling.Web.CustomerSite.Controllers
 			return View();
 		}
 
+        public ActionResult MyProfile()
+        {
+            var member = Session["member"] as MemberInputModel;
+            if (member != null)
+            {
+                View(member);
+            }
+
+            return View(new MemberInputModel());
+        }
 		public ActionResult SignUp()
 		{
 			return View(new MemberInputModel());
@@ -36,9 +46,12 @@ namespace Bowling.Web.CustomerSite.Controllers
                 Members request = Mapper.Map<MemberInputModel, Members>(model);
 
                 var response = jsonClient.Post<MembersResponse>("/members", request);
+                var member = Mapper.Map<MembersResponse, MemberInputModel>(response);
+                Session.Add("member", member);
 
 				Success("User created successfully!");
-				return RedirectToAction("Index");
+                
+				return RedirectToAction("MyProfile");
 			}
 
 			Error("there were some errors in your form.");
