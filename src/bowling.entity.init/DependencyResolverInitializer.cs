@@ -6,6 +6,9 @@ using SharpLite.NHibernateProvider;
 using StructureMap;
 using System;
 using ServiceStack.ServiceClient.Web;
+using System.Web.Http;
+using Microsoft.Practices.ServiceLocation;
+using StructureMap.ServiceLocatorAdapter;
 
 namespace TemplateSrc.Init
 {
@@ -21,8 +24,12 @@ namespace TemplateSrc.Init
                 x.For(typeof(IRepository<>)).Use(typeof(Repository<>));
                 x.For(typeof(IRepositoryWithTypedId<,>)).Use(typeof(RepositoryWithTypedId<,>));
             });
+            
+            IDependencyResolver drStructureMap = new StructureMapDependencyResolver(_container);
+            DependencyResolver.SetResolver(drStructureMap);
+            var smServiceLocator = new StructureMapServiceLocator(_container);
+            ServiceLocator.SetLocatorProvider(() => smServiceLocator);
 
-            DependencyResolver.SetResolver(new StructureMapDependencyResolver(_container));
         }
 
         public static void AddDependency(Type pluginType, Type concreteType)

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using SharpLite.NHibernateProvider;
 using System.Web.Mvc;
 using SharpLite.Domain.DataInterfaces;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Bowling.Rest.Service.Interface.Services
 {
@@ -45,8 +46,7 @@ namespace Bowling.Rest.Service.Interface.Services
             Member member = Mapper.Map<Members, Member>(request);
 
             //the repository describes a manager that handles a certain table, Member table in that case
-            var repository =  DependencyResolver.Current.GetService<IRepository<Member>>();
-
+            var repository = ServiceLocator.Current.GetInstance<IRepository<Member>>();
             //use the Member table manager to insert a new Member instance
             repository.DbContext.BeginTransaction();
             repository.SaveOrUpdate(member);
