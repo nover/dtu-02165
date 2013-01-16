@@ -6,6 +6,7 @@ using NHibernate.Bytecode;
 using NHibernate.Cfg;
 using NHibernate.Dialect;
 using NHibernate.Mapping.ByCode;
+using NHibernate.Tool.hbm2ddl;
 using SharpLite.NHibernateProvider;
 using SharpLite.NHibernateProvider.ConfigurationCaching;
 using System;
@@ -16,8 +17,7 @@ namespace TemplateSrc.NHibernateProvider
     {
         public static Configuration Initialize()
         {
-            var configuration = new Configuration();
-            return Fluently.Configure()
+            var config = Fluently.Configure()
                     .Mappings(cfg =>
                     {
                         cfg.FluentMappings.AddFromAssemblyOf<Member>()
@@ -41,9 +41,15 @@ namespace TemplateSrc.NHibernateProvider
                             .Conventions.Add(ConventionBuilder.Id.Always(x => x.Unique()));
                         //.Conventions.Add(Cache.Is(x => x.NonStrictReadWrite()));
                     })
-                    .Database(SQLiteConfiguration.Standard.ConnectionString("Data Source=./UnitTestDB;Version=3;New=True"))
+                    .Database(SQLiteConfiguration.Standard.ConnectionString("Data Source=BowlingDatabase.db;Version=3;").UsingFile("BowlingDatabase.db"))
                     .ExposeConfiguration(cfg => cfg.CurrentSessionContext<LazySessionContext>())
                     .BuildConfiguration();
+            if (!NhibernateSchemaValidator.ValidateSchema(config))
+            {
+                new SchemaUpdate(config).Execute(false, true);
+            }
+
+            return config;
         }
 
         private const string CONFIG_CACHE_KEY = "TemplateSrc";

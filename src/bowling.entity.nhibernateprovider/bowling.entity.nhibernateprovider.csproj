@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NHibernateInitializer.cs" />
+    <Compile Include="NhibernateSchemaValidator.cs" />
     <Compile Include="Overrides\IOverride.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
