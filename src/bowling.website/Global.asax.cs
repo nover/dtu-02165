@@ -15,8 +15,6 @@ namespace Bowling.Web.CustomerSite
 	// visit http://go.microsoft.com/?LinkId=9394801
 	public class MvcApplication : System.Web.HttpApplication
 	{
-        public AppHost ServiceAppHost { get; set; }
-
 		protected void Application_Start()
 		{
 			AreaRegistration.RegisterAllAreas();
