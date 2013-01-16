@@ -157,6 +157,7 @@
     </Compile>
     <Compile Include="Models\HomeInputModel.cs" />
     <Compile Include="Models\MemberInputModel.cs" />
+    <Compile Include="Models\MemberLoginInputModel.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />
     <Compile Include="NavigationRoutes\NavigationExtensions.cs" />

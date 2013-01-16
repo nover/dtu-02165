@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bowling.Rest.Service.Model.Types;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,8 @@ namespace Bowling.Rest.Service.Model.Operations
 {
     public class MembersLoginResponse
     {
-        public String Title { get; set; }
-        public String Name { get; set; }
+        public bool IsAuthenticated { get; set; }
+
+        public MemberType Member { get; set; }
     }
 }

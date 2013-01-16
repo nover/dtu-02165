@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Bowling.Rest.Service.Model.Operations;
+using Bowling.Rest.Service.Model.Types;
 using Bowling.Web.CustomerSite.Models;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,8 @@ namespace Bowling.Web.CustomerSite
     {
         public static void ApplyConfiguration()
         {
-            Mapper.CreateMap<MemberInputModel, Members>();
-            Mapper.CreateMap<MembersResponse, MemberInputModel>();
+            Mapper.CreateMap<MemberInputModel, MemberType>();
+            Mapper.CreateMap<MemberType, MemberInputModel>();
         }
     }
 }

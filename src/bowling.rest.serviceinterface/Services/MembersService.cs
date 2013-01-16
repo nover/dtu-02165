@@ -11,6 +11,7 @@ using SharpLite.NHibernateProvider;
 using System.Web.Mvc;
 using SharpLite.Domain.DataInterfaces;
 using Microsoft.Practices.ServiceLocation;
+using Bowling.Rest.Service.Model.Types;
 
 namespace Bowling.Rest.Service.Interface.Services
 {
@@ -18,7 +19,7 @@ namespace Bowling.Rest.Service.Interface.Services
     {
         public override object OnGet(Members request)
         {
-            if (request.Email == null)
+            if (request.Member.Email == null)
             {
                 return this.OnGetCollection(request);
             }
@@ -43,7 +44,7 @@ namespace Bowling.Rest.Service.Interface.Services
         {
             // it maps the Members instance coming from the ServiceStack to the Member Entity, where member entity resembles a
             // row in the Member table
-            Member member = Mapper.Map<Members, Member>(request);
+            Member member = Mapper.Map<MemberType, Member>(request.Member);
 
             //the repository describes a manager that handles a certain table, Member table in that case
             var repository = ServiceLocator.Current.GetInstance<IRepository<Member>>();
@@ -53,7 +54,8 @@ namespace Bowling.Rest.Service.Interface.Services
             repository.DbContext.CommitTransaction();
 
             // TODO: Create return data to website
-            MembersResponse response = Mapper.Map<Member, MembersResponse>(member);
+            MembersResponse response = new MembersResponse();
+            response.Member = Mapper.Map<Member, MemberType>(member);
             return response;
         }
     }

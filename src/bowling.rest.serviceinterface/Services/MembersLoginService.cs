@@ -10,27 +10,29 @@ using SharpLite.Domain.DataInterfaces;
 using Bowling.Entity.Domain;
 using Bowling.Entity.Queries;
 using AutoMapper;
+using Bowling.Rest.Service.Model.Types;
+using Microsoft.Practices.ServiceLocation;
 namespace Bowling.Rest.Service.Interface.Services
 {
     class MembersLoginService : RestServiceBase<MembersLogin>
     {
-        
+
         public override object OnGet(MembersLogin request)
         {
-            var repository = DependencyResolver.Current.GetService<IRepository<Member>>();
-            var member = repository.GetAll().FindByEmailAndPassword(request.Email, request.Password);
+            var repository = ServiceLocator.Current.GetInstance<IRepository<Member>>();
+             var member = repository.GetAll().FindByEmailAndPassword(request.Email, request.Password);
+
+            MembersLoginResponse response = new MembersLoginResponse();
+            response.IsAuthenticated = false;
 
             //if the user was not authenticated
             if (member == default(Member))
             {
-                throw new ArgumentException("Login is incorrect");
-            }
-            else
-            {
-                MembersLoginResponse response = Mapper.Map<Member, MembersLoginResponse>(member);
                 return response;
-            } 
-     
+            }
+            response.IsAuthenticated = true;
+            response.Member = Mapper.Map<Member, MemberType>(member);
+            return response;
         }
     }
 }

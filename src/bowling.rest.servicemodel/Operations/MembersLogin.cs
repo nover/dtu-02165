@@ -1,4 +1,5 @@
-﻿using ServiceStack.ServiceHost;
+﻿using Bowling.Rest.Service.Model.Types;
+using ServiceStack.ServiceHost;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace Bowling.Rest.Service.Model.Operations
 {
-    [Route("/members_login")]
+    [Route("/memberslogin")]
     public class MembersLogin
     {
-        public String Email { get; set; }
-        public String Password { get; set; }
+        public string Email { get; set; }
+
+        public string Password { get; set; }
     }
 }

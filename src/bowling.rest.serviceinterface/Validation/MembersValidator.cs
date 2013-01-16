@@ -16,10 +16,10 @@ namespace Bowling.Rest.Service.Interface.Validation
         {
             RuleSet(ServiceStack.ServiceInterface.ApplyTo.Post, () =>
                 {
-                    RuleFor(r => r.Name).NotEmpty();
-                    RuleFor(r => r.Password).NotEmpty();
-                    RuleFor(r => r.Email).Must(x => EmailValidator.IsValid(x));
-                    RuleFor(r => r.ReceiveNewsLetter).NotEmpty();
+                    RuleFor(r => r.Member.Name).NotEmpty();
+                    RuleFor(r => r.Member.Password).NotEmpty();
+                    RuleFor(r => r.Member.Email).Must(x => EmailValidator.IsValid(x));
+                    RuleFor(r => r.Member.ReceiveNewsLetter).NotEmpty();
                 });
         }
     }

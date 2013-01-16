@@ -1,4 +1,5 @@
-﻿using ServiceStack.ServiceHost;
+﻿using Bowling.Rest.Service.Model.Types;
+using ServiceStack.ServiceHost;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,6 @@ namespace Bowling.Rest.Service.Model.Operations
     [Route("/members")]
     public class Members
     {
-        public String Email { get; set; }
-        public String Password { get; set; }
-        public String Name { get; set; }
-        public String Title { get; set; }
-        public String DialCode { get; set; }
-        public String CellPhone { get; set; }
-        public int DefaultNumOfPlayers { get; set; }
-        public bool ReceiveNewsLetter { get; set; }
-
-
+        public MemberType Member { get; set; }
     }
 }
