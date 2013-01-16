@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using SharpLite.Domain.DataInterfaces;
 using Bowling.Entity.Domain;
 using Bowling.Entity.Queries;
+using AutoMapper;
 namespace Bowling.Rest.Service.Interface.Services
 {
     class MembersLoginService : RestServiceBase<MembersLogin>
@@ -16,34 +17,20 @@ namespace Bowling.Rest.Service.Interface.Services
         
         public override object OnGet(MembersLogin request)
         {
-            if (request.Email == null)
-                return this.OnGetNullEmail(request);
-            else
-                return this.OnGetValidCredentials(request);           
-        }
-
-        private MembersLoginResponse OnGetNullEmail(MembersLogin request)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        private MembersLoginResponse OnGetValidCredentials(MembersLogin request) 
-        {
             var repository = DependencyResolver.Current.GetService<IRepository<Member>>();
             var member = repository.GetAll().FindByEmailAndPassword(request.Email, request.Password);
 
+            //if the user was not authenticated
             if (member == default(Member))
             {
-                // TODO: was NOT autenticated
+                throw new ArgumentException("Login is incorrect");
             }
             else
             {
-                // TODO: was authenticated
-            }
-
-            throw new NotImplementedException();
+                MembersLoginResponse response = Mapper.Map<Member, MembersLoginResponse>(member);
+                return response;
+            } 
+     
         }
-
     }
 }
