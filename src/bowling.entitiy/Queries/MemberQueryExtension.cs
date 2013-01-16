@@ -25,7 +25,7 @@ namespace Bowling.Entity.Queries
                           where y.Email == email 
                                 && y.Password == password
                           select y
-                              ).FirstOrDefault<Member>();
+                              ).SingleOrDefault<Member>();
             
             return member;
         }
