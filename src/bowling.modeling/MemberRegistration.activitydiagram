@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="a210df77-c429-437e-bcc3-86b6887aa3f0" name="MemberRegistration" linkedPackageId="2f0f8814-2aea-457e-bc59-5dc5c2810ca8" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="f4e2c4d0-9caf-404d-a0f5-c44a66f52432">
+      <elementDefinition Id="7952f106-8b21-4f23-b398-6336bb749286" />
+      <body>Data was invalid ----&gt;</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="b352f013-9662-41ad-8cdb-4eda7e0807fd">
+      <profileInstance Id="67c7a123-d738-4132-be46-f7270387041a" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="be76f311-0f36-4ad8-87b7-7d4829ab422b">
+      <profileInstance Id="929ed8c5-5e21-4fb7-afa6-e637caa3d286" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="64fd52ba-5b74-4950-a312-67b945441972" name="MemberRegistration" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="665af651-392a-4fcf-9ac0-c5dc1ad3c071" />
+        <nodes>
+          <initialNode Id="ac784f91-0e4a-4b2a-ba22-b40b4f2ffda6" name="Initial1" isLeaf="false">
+            <elementDefinition Id="96bea72f-a8af-4fd6-b55c-819ddfbd7d03" />
+            <flowNodeTargets>
+              <controlFlow Id="cee35e27-0f2d-4d3a-957a-3f8f0b9a09ef" isLeaf="false">
+                <opaqueActionMoniker Id="99f51202-0e53-457a-8088-a7439b21ab95" LastKnownName="Click Sign Up" />
+                <elementDefinition Id="804cc558-e237-4310-9457-1909171240a7" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="99f51202-0e53-457a-8088-a7439b21ab95" name="Click Sign Up" isLeaf="false">
+            <elementDefinition Id="3a5cace5-1e9d-4dd9-ac42-cdfb3630afda" />
+            <flowNodeTargets>
+              <controlFlow Id="a07d5b35-1319-4f1e-9b77-8a0275584e67" isLeaf="false">
+                <opaqueActionMoniker Id="527df8ef-e3c3-48b7-9630-56e62b8284e9" LastKnownName="Enter User Information" />
+                <elementDefinition Id="a375041d-2ba6-4aec-9c5f-9aec76020860" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="527df8ef-e3c3-48b7-9630-56e62b8284e9" name="Enter User Information" isLeaf="false">
+            <elementDefinition Id="0381c90e-c0de-4054-b7ca-90520125fff2" />
+            <flowNodeTargets>
+              <controlFlow Id="43f263f3-8921-4cb8-8aa3-02e55fec09f4" isLeaf="false">
+                <opaqueActionMoniker Id="83b6db18-e605-4be9-9ae4-2e550ab5106c" LastKnownName="Confirm" />
+                <elementDefinition Id="c7014789-759f-415d-b90b-17ee8759e8b6" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="83b6db18-e605-4be9-9ae4-2e550ab5106c" name="Confirm" isLeaf="false">
+            <elementDefinition Id="c6ab76e1-863e-4e7b-88b7-e69048ff855a" />
+            <flowNodeTargets>
+              <controlFlow Id="6a90cb9e-7867-4673-887c-edb6526977f7" isLeaf="false">
+                <decisionNodeMoniker Id="f9ec44ac-a602-4d9a-ae8a-75dd0f85f6cf" LastKnownName="Decision1" />
+                <elementDefinition Id="9643b409-59de-4c59-b546-0e9c9cf2e99a" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="f9ec44ac-a602-4d9a-ae8a-75dd0f85f6cf" name="Decision1" isLeaf="false">
+            <elementDefinition Id="2644b7d6-cee3-4f13-adcb-c09ebf1f9524" />
+            <flowNodeTargets>
+              <controlFlow Id="78ded850-b6cd-422a-a5d8-3cf64ead6cad" isLeaf="false">
+                <opaqueActionMoniker Id="527df8ef-e3c3-48b7-9630-56e62b8284e9" LastKnownName="Enter User Information" />
+                <elementDefinition Id="e8c61a3a-2f36-42ad-8600-db442e5eef23" />
+              </controlFlow>
+              <controlFlow Id="01616873-f227-474a-aff4-ad5335a4f4be" isLeaf="false">
+                <callOperationActionMoniker Id="d5da14a5-d8bf-43fc-94c0-d7fa0bd51941" LastKnownName="POST /member" />
+                <elementDefinition Id="c1563453-5904-42e2-b6da-294890c751c5" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <callOperationAction Id="d5da14a5-d8bf-43fc-94c0-d7fa0bd51941" name="POST /member" isLeaf="false">
+            <elementDefinition Id="815d3d40-1d86-4e31-8731-a62787385c03" />
+            <flowNodeTargets>
+              <controlFlow Id="0d379b78-f878-43f4-babc-0ad2b828ea37" isLeaf="false">
+                <decisionNodeMoniker Id="1a9afc86-7ec3-43ba-8bc9-bcc6a4d4ad82" LastKnownName="Decision2" />
+                <elementDefinition Id="c56debe2-ae84-4fb3-ae3d-050c55e108d3" />
+              </controlFlow>
+            </flowNodeTargets>
+          </callOperationAction>
+          <opaqueAction Id="b5de4923-adc3-4895-95a4-a9df66d2800b" name="Persist data" isLeaf="false">
+            <elementDefinition Id="dd2e467f-682c-4bb8-bf79-a647719acb22" />
+            <flowNodeTargets>
+              <controlFlow Id="e94d6a71-ce13-42a3-b989-85295fcb1771" isLeaf="false">
+                <activityFinalNodeMoniker Id="268a384c-fb1b-4852-bfc1-8fec56a516fb" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="4a447ebe-5013-4c12-aadb-92180726c3fe" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode Id="268a384c-fb1b-4852-bfc1-8fec56a516fb" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="9a3e82e7-48a9-456b-a94a-436f9e133e95" />
+          </activityFinalNode>
+          <decisionNode Id="1a9afc86-7ec3-43ba-8bc9-bcc6a4d4ad82" name="Decision2" isLeaf="false">
+            <elementDefinition Id="ee5ca757-c666-495a-980d-b653aca3158a" />
+            <flowNodeTargets>
+              <controlFlow Id="f42b0f24-a731-4cf3-a16d-1c19b04f948a" isLeaf="false">
+                <opaqueActionMoniker Id="b5de4923-adc3-4895-95a4-a9df66d2800b" LastKnownName="Persist data" />
+                <elementDefinition Id="3c258bb5-bbe9-443b-80cc-2077af2c6d0f" />
+              </controlFlow>
+              <controlFlow Id="4c08e04e-437d-41da-9a96-a128fb9dd420" isLeaf="false">
+                <opaqueActionMoniker Id="527df8ef-e3c3-48b7-9630-56e62b8284e9" LastKnownName="Enter User Information" />
+                <elementDefinition Id="326e4af0-e4cf-43cc-ad58-97769b495b0e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="2f0f8814-2aea-457e-bc59-5dc5c2810ca8" name="ModelingProject1">
+    <elementDefinition Id="ea48f2fd-be87-4931-a086-78a8f56eb5a3" />
+  </package>
+</activityRootModel>

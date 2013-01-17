@@ -57,6 +57,13 @@
     <Content Include="exampleCustomDiagram.dgml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="MemberRegistration.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="MemberRegistration.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>MemberRegistration.activitydiagram</DependentUpon>
+    </Content>
     <Content Include="ModelDefinition\Package_1356.uml">
       <SubType>Content</SubType>
     </Content>

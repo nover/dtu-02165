@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm12="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="ea48f2fd-be87-4931-a086-78a8f56eb5a3"
   name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -13,6 +13,10 @@
           LastKnownName="Decision1"
           LastKnownLocation="ModelingProject1.uml" />
       </annotatedElements>
+    </comment>
+    <comment
+      Id="7952f106-8b21-4f23-b398-6336bb749286">
+      <body>Data was invalid ----&gt;</body>
     </comment>
   </ownedCommentsInternal>
   <profileInstances>
@@ -2321,22 +2325,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="331fdc2a-64fc-4205-8930-2e24fef8dc8e"
-            name="MessageOccurrenceSpecification14">
-            <covered>
-              <lifelineMoniker
-                Id="6a835bdf-77da-4a04-bb2d-996ab87e03a2"
-                LastKnownName="API"
-                LastKnownLocation="ModelingProject1.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="518dc6f8-af34-49c4-bd3a-19c18c675808"
             name="MessageOccurrenceSpecification13">
             <covered>
               <lifelineMoniker
                 Id="9dbf2084-13a0-4334-8a4f-a48c2ddfe4be"
                 LastKnownName="Frontend"
+                LastKnownLocation="ModelingProject1.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="331fdc2a-64fc-4205-8930-2e24fef8dc8e"
+            name="MessageOccurrenceSpecification14">
+            <covered>
+              <lifelineMoniker
+                Id="6a835bdf-77da-4a04-bb2d-996ab87e03a2"
+                LastKnownName="API"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -2846,6 +2850,160 @@
       <executionEvent
         Id="a66e8d2e-0bcf-453a-8f99-9bfeec7c544c"
         name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="665af651-392a-4fcf-9ac0-c5dc1ad3c071"
+        name="MemberRegistration"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="96bea72f-a8af-4fd6-b55c-819ddfbd7d03"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="804cc558-e237-4310-9457-1909171240a7"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="3a5cace5-1e9d-4dd9-ac42-cdfb3630afda"
+                  LastKnownName="Click Sign Up"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="3a5cace5-1e9d-4dd9-ac42-cdfb3630afda"
+            name="Click Sign Up"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a375041d-2ba6-4aec-9c5f-9aec76020860"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0381c90e-c0de-4054-b7ca-90520125fff2"
+                  LastKnownName="Enter User Information"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="0381c90e-c0de-4054-b7ca-90520125fff2"
+            name="Enter User Information"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c7014789-759f-415d-b90b-17ee8759e8b6"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c6ab76e1-863e-4e7b-88b7-e69048ff855a"
+                  LastKnownName="Confirm"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="c6ab76e1-863e-4e7b-88b7-e69048ff855a"
+            name="Confirm"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9643b409-59de-4c59-b546-0e9c9cf2e99a"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="2644b7d6-cee3-4f13-adcb-c09ebf1f9524"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="2644b7d6-cee3-4f13-adcb-c09ebf1f9524"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e8c61a3a-2f36-42ad-8600-db442e5eef23"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0381c90e-c0de-4054-b7ca-90520125fff2"
+                  LastKnownName="Enter User Information"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="c1563453-5904-42e2-b6da-294890c751c5"
+                isLeaf="false">
+                <callOperationActionMoniker
+                  Id="815d3d40-1d86-4e31-8731-a62787385c03"
+                  LastKnownName="POST /member"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <callOperationAction
+            Id="815d3d40-1d86-4e31-8731-a62787385c03"
+            name="POST /member"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c56debe2-ae84-4fb3-ae3d-050c55e108d3"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="ee5ca757-c666-495a-980d-b653aca3158a"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </callOperationAction>
+          <opaqueAction
+            Id="dd2e467f-682c-4bb8-bf79-a647719acb22"
+            name="Persist data"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4a447ebe-5013-4c12-aadb-92180726c3fe"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="9a3e82e7-48a9-456b-a94a-436f9e133e95"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="9a3e82e7-48a9-456b-a94a-436f9e133e95"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <decisionNode
+            Id="ee5ca757-c666-495a-980d-b653aca3158a"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="3c258bb5-bbe9-443b-80cc-2077af2c6d0f"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="dd2e467f-682c-4bb8-bf79-a647719acb22"
+                  LastKnownName="Persist data"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="326e4af0-e4cf-43cc-ad58-97769b495b0e"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0381c90e-c0de-4054-b7ca-90520125fff2"
+                  LastKnownName="Enter User Information"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
