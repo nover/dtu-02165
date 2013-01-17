@@ -233,9 +233,9 @@
       <Project>{5fdb8605-9042-4d78-b95d-da6b6140aee7}</Project>
       <Name>bowling.rest.serviceinterface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\bowling.rest.servicemodel\bowling.rest.servicemodel.bak.csproj">
+    <ProjectReference Include="..\bowling.rest.servicemodel\bowling.rest.servicemodel.csproj">
       <Project>{fb1f8289-827d-435a-b437-2359d7df4ba2}</Project>
-      <Name>bowling.rest.servicemodel.bak</Name>
+      <Name>bowling.rest.servicemodel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
