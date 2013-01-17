@@ -25,6 +25,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.rest.tests", "bowli
 EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "bowling.modeling", "bowling.modeling\bowling.modeling.modelproj", "{F96C74E5-26F9-471C-B1D7-0BE382C3C5DB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain Model", "Domain Model", "{BF5F0475-D6F7-46C6-A8E6-9A12E58221BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modeling", "Modeling", "{A37E736D-0F24-454D-9165-AEB0015FBE49}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{21D9274B-1AF0-4B18-BEDF-879F1C7A0882}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Website", "Website", "{4AFC6CED-BD41-4D76-920E-E646D2A9C930}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 13
@@ -32,39 +40,50 @@ Global
 		SccTeamFoundationServer = http://w20:8080/tfs/defaultcollection
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = bowling.rest.serviceinterface\\bowling.rest.serviceinterface.csproj
+		SccProjectTopLevelParentUniqueName1 = bowling.system.sln
 		SccProjectName1 = bowling.rest.serviceinterface
 		SccLocalPath1 = bowling.rest.serviceinterface
 		SccProjectUniqueName2 = bowling.rest.webservice\\bowling.rest.webservice.csproj
+		SccProjectTopLevelParentUniqueName2 = bowling.system.sln
 		SccProjectName2 = bowling.rest.webservice
 		SccLocalPath2 = bowling.rest.webservice
 		SccProjectUniqueName3 = bowling.scheduling\\ConsoleApplication1\\ConsoleApplication1\\ConsoleApplication1.csproj
 		SccProjectName3 = bowling.scheduling/ConsoleApplication1/ConsoleApplication1
 		SccLocalPath3 = bowling.scheduling\\ConsoleApplication1\\ConsoleApplication1
 		SccProjectUniqueName4 = bowling.website.tests\\bowling.website.tests.csproj
+		SccProjectTopLevelParentUniqueName4 = bowling.system.sln
 		SccProjectName4 = bowling.website.tests
 		SccLocalPath4 = bowling.website.tests
 		SccProjectUniqueName5 = bowling.website\\bowling.website.csproj
+		SccProjectTopLevelParentUniqueName5 = bowling.system.sln
 		SccProjectName5 = bowling.website
 		SccLocalPath5 = bowling.website
 		SccProjectUniqueName6 = bowling.entitiy\\bowling.entitiy.csproj
+		SccProjectTopLevelParentUniqueName6 = bowling.system.sln
 		SccProjectName6 = bowling.entitiy
 		SccLocalPath6 = bowling.entitiy
 		SccProjectUniqueName7 = bowling.entity.init\\bowling.entity.init.csproj
+		SccProjectTopLevelParentUniqueName7 = bowling.system.sln
 		SccProjectName7 = bowling.entity.init
 		SccLocalPath7 = bowling.entity.init
 		SccProjectUniqueName8 = bowling.entity.nhibernateprovider\\bowling.entity.nhibernateprovider.csproj
+		SccProjectTopLevelParentUniqueName8 = bowling.system.sln
 		SccProjectName8 = bowling.entity.nhibernateprovider
 		SccLocalPath8 = bowling.entity.nhibernateprovider
 		SccProjectUniqueName9 = bowling.entity.mstest\\bowling.entity.mstest.csproj
+		SccProjectTopLevelParentUniqueName9 = bowling.system.sln
 		SccProjectName9 = bowling.entity.mstest
 		SccLocalPath9 = bowling.entity.mstest
 		SccProjectUniqueName10 = bowling.rest.tests\\bowling.rest.tests.csproj
+		SccProjectTopLevelParentUniqueName10 = bowling.system.sln
 		SccProjectName10 = bowling.rest.tests
 		SccLocalPath10 = bowling.rest.tests
 		SccProjectUniqueName11 = bowling.rest.servicemodel\\bowling.rest.servicemodel.csproj
+		SccProjectTopLevelParentUniqueName11 = bowling.system.sln
 		SccProjectName11 = bowling.rest.servicemodel
 		SccLocalPath11 = bowling.rest.servicemodel
 		SccProjectUniqueName12 = bowling.modeling\\bowling.modeling.modelproj
+		SccProjectTopLevelParentUniqueName12 = bowling.system.sln
 		SccProjectName12 = bowling.modeling
 		SccLocalPath12 = bowling.modeling
 	EndGlobalSection
@@ -124,5 +143,18 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{86AEE7C3-AAF9-48FD-8B1C-C7A3D02704B0} = {BF5F0475-D6F7-46C6-A8E6-9A12E58221BF}
+		{7112AC6B-C406-481D-99D4-56BA796B7173} = {BF5F0475-D6F7-46C6-A8E6-9A12E58221BF}
+		{338A3E7C-7562-4D35-A997-0BA77B256DA1} = {BF5F0475-D6F7-46C6-A8E6-9A12E58221BF}
+		{4E471CAC-A108-49AE-A4D6-155DC35712C9} = {BF5F0475-D6F7-46C6-A8E6-9A12E58221BF}
+		{F96C74E5-26F9-471C-B1D7-0BE382C3C5DB} = {A37E736D-0F24-454D-9165-AEB0015FBE49}
+		{5FDB8605-9042-4D78-B95D-DA6B6140AEE7} = {21D9274B-1AF0-4B18-BEDF-879F1C7A0882}
+		{FB1F8289-827D-435A-B437-2359D7DF4BA2} = {21D9274B-1AF0-4B18-BEDF-879F1C7A0882}
+		{99A9B6CB-67F3-4440-B430-673350787975} = {21D9274B-1AF0-4B18-BEDF-879F1C7A0882}
+		{96AAF02B-456D-400F-BAD4-A5B388813B6B} = {21D9274B-1AF0-4B18-BEDF-879F1C7A0882}
+		{99DE07D0-225D-465D-AF65-581BB65C2459} = {4AFC6CED-BD41-4D76-920E-E646D2A9C930}
+		{ABAC7F45-2523-4010-9417-410F9494D2F1} = {4AFC6CED-BD41-4D76-920E-E646D2A9C930}
 	EndGlobalSection
 EndGlobal
