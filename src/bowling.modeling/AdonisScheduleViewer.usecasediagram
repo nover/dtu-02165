@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm12="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="b5f617e5-125c-4ead-b7ec-8b5eb4dce578" name="AdonisScheduleViewer" linkedPackageId="9b610468-b203-43f4-9d64-1824b624ac98" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="973a6aa1-3411-4b98-81a6-91fb258bc5c7">
+      <profileInstance Id="5aadc5e1-1b11-4a9c-b778-66d45b1a51c1" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b609dfae-94f2-4774-a237-1776f8310cb3">
+      <profileInstance Id="785c45de-d28d-48db-9760-c67a83361159" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="63f0bd5e-322d-4a89-b7d2-fe3276872712" name="Adonis the Clerk" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b2fd59fb-da8a-47b5-8dc1-99cd1649877c" />
+        <targetEnds>
+          <association Id="e1be9926-6ec1-428c-bed2-1eda8b457cb7" isDerived="false" sourceEndRoleName="Adonis the Clerk" targetEndRoleName="Login" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5ad42df5-a84a-460b-ba81-bd8dd0b4fa09" LastKnownName="Login" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a1ec0eee-b811-4a5a-9629-22f7fe772053" name="Adonis the Clerk" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="10493f36-5375-40c1-9a69-b23027ceba0a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2f5b42cf-aa1c-4231-8375-1bc8e1168d68" name="Login" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="48986c44-cd81-4b7d-8413-37fdf7395569" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="294775e8-c5df-4f99-8925-3deb8b37afdb" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5ad42df5-a84a-460b-ba81-bd8dd0b4fa09" name="Login" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f502e371-2a92-4103-b558-cf847c6630f0" />
+        <targetEnds>
+          <association Id="ba83bbe1-b5a8-45eb-bfce-2121f4adba08" isDerived="false" sourceEndRoleName="Login" targetEndRoleName="View Schedule" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="55e9dfcf-74db-4fd3-8c0e-091a5600c608" LastKnownName="View Schedule" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0591b598-1cce-47ae-add2-de19606eb9b5" name="Login" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="70a084fd-c773-441b-a714-5e8203c5fe7f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a86a9ca5-0680-4821-91d7-649fbd71103b" name="View Schedule" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f2592134-f4de-420e-a42f-b516fc12abb1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0feea284-d9bb-4abc-a952-ebafb351ffe3" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="967d810e-69c3-46b5-81df-c1836e195d65" LastKnownName="Frontend" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="967d810e-69c3-46b5-81df-c1836e195d65" name="Frontend" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="25f06ee2-4455-4bf5-bf73-36a012c7d6c6" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="55e9dfcf-74db-4fd3-8c0e-091a5600c608" name="View Schedule" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="98cdcdc8-c21c-4b0f-a9cf-a9763d459705" />
+        <targetEnds>
+          <association Id="fa1c3d20-c293-4563-a5c9-d051de6549c1" isDerived="false" sourceEndRoleName="View Schedule" targetEndRoleName="View Details of Reservation" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="812cfeea-b694-4680-bae7-4d74955b596d" LastKnownName="View Details of Reservation" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="59eed6e1-f680-4374-8ba9-48b24d90bfae" name="View Schedule" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="79a6f44b-b38a-4ff3-a5cd-de1aa50b6202" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="31c868c8-c2df-4c11-b0f7-99049bb3e399" name="View Details of Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4e1e94ff-4a53-4fd3-ae24-eea529789678" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="af2205be-b69c-4779-bd6a-b8fc73983c6a" />
+          </association>
+          <association Id="1350575f-ef36-44f9-b8f9-d3f8528d8ec3" isDerived="false" sourceEndRoleName="View Schedule" targetEndRoleName="Select Date" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="0edf7c2a-9d8f-43de-847d-bc45b53269aa" LastKnownName="Select Date" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b465926c-ed05-4940-99dd-2ea243424224" name="View Schedule" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="08db48fd-4d3f-4756-89c5-3901eac5d34b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="188a2e96-147c-4195-b530-f3ca233bc91a" name="Select Date" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f2a3486f-de54-4c5d-a0b6-a053bda7b9d6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="023bed94-a83b-4c2b-929c-320bf8a1adfb" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="967d810e-69c3-46b5-81df-c1836e195d65" LastKnownName="Frontend" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="0edf7c2a-9d8f-43de-847d-bc45b53269aa" name="Select Date" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b7f50945-80e6-484b-856b-05cdf61f7d1c" />
+        <targetEnds>
+          <association Id="40bfd785-b771-4fab-984b-ccd3bc7c1944" isDerived="false" sourceEndRoleName="Select Date" targetEndRoleName="View Schedule" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="55e9dfcf-74db-4fd3-8c0e-091a5600c608" LastKnownName="View Schedule" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="dd39990a-0199-402f-adbf-2896718079db" name="Select Date" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="19e7b24e-3eec-4112-899b-bae4569602cd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f0c450f1-1204-40bc-a7c9-c6536964de31" name="View Schedule" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7953c353-f036-4652-9759-ae30fd40caa4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4e1a86d8-5a25-4628-9a2d-a77ef68f8500" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="967d810e-69c3-46b5-81df-c1836e195d65" LastKnownName="Frontend" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="812cfeea-b694-4680-bae7-4d74955b596d" name="View Details of Reservation" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1bdcc2f8-56cd-4621-a2f2-dd43e9dd8fee" />
+        <subjects>
+          <subsystemMoniker Id="967d810e-69c3-46b5-81df-c1836e195d65" LastKnownName="Frontend" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="9b610468-b203-43f4-9d64-1824b624ac98" name="ModelingProject1">
+    <elementDefinition Id="ea48f2fd-be87-4931-a086-78a8f56eb5a3" />
+  </package>
+</useCaseModelRoot>
