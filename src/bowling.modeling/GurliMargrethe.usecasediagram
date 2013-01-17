@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="5f3efa4a-b78d-4998-98eb-cccab9613024" name="UMLUseCaseDiagram1" linkedPackageId="9faa3c3c-174a-4689-aeac-aed246f43418" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
-  <profileInstances>
-    <packageHasProfileInstances Id="7ecfbe1f-b26d-456c-a77a-574dadd4ec9a">
-      <profileInstance Id="b2c5459e-92c4-48dd-8e8c-3f442a989050" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="bee0a0be-b5f2-42ad-af25-0cd5b6596eae">
-      <profileInstance Id="09706def-8f2c-462e-ab33-ced576aa3ad0" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm12="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="5f3efa4a-b78d-4998-98eb-cccab9613024" name="UMLUseCaseDiagram1" linkedPackageId="9faa3c3c-174a-4689-aeac-aed246f43418" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
       <actor Id="c3efd339-4bee-4d3b-acdc-6280e04db23a" name="Gurli-Margrethe" isAbstract="false" isLeaf="false">
@@ -34,6 +20,22 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="ecf94184-ad00-433d-9f5e-d6dc3f263af8" />
+          </association>
+          <association Id="118925c8-c2e8-484f-9483-b63fda6e39c1" isDerived="false" sourceEndRoleName="Gurli-Margrethe" targetEndRoleName="Register as member" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2982834c-4d0b-492b-afe2-e8f0117c2a8e" LastKnownName="Register as member" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="43a0d5f7-2eaa-48d4-871b-6d9124214524" name="Gurli-Margrethe" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1406cc03-b10a-486c-a690-6c337e6a452c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5a65943c-71ff-4694-ae5e-a1768f596508" name="Register as member" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6fb23e7b-6dd0-48c8-a309-98d6b055e64e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="77769fca-9053-49ad-b1e7-a5c9096b2a78" />
           </association>
         </targetEnds>
       </actor>
@@ -93,8 +95,55 @@
         </subjects>
       </useCase>
     </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2982834c-4d0b-492b-afe2-e8f0117c2a8e" name="Register as member" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="00b3261d-e105-4c17-8c10-716fc54c706a" />
+        <additions>
+          <include Id="f49612a3-3fc1-483a-b821-977e6d8d8386">
+            <useCaseMoniker Id="48441e45-45ad-40dd-a715-a2241fe7721d" LastKnownName="Enter information" />
+            <elementDefinition Id="19c945b9-8957-4d4e-8bba-69e8a31b9f24" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="48441e45-45ad-40dd-a715-a2241fe7721d" name="Enter information" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="893bd543-1763-454c-9049-34a1ae327773" />
+        <additions>
+          <include Id="b8bc7af4-7953-4dae-9ffb-53cf0538344e">
+            <useCaseMoniker Id="293a1457-6235-418d-92b4-f343ff02388f" LastKnownName="save the data into database" />
+            <elementDefinition Id="5f56ec7a-ad7b-4b23-ae1d-ede6464d0711" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="89b41a66-afac-4035-9943-11b1cd98cb6e" LastKnownName="Frontend" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="293a1457-6235-418d-92b4-f343ff02388f" name="save the data into database" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="24c17f83-e3c2-4473-a2ae-14fe6f3dbcdd" />
+        <subjects>
+          <subsystemMoniker Id="675db874-0acb-40a9-80b8-992adee121e8" LastKnownName="Backend" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="9faa3c3c-174a-4689-aeac-aed246f43418" name="ModelingProject1">
     <elementDefinition Id="ea48f2fd-be87-4931-a086-78a8f56eb5a3" />
+    <profileInstances>
+      <packageHasProfileInstances Id="7ecfbe1f-b26d-456c-a77a-574dadd4ec9a">
+        <profileInstance Id="b2c5459e-92c4-48dd-8e8c-3f442a989050" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="bee0a0be-b5f2-42ad-af25-0cd5b6596eae">
+        <profileInstance Id="09706def-8f2c-462e-ab33-ced576aa3ad0" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </useCaseModelRoot>
