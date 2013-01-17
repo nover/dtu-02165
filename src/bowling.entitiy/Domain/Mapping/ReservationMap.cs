@@ -11,6 +11,7 @@ namespace Bowling.Entity.Domain.Mapping
     {
         public ReservationMap()
         {
+            Id(x => x.Id);
             Map(x => x.PlayAt);
             Map(x => x.NumOfPlayers);
             Map(x => x.Name);
