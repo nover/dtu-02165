@@ -8,8 +8,20 @@ using System.Diagnostics;
 
 namespace Bowling.Scheduling
 {
+    
+    class StateReservationsPair {
+        public State state;
+        public List<Reservation> reservations;
+
+        public StateReservationsPair(State state, List<Reservation> reservations) {
+            this.state = state;
+            this.reservations = reservations;
+        }
+    }
+
     class Scheduler
     {
+        static Dictionary<string, int> closedStateList;
         static void Main(string[] args)
         {
             Debug.WriteLine("Starting");
@@ -21,8 +33,74 @@ namespace Bowling.Scheduling
             Console.Read();
         }
 
-        public static State Search(State state, List<Reservation> reservations, int depth)
+        public static StateReservationsPair Search(State state, List<Reservation> reservations, Reservation newReservation)
         {
+            Scheduler.closedStateList = new Dictionary<string, int>();
+            Debug.WriteLine("Adding new Reservation");
+            if (!state.isPossible(newReservation))
+            {
+                Debug.WriteLine("    It failed the first check");
+                // get other reservations
+                return new StateReservationsPair(null, Scheduler.getAlternativeReservations(state, newReservation));
+            }
+            // if it can be applied easily
+            List<Action> actions = Expand(state, newReservation);
+            actions = (from y in actions
+                       select y).OrderBy(y => y.weight).ToList<Action>();
+            if (actions.Count > 0) {
+                state.Apply(actions[0]);
+                Debug.WriteLine("    The reservation was straight forward");
+                return new StateReservationsPair(state, new List<Reservation>());
+            }
+
+            // else, search
+
+            // cut the relevant piece out of the state, so we end up with three pieces.
+            // Solve the middle piece, and add it to the top and bottom piece.
+            //List<State> statePieces = state.cutInPieces(newReservation);
+
+            
+
+            List<Reservation> newReservations = new List<Reservation>(reservations);
+            newReservations.Add(newReservation);
+
+            long time1 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+            State emptyState = new State(state.numberOfLanes, state.numberOfTimeSlots, newReservations);
+            State newState = Scheduler.RecursiveSearch(emptyState, newReservations, 0, 10000000, 0);
+
+            long time2 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+            long runTime = time2 - time1;
+            Debug.WriteLine("    Search took: " + runTime + " ms");
+            if (newState != null)
+            {
+                Debug.WriteLine("    Returning state");
+                return new StateReservationsPair(newState, new List<Reservation>());
+            }
+            else {
+                // get other reservations
+                Debug.WriteLine("    Returning other reservations");
+                return new StateReservationsPair(null, Scheduler.getAlternativeReservations(state, newReservation));
+            }
+        }
+
+        public static State RecursiveSearch(State state, List<Reservation> reservations, int depth, long timelimit, long time)
+        {
+            reservations = (from y in reservations
+                       select y).OrderBy(y => y.weight).ToList<Action>();
+            /*if (depth > 30) {
+                List<State> statePieces = state.cutInPieces(reservations[0]);
+                Debug.WriteLine("State Pieces: ");
+                foreach (State s in statePieces)
+                {
+                    Debug.WriteLine(s.toString());
+                }
+            }*/
+            if (time > timelimit) {
+                //Debug.WriteLine("TIME LIMIT EXCEEDED-1! Time was: " + time);
+                return null;
+            }
+
+            long time1 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
             //Debug.WriteLine("Reached depth: " + depth);
             if (reservations.Count == 0)
             {
@@ -32,30 +110,48 @@ namespace Bowling.Scheduling
             List<Action> actions = GetActions(state, reservations);
 
             actions = (from y in actions
-                       select y).OrderBy(y => y.weight).ToList<Action>(); // OrderByDescending
-            //if (actions.Count > 0)
-                //{
-                //Debug.WriteLine("Weight at top: " + actions[0].weight);
-                //Debug.WriteLine("Weight at bottom: " + actions[actions.Count - 1].weight);
-            //}
+                       select y).OrderBy(y => y.weight).ToList<Action>();
+
             // Loop for actions in a depth-first manner, backtracking if no solution is found. 
             for (int num = 0; num < actions.Count; num++)
             {
                 Action action = actions[num];
                 state.Apply(action);
-                List<Reservation> remainingReservations = new List<Reservation>(reservations);
-                remainingReservations.Remove(action.reservation);
-                int newDepth = depth + 1;
-                State solution = Search(state, remainingReservations, newDepth);
-                if (solution != null)
-                {
-                    //Debug.WriteLine("Placed reservation: " + action.reservation.id);
-                    return solution;
-                } else {
+                
+                if (!Scheduler.closedStateList.ContainsKey(state.ReservationRepr(action.reservation)))
+                { 
+                    List<Reservation> remainingReservations = new List<Reservation>(reservations);
+                    remainingReservations.Remove(action.reservation);
+                    int newDepth = depth + 1;
+                    long time2 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+                    long runTime = time2 - time1;
+                    time = time + runTime;
+                    State solution = RecursiveSearch(state, remainingReservations, newDepth, timelimit, time);
+                    if (solution != null)
+                    {
+                        //Debug.WriteLine("Placed reservation: " + action.reservation.id);
+                        return solution;
+                    } else {
+                        string stateRepr = state.ReservationRepr(action.reservation);
+                        if (!Scheduler.closedStateList.ContainsKey(stateRepr))
+                        {
+                            Scheduler.closedStateList.Add(stateRepr, 1);
+                        }
+                        state.Unapply(action);
+                        if (time > timelimit)
+                        {
+                            //Debug.WriteLine("TIME LIMIT EXCEEDED-2! Time was: " + time);
+                            return null;
+                        }
+                        //Debug.WriteLine(state.toString());
+                    }
+                }else{
+                    //Debug.WriteLine("    Hit an explored state!");
                     state.Unapply(action);
+                    return null;
                 }
             }
-            //Debug.WriteLine("    Backtracking-2");
+            //Debug.WriteLine("    Backtracking");
             //Debug.WriteLine(state.toString());
             return null;
         }
@@ -65,11 +161,8 @@ namespace Bowling.Scheduling
             List<Action> actions = new List<Action>();
             foreach (Reservation reservation in reservations)
             {
-                //Debug.WriteLine("Expanding reservation " + reservation.id);
                 foreach (Action action in Expand(state, reservation))
                 {
-                    int toLane = action.leftmostLane + action.numLanes - 1;
-                    //Debug.WriteLine("   For reservation " + reservation.id + "  Got an action on lane: " + action.leftmostLane + " to lane: " + toLane + " for at time: " + action.lowestTimeSlot);
                     actions.Add(action); // add at the end of list, so they are in order
                 }
             }
@@ -81,18 +174,64 @@ namespace Bowling.Scheduling
             List<Action> actions = new List<Action>();
             if (state.isPossible(reservation))
             {
-                
                 for (int lane = 0; lane < state.numberOfLanes; lane++)
                 {
                     AppWeightPair appWeightPair = state.IsApplicable(lane, reservation.numLanes, reservation.numTimeSlots, reservation.startTimeSlot);
                     if (appWeightPair.applicable)
                     {
-                        Action action = new Action(lane, reservation, appWeightPair.weight);
-                        actions.Add(action);
+                        actions.Add(new Action(lane, reservation, appWeightPair.weight));
                     }
                 }
             }
             return actions;
+        }
+
+        public static List<Reservation> getAlternativeReservations(State state, Reservation reservation)
+        {
+            List<Reservation> reservations = new List<Reservation>();
+
+            if (reservation.startTimeSlot - 1 > 0)
+            {
+                Reservation altReservation1 = new Reservation(reservation.id, reservation.numLanes, reservation.numTimeSlots, reservation.startTimeSlot - 1);
+                List<Action> actions = Scheduler.Expand(state, altReservation1);
+                if (actions.Count > 0)
+                {
+                    reservations.Add(altReservation1);
+                }
+                int numTimeSlots = reservation.numTimeSlots - 1;
+                while (numTimeSlots > 0) {
+                    Reservation altReservation2 = new Reservation(reservation.id, reservation.numLanes, numTimeSlots, reservation.startTimeSlot - 1);
+                    List<Action> actions2 = Scheduler.Expand(state, altReservation2);
+                    if (actions2.Count > 0)
+                    {
+                        reservations.Add(altReservation2);
+                    }
+                    numTimeSlots--;
+                }
+            }
+
+            if (reservation.startTimeSlot + 1 < state.numberOfTimeSlots)
+            {
+                Reservation altReservation1 = new Reservation(reservation.id, reservation.numLanes, reservation.numTimeSlots, reservation.startTimeSlot + 1);
+                List<Action> actions = Scheduler.Expand(state, altReservation1);
+                if (actions.Count > 0)
+                {
+                    reservations.Add(altReservation1);
+                }
+                int numTimeSlots = reservation.numTimeSlots - 1;
+                while (numTimeSlots > 0)
+                {
+                    Reservation altReservation2 = new Reservation(reservation.id, reservation.numLanes, numTimeSlots, reservation.startTimeSlot + 1);
+                    List<Action> actions2 = Scheduler.Expand(state, altReservation2);
+                    if (actions2.Count > 0)
+                    {
+                        reservations.Add(altReservation2);
+                    }
+                    numTimeSlots--;
+                }
+            }
+
+            return reservations;
         }
     }
 
@@ -165,19 +304,10 @@ namespace Bowling.Scheduling
                         }
                     }
                 }
-                //Debug.WriteLine("Weight for timeslot: " + reservation.startTimeSlot + "  is now:  " + this.weight[reservation.startTimeSlot]);
             }
-
-            string weightString = "[";
-            for (int i = 0; i < this.weight.Length; i++)
-            {
-                weightString += " " + this.weight[i];
-            }
-            weightString += "]";
-            //Debug.WriteLine("Weights are now:  " + weightString);
         }
 
-        public State Apply(Action action)
+        public void Apply(Action action)
         {
             for (int i = action.lowestTimeSlot; i < action.lowestTimeSlot + action.numTimeSlots; i++)
             {
@@ -189,10 +319,9 @@ namespace Bowling.Scheduling
                     }
                 }
             }
-            return this;
         }
 
-        public State Unapply(Action action)
+        public void Unapply(Action action)
         {
             for (int i = action.lowestTimeSlot; i < action.lowestTimeSlot + action.numTimeSlots; i++)
             {
@@ -204,7 +333,6 @@ namespace Bowling.Scheduling
                     }
                 }
             }
-            return this;
         }
 
         public bool isPossible(Reservation reservation)
@@ -244,11 +372,13 @@ namespace Bowling.Scheduling
                     }
                     else
                     {
-                        weight = weight + this.getCellWeight(i);
+                        //weight = weight + this.getCellWeight(i);
                         //Debug.WriteLine("Weight updated with: " + this.getCellWeight(i) + " to: " + weight);
                     }
                 }
+                weight = Math.Max(weight, this.getCellWeight(i));
             }
+            weight += 1 / numLanes;
             //Debug.WriteLine("    Weight starts at: " + weight);
             // Various weight-changing rules for ensuring spread and guests sharing computers and ball-returns
             // Even numbered numLanes should be placed an even-numbered lane.
@@ -263,14 +393,15 @@ namespace Bowling.Scheduling
                 wear = 1;
             }
             float wearValue = 1.0f / wear;
-            //weight += wearValue;
+            weight += wearValue;
 
             // Try to spread reservations out
             // Get combined distance to other reservations
             float distance = this.getCombinedDistanceToOthers(lane, numLanes, startTimeSlot);
             // Favour those with most distance to others - but not too much.
             //Debug.WriteLine("    Weight before distance: " + weight + " distance was: " + distance);
-            weight += (distance * 5.0f) / this.numberOfLanes;
+
+            weight += 1 / (distance);
             //Debug.WriteLine("    Weight ends at: " + weight);
             return new AppWeightPair(true, weight);
         }
@@ -353,7 +484,7 @@ namespace Bowling.Scheduling
 
         public String Repr() {
             StringBuilder builder = new StringBuilder();
-            for (int i = this.numberOfTimeSlots - 1; i >= 0; i--)
+            for (int i = 0; i < this.numberOfTimeSlots; i++)
             {
                 for (int j = 0; j < this.numberOfLanes; j++)
                 {
@@ -361,6 +492,113 @@ namespace Bowling.Scheduling
                 }
             }
             return builder.ToString();
+        }
+
+        public String ReservationRepr(Reservation reservation)
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append(reservation.numLanes);
+            builder.Append(",");
+            builder.Append(reservation.numTimeSlots);
+            builder.Append(",");
+            builder.Append(reservation.startTimeSlot);
+            builder.Append("->");
+            for (int i = reservation.startTimeSlot - reservation.numTimeSlots; i < reservation.startTimeSlot + reservation.numTimeSlots; i++)
+            {
+                if (i < this.numberOfTimeSlots && i >= 0)
+                {
+                    for (int j = 0; j < this.numberOfLanes; j++)
+                    {
+                        builder.Append(this.state[i, j]);
+                    }
+                    builder.Append("/");
+                }
+            }
+            return builder.ToString();
+        }
+
+        public List<State> cutInPieces(Reservation reservation)
+        {
+            List<State> stateList = new List<State>();
+
+            // detect cutting lines
+            // find cutting line for upper part
+            int upperCut = -1;
+            for (int i = reservation.startTimeSlot + reservation.numTimeSlots; i < this.numberOfTimeSlots; i++)
+            {
+                bool foundAny = false;
+                for (int j = 0; j < this.numberOfLanes; j++)
+                {
+                    if (this.state[i, j] == this.state[i + 1, j] || this.state[i, j] == this.state[i - 1, j])
+                    {
+                        foundAny = true;
+                    }
+                    if (!foundAny)
+                    {
+                        upperCut = i;
+                        break;
+                    }
+                }
+            }
+            // find cutting line for lower part
+            int lowerCut = -1;
+            for (int i = reservation.startTimeSlot - 1; i >= 0; i--)
+            {
+                bool foundAny = false;
+                for (int j = 0; j < this.numberOfLanes; j++)
+                {
+                    if (this.state[i, j] == this.state[i + 1, j] || this.state[i, j] == this.state[i - 1, j])
+                    {
+                        foundAny = true;
+                    }
+                    if (!foundAny)
+                    {
+                        lowerCut = i;
+                        break;
+                    }
+                }
+            }
+
+            // do the cutting
+            State stateUpper = new State(this.numberOfLanes, this.numberOfTimeSlots, new List<Reservation>());
+            stateUpper.weight = this.weight;
+            stateUpper.weight = this.weight;
+            stateUpper.state = new int[numberOfTimeSlots, numberOfLanes];
+
+            State stateMiddle = new State(this.numberOfLanes, this.numberOfTimeSlots, new List<Reservation>());
+            stateMiddle.weight = this.weight;
+            stateMiddle.weight = this.weight;
+            stateMiddle.state = new int[numberOfTimeSlots, numberOfLanes];
+
+            State stateLower = new State(this.numberOfLanes, this.numberOfTimeSlots, new List<Reservation>());
+            stateLower.weight = this.weight;
+            stateLower.weight = this.weight;
+            stateLower.state = new int[numberOfTimeSlots, numberOfLanes];
+
+            // Populate them
+
+            for (int i = 0; i < this.numberOfTimeSlots; i++)
+            {
+                for (int j = 0; j < this.numberOfLanes; j++)
+                {
+                    if (i <= lowerCut)
+                    {
+                        stateLower.state[i, j] = this.state[i, j];
+                    }
+                    else if (j >= upperCut)
+                    {
+                        stateMiddle.state[i, j] = this.state[i, j];
+                    }
+                    else
+                    {
+                        stateUpper.state[i, j] = this.state[i, j];
+                    }
+                }
+            }
+            stateList.Add(stateUpper);
+            stateList.Add(stateMiddle);
+            stateList.Add(stateLower);
+            return stateList;
         }
     }
 
@@ -422,7 +660,6 @@ namespace Bowling.Scheduling
 
     class UnitTests
     {
-
         public static bool Test1_SmallReservation()
         {
             int numberOfLanes = 8;
@@ -441,7 +678,7 @@ namespace Bowling.Scheduling
 
             // Test Search
             State thirdState = new State(numberOfLanes, numberOfTimeSlots, reservations);
-            State finalState = Scheduler.Search(thirdState, reservations, 0);
+            State finalState = Scheduler.RecursiveSearch(thirdState, reservations, 0, 0, 0);
             Debug.WriteLine(finalState.toString());
 
             if (finalState == null)
@@ -472,7 +709,7 @@ namespace Bowling.Scheduling
             reservations.Add(res3);
             reservations.Add(res4);
             State fourthState = new State(numberOfLanes, numberOfTimeSlots, reservations);
-            State failState = Scheduler.Search(fourthState, reservations, 0);
+            State failState = Scheduler.RecursiveSearch(fourthState, reservations, 0, 0, 0);
 
             if (failState == null)
             {
@@ -502,7 +739,7 @@ namespace Bowling.Scheduling
             reservations.Add(res2);
            
             State emptyState = new State(numberOfLanes, numberOfTimeSlots, reservations);
-            State state = Scheduler.Search(emptyState, reservations, 0);
+            State state = Scheduler.RecursiveSearch(emptyState, reservations, 0, 0, 0);
 
             if (state == null)
             {
@@ -538,7 +775,7 @@ namespace Bowling.Scheduling
             reservations.Add(res5);
 
             State emptyState = new State(numberOfLanes, numberOfTimeSlots, reservations);
-            State state = Scheduler.Search(emptyState, reservations, 0);
+            State state = Scheduler.RecursiveSearch(emptyState, reservations, 0, 0, 0);
 
             if (state == null)
             {
@@ -564,8 +801,8 @@ namespace Bowling.Scheduling
             List<Reservation> reservations = new List<Reservation>();
             // Reservation(int id, int numLanes, int numTimeSlots, int startTimeSlot)
             bool run = true;
-            State emptyState = new State(numberOfLanes, numberOfTimeSlots, reservations);
-            State state = null;
+            //State emptyState = new State(numberOfLanes, numberOfTimeSlots, reservations);
+            State state = new State(numberOfLanes, numberOfTimeSlots, reservations);
             State newState = null;
             int i = 0;
             int runs = 0;
@@ -592,19 +829,16 @@ namespace Bowling.Scheduling
                 }
                 
                 long time1 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
-                Reservation reservation = new Reservation(i+1, numLanes, numTimeSlots, startTimeSlot);
-                Debug.WriteLine("Making reservation of " + numLanes + " lanes for " + numTimeSlots + " hours, at timeslot " + startTimeSlot);
-
-                if (state != null && !state.isPossible(reservation))
-                {
-                    Debug.WriteLine("    It failed the first check");
-                    continue;
-                }
+                int id = i + 1;
+                Reservation reservation = new Reservation(id, numLanes, numTimeSlots, startTimeSlot);
+                Debug.WriteLine("Making reservation id: " + id + " of " + numLanes + " lanes for " + numTimeSlots + " hours, at timeslot " + startTimeSlot);
 
                 List<Reservation> newReservations = new List<Reservation>(reservations);
                 newReservations.Add(reservation);
-                emptyState = new State(numberOfLanes, numberOfTimeSlots, newReservations);
-                newState = Scheduler.Search(emptyState, newReservations, 0);
+                //emptyState = new State(numberOfLanes, numberOfTimeSlots, newReservations);
+                StateReservationsPair result = Scheduler.Search(state, reservations, reservation);
+                newState = result.state;
+
                 long time2 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
                 timeSpent = time2 - time1;
                 Debug.WriteLine("    Scheduling took: " + timeSpent + " miliseconds");
@@ -613,21 +847,16 @@ namespace Bowling.Scheduling
                     Debug.WriteLine("    It SUCCEEDED!!!!!!!!");
                     Debug.WriteLine(newState.toString());
 
-                    /*
-                    List<int> freecell1 = newState.getFreeCellNumbers(1);
-                    string freeCellString1 = "";
-                    for(int k = 0; k < freecell1.Count; k++) {
-                        freeCellString1 = freeCellString1 + ", " + freecell1[k];
-                    }
-                    Debug.WriteLine("    Free cell for timeslot 1: " + freeCellString1);
-                     */
                     reservations = newReservations;
                     state = newState;
                     i++;
                 }
                 else
                 {
-                    Debug.WriteLine("    It failed");
+                    Debug.WriteLine("    It failed. Alternative reservations are:");
+                    for (int j = 0; j < result.reservations.Count; j++) {
+                        Debug.WriteLine("        Reservation for " + result.reservations[j].numLanes + " lanes at slot: " + result.reservations[j].startTimeSlot + " for " + result.reservations[j].numTimeSlots + " hours");
+                    }
                 }
                 if (i > numberOfReservations)
                 {
