@@ -58,7 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\bowling.scheduling\ConsoleApplication1\ConsoleApplication1\bowling.scheduling.csproj">
+    <ProjectReference Include="..\bowling.scheduling\bowling.scheduling.csproj">
       <Project>{efb72d51-8681-4af0-84da-7566a22f8181}</Project>
       <Name>bowling.scheduling</Name>
     </ProjectReference>
