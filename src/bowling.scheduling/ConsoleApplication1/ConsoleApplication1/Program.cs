@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace Bowling.Scheduling
+namespace bowling.scheduling
 {
-    class StateReservationsPair {
+/*    class StateReservationsPair {
         public State state;
         public List<Reservation> reservations;
 
@@ -17,7 +18,8 @@ namespace Bowling.Scheduling
             this.reservations = reservations;
         }
     }
-
+*/
+    /*
     class Scheduler
     {
         static Dictionary<string, int> closedStateList;
@@ -92,7 +94,7 @@ namespace Bowling.Scheduling
                     Debug.WriteLine(s.toString());
                 }
             }*/
-            if (time > timelimit) {
+/*            if (time > timelimit) {
                 //Debug.WriteLine("TIME LIMIT EXCEEDED-1! Time was: " + time);
                 return null;
             }
@@ -240,8 +242,8 @@ namespace Bowling.Scheduling
             return reservations;
         }
     }
-
-    class Reservation
+*/
+/*    class Reservation
     {
         public int id;
         public int numLanes;
@@ -256,8 +258,8 @@ namespace Bowling.Scheduling
             this.startTimeSlot = startTimeSlot;
         }
     }
-
-    class Action
+*/
+/*    class Action
     {
         public int leftmostLane;
         public int lowestTimeSlot;
@@ -277,7 +279,8 @@ namespace Bowling.Scheduling
             this.numTimeSlots = reservation.numTimeSlots;
         }
     }
-
+*/
+    /*
     class State
     {
         int[,] state;
@@ -625,8 +628,8 @@ namespace Bowling.Scheduling
             return stateList;
         }
     }
-
-    class AppWeightPair
+*/
+/*    class AppWeightPair
     {
         public bool applicable;
         public double weight;
@@ -637,8 +640,8 @@ namespace Bowling.Scheduling
             this.weight = weight;
         }
     }
-
-
+*/
+/*
     static class WearData
     {
         private static List<int> wear = new List<int>();
@@ -680,8 +683,8 @@ namespace Bowling.Scheduling
             return wearVal;
         }
     }
-
-
+*/
+/*
     class UnitTests
     {
         public static bool Test1_SmallReservation()
@@ -814,8 +817,8 @@ namespace Bowling.Scheduling
             }
         }
     }
-
-
+*/
+/*
     class PerformanceTests
     {
         public static bool Test_n_reservations(int numberOfLanes, int numberOfTimeSlots, int numberOfVisitors, int runLimit)
@@ -909,5 +912,5 @@ namespace Bowling.Scheduling
             return true;
         }
     }
-
-}
+*/
+//}

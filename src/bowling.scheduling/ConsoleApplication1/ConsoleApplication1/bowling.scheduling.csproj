@@ -45,6 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UnitTests.cs" />
+    <Compile Include="Reservation.cs" />
+    <Compile Include="Action.cs" />
+    <Compile Include="State.cs" />
+    <Compile Include="AppWeightPair.cs" />
+    <Compile Include="WearData.cs" />
+    <Compile Include="PerformanceTests.cs" />
+    <Compile Include="Scheduler.cs" />
+    <Compile Include="StateReservationsPair.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
