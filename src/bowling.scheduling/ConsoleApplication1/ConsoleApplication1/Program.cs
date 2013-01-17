@@ -25,7 +25,7 @@ namespace Bowling.Scheduling
         {
             Debug.WriteLine("Starting");
 
-            PerformanceTests.Test_n_reservations(10, 16, 40, 500);
+            PerformanceTests.Test_n_reservations(20, 16, 700, 500);
 
             //UnitTests.Test4_ProblematicReservation();
             Debug.WriteLine("Done");
@@ -65,7 +65,7 @@ namespace Bowling.Scheduling
 
             long time1 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
             State emptyState = new State(state.numberOfLanes, state.numberOfTimeSlots, newReservations);
-            State newState = Scheduler.RecursiveSearch(emptyState, newReservations, 0, 10000000, 0);
+            State newState = Scheduler.RecursiveSearch(emptyState, newReservations, 0, 500, 0);
 
             long time2 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
             long runTime = time2 - time1;
@@ -120,7 +120,7 @@ namespace Bowling.Scheduling
                     state.Apply(action);
 
                     //if (!Scheduler.closedStateList.ContainsKey(state.ReservationRepr(action.reservation)))
-                    //{ 
+                    //{
                     List<Reservation> remainingReservations = new List<Reservation>(reservations);
                     remainingReservations.Remove(action.reservation);
                     int newDepth = depth + 1;
@@ -135,10 +135,10 @@ namespace Bowling.Scheduling
                     }
                     else
                     {
-                        string stateRepr = state.ReservationRepr(action.reservation);
+                        //string stateRepr = state.ReservationRepr(action.reservation);
                         //if (!Scheduler.closedStateList.ContainsKey(stateRepr))
                         //{
-                        //Scheduler.closedStateList.Add(stateRepr, 1);
+                        //    Scheduler.closedStateList.Add(stateRepr, 1);
                         //}
                         state.Unapply(action);
                         if (time > timelimit)
@@ -150,9 +150,11 @@ namespace Bowling.Scheduling
                     }
                     //}else{
                     //Debug.WriteLine("    Hit an explored state!");
-                    //    state.Unapply(action);
-                    //    return null;
-                    //}
+                    //Debug.WriteLine(state.toString());
+                    //Debug.WriteLine("    " + state.ReservationRepr(action.reservation));
+                    //state.Unapply(action);
+                    //return null;
+                //}
                 }
                 //Debug.WriteLine("    Backtracking");
                 //Debug.WriteLine(state.toString());
@@ -400,6 +402,11 @@ namespace Bowling.Scheduling
             //Debug.WriteLine("    Weight before distance: " + weight + " distance was: " + distance);
 
             weight += 1 / (distance);
+
+            if ((startTimeSlot-1 >= 0) && this.state[startTimeSlot-1, lane] != 0)
+            {
+                weight = weight * 0.5f;
+            }
             //Debug.WriteLine("    Weight ends at: " + weight);
             return new AppWeightPair(true, weight);
         }
@@ -460,9 +467,14 @@ namespace Bowling.Scheduling
                     string numRepr;
                     if (this.state[i, j] == 0)
                     {
-                        numRepr = "..";
+                        numRepr = "...";
                     }
                     else if (this.state[i, j] < 10)
+                    {
+                        numRepr = "00" + this.state[i, j];
+                        //numRepr = "" + this.getCellWeight(i);
+                    }
+                    else if (this.state[i, j] < 100)
                     {
                         numRepr = "0" + this.state[i, j];
                         //numRepr = "" + this.getCellWeight(i);
@@ -486,7 +498,7 @@ namespace Bowling.Scheduling
             for (int i = reservation.startTimeSlot; i < reservation.startTimeSlot + reservation.numTimeSlots; i++) {
                 weight = Math.Max(weight, this.getCellWeight(i));
             }
-
+            weight += 1 / reservation.numLanes;
             return weight;
         }
 
@@ -507,13 +519,13 @@ namespace Bowling.Scheduling
         {
             StringBuilder builder = new StringBuilder();
             builder.Append(reservation.id);
-            builder.Append("1");
+            builder.Append(",");
             builder.Append(reservation.numLanes);
-            builder.Append("1");
+            builder.Append(",");
             builder.Append(reservation.numTimeSlots);
-            builder.Append("1");
+            builder.Append(",");
             builder.Append(reservation.startTimeSlot);
-            builder.Append("1");
+            builder.Append("->");
             for (int i = reservation.startTimeSlot - reservation.numTimeSlots; i < reservation.startTimeSlot + reservation.numTimeSlots; i++)
             {
                 if (i < this.numberOfTimeSlots && i >= 0)
@@ -521,6 +533,7 @@ namespace Bowling.Scheduling
                     for (int j = 0; j < this.numberOfLanes; j++)
                     {
                         builder.Append(this.state[i, j]);
+                        builder.Append(".");
                     }
                     builder.Append("/");
                 }
@@ -805,9 +818,9 @@ namespace Bowling.Scheduling
 
     class PerformanceTests
     {
-        public static bool Test_n_reservations(int numberOfLanes, int numberOfTimeSlots, int numberOfReservations, int runLimit)
+        public static bool Test_n_reservations(int numberOfLanes, int numberOfTimeSlots, int numberOfVisitors, int runLimit)
         {
-            Debug.WriteLine("Testing scheduling of " + numberOfReservations + " reservations in " + numberOfLanes + " lanes and " + numberOfTimeSlots + " timeslots");
+            Debug.WriteLine("Testing scheduling of " + numberOfVisitors + " visitors in " + numberOfLanes + " lanes and " + numberOfTimeSlots + " timeslots");
             WearData.Populate(numberOfLanes);
             List<Reservation> reservations = new List<Reservation>();
             // Reservation(int id, int numLanes, int numTimeSlots, int startTimeSlot)
@@ -816,18 +829,20 @@ namespace Bowling.Scheduling
             State state = new State(numberOfLanes, numberOfTimeSlots, reservations);
             State newState = null;
             int i = 0;
+            int visitors = 0;
             int runs = 0;
             long timeSpent = 0;
             Random random = new Random();
             while (run)
             {
-                int numLanes = 1;
+                int numVisitors = 4;
+                
                 int numTimeSlots = random.Next(1, 3);
                 int startTimeSlot = 6; //  random.Next(0, numberOfTimeSlots);
                 if(random.Next(0, 100) < 10) { // 10 percent will be parties and outings
-                    numLanes = random.Next(2, 5);
+                    numVisitors = random.Next(5, 41);
                 }else{
-                    numLanes = random.Next(1, 3);
+                    numVisitors = random.Next(3, 7);
                 }
 
                 if (random.Next(0, 100) < 15)
@@ -837,6 +852,12 @@ namespace Bowling.Scheduling
                 else
                 {
                     startTimeSlot = random.Next(2, numberOfTimeSlots-2);
+                }
+                int numLanes = 0;
+                if (numVisitors % 6 == 0) {
+                    numLanes = numVisitors / 6;
+                } else {
+                    numLanes = (numVisitors / 6) + 1;
                 }
                 
                 long time1 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
@@ -860,6 +881,8 @@ namespace Bowling.Scheduling
 
                     reservations = newReservations;
                     state = newState;
+                    visitors = visitors + numVisitors;
+                    Debug.WriteLine("Have now scheduled for: " + visitors + " visitors");
                     i++;
                 }
                 else
@@ -869,7 +892,7 @@ namespace Bowling.Scheduling
                         Debug.WriteLine("        Reservation for " + result.reservations[j].numLanes + " lanes at slot: " + result.reservations[j].startTimeSlot + " for " + result.reservations[j].numTimeSlots + " hours");
                     }
                 }
-                if (i > numberOfReservations)
+                if (visitors > numberOfVisitors)
                 {
                     run = false;
                 }
