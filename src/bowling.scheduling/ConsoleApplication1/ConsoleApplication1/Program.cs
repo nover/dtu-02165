@@ -8,7 +8,6 @@ using System.Diagnostics;
 
 namespace Bowling.Scheduling
 {
-    
     class StateReservationsPair {
         public State state;
         public List<Reservation> reservations;
@@ -85,8 +84,6 @@ namespace Bowling.Scheduling
 
         public static State RecursiveSearch(State state, List<Reservation> reservations, int depth, long timelimit, long time)
         {
-            reservations = (from y in reservations
-                       select y).OrderBy(y => y.weight).ToList<Action>();
             /*if (depth > 30) {
                 List<State> statePieces = state.cutInPieces(reservations[0]);
                 Debug.WriteLine("State Pieces: ");
@@ -106,20 +103,24 @@ namespace Bowling.Scheduling
             {
                 return state;
             }
-            // Get applicable actions
-            List<Action> actions = GetActions(state, reservations);
-
-            actions = (from y in actions
-                       select y).OrderBy(y => y.weight).ToList<Action>();
-
-            // Loop for actions in a depth-first manner, backtracking if no solution is found. 
-            for (int num = 0; num < actions.Count; num++)
+            reservations = (from y in reservations
+                            select y).OrderBy(y => state.getReservationWeight(y)).ToList<Reservation>();
+            foreach (Reservation reservation in reservations)
             {
-                Action action = actions[num];
-                state.Apply(action);
-                
-                if (!Scheduler.closedStateList.ContainsKey(state.ReservationRepr(action.reservation)))
-                { 
+                // Get applicable actions
+                List<Action> actions = Expand(state, reservation);
+
+                actions = (from y in actions
+                           select y).OrderBy(y => y.weight).ToList<Action>();
+
+                // Loop for actions in a depth-first manner, backtracking if no solution is found. 
+                for (int num = 0; num < actions.Count; num++)
+                {
+                    Action action = actions[num];
+                    state.Apply(action);
+
+                    //if (!Scheduler.closedStateList.ContainsKey(state.ReservationRepr(action.reservation)))
+                    //{ 
                     List<Reservation> remainingReservations = new List<Reservation>(reservations);
                     remainingReservations.Remove(action.reservation);
                     int newDepth = depth + 1;
@@ -131,12 +132,14 @@ namespace Bowling.Scheduling
                     {
                         //Debug.WriteLine("Placed reservation: " + action.reservation.id);
                         return solution;
-                    } else {
+                    }
+                    else
+                    {
                         string stateRepr = state.ReservationRepr(action.reservation);
-                        if (!Scheduler.closedStateList.ContainsKey(stateRepr))
-                        {
-                            Scheduler.closedStateList.Add(stateRepr, 1);
-                        }
+                        //if (!Scheduler.closedStateList.ContainsKey(stateRepr))
+                        //{
+                        //Scheduler.closedStateList.Add(stateRepr, 1);
+                        //}
                         state.Unapply(action);
                         if (time > timelimit)
                         {
@@ -145,14 +148,15 @@ namespace Bowling.Scheduling
                         }
                         //Debug.WriteLine(state.toString());
                     }
-                }else{
+                    //}else{
                     //Debug.WriteLine("    Hit an explored state!");
-                    state.Unapply(action);
-                    return null;
+                    //    state.Unapply(action);
+                    //    return null;
+                    //}
                 }
+                //Debug.WriteLine("    Backtracking");
+                //Debug.WriteLine(state.toString());
             }
-            //Debug.WriteLine("    Backtracking");
-            //Debug.WriteLine(state.toString());
             return null;
         }
 
@@ -257,12 +261,11 @@ namespace Bowling.Scheduling
         public int lowestTimeSlot;
         public int numLanes;
         public int numTimeSlots;
-        public float weight;
-        public string repr;
+        public double weight;
 
         public Reservation reservation;
 
-        public Action(int leftmostLane, Reservation reservation, float weight)
+        public Action(int leftmostLane, Reservation reservation, double weight)
         {
             this.leftmostLane = leftmostLane;
             this.lowestTimeSlot = reservation.startTimeSlot;
@@ -270,11 +273,6 @@ namespace Bowling.Scheduling
             this.weight = weight;
             this.numLanes = reservation.numLanes;
             this.numTimeSlots = reservation.numTimeSlots;
-            this.repr = this.CalculateRepr();
-        }
-
-        public String CalculateRepr() {
-            return this.numLanes + "," + this.leftmostLane + "," + this.numTimeSlots + "," + this.lowestTimeSlot;
         }
     }
 
@@ -283,14 +281,14 @@ namespace Bowling.Scheduling
         int[,] state;
         public int numberOfLanes;
         public int numberOfTimeSlots;
-        float[] weight;
+        double[] weight;
 
         public State(int numberOfLanes, int numberOfTimeSlots, List<Reservation> reservations)
         {
             this.numberOfLanes = numberOfLanes;
             this.numberOfTimeSlots = numberOfTimeSlots;
             this.state = new int[numberOfTimeSlots, numberOfLanes];
-            this.weight = new float[numberOfTimeSlots];
+            this.weight = new double[numberOfTimeSlots];
 
             foreach (Reservation reservation in reservations)
             {
@@ -357,7 +355,7 @@ namespace Bowling.Scheduling
         public AppWeightPair IsApplicable(int lane, int numLanes, int numTimeSlots, int startTimeSlot)
         {
             //Debug.WriteLine("Checking for a reservation for " + numLanes + " lanes at lane: " + lane + " at timeslot: " + startTimeSlot);
-            float weight = 0.0f;
+            double weight = 0.0f;
             for (int i = startTimeSlot; i < startTimeSlot + numTimeSlots; i++)
             {
                 if (i >= this.numberOfTimeSlots)
@@ -392,12 +390,12 @@ namespace Bowling.Scheduling
             {
                 wear = 1;
             }
-            float wearValue = 1.0f / wear;
+            double wearValue = 1.0f / wear;
             weight += wearValue;
 
             // Try to spread reservations out
             // Get combined distance to other reservations
-            float distance = this.getCombinedDistanceToOthers(lane, numLanes, startTimeSlot);
+            double distance = this.getCombinedDistanceToOthers(lane, numLanes, startTimeSlot);
             // Favour those with most distance to others - but not too much.
             //Debug.WriteLine("    Weight before distance: " + weight + " distance was: " + distance);
 
@@ -406,10 +404,10 @@ namespace Bowling.Scheduling
             return new AppWeightPair(true, weight);
         }
 
-        public float getCombinedDistanceToOthers(int lane, int numLanes, int startTimeSlot)
+        public double getCombinedDistanceToOthers(int lane, int numLanes, int startTimeSlot)
         {
-            float distanceRight = 0.0f;
-            float distanceLeft = 0.0f;
+            double distanceRight = 0.0f;
+            double distanceLeft = 0.0f;
             // get right distance
             for (int i = lane + 1; i < this.numberOfLanes; i++)
             {
@@ -442,12 +440,12 @@ namespace Bowling.Scheduling
                 }
             }
 
-            float distance = Math.Min(distanceRight, distanceLeft);
+            double distance = Math.Min(distanceRight, distanceLeft);
             //Debug.WriteLine("        Returning distance " + distanceRight + " <min> " + distanceLeft + "  -> " + distance);
             return distance;
         }
 
-        public float getCellWeight(int timeslot)
+        public double getCellWeight(int timeslot)
         {
             return this.weight[timeslot];
         }
@@ -482,7 +480,18 @@ namespace Bowling.Scheduling
             return builder.ToString();
         }
 
-        public String Repr() {
+        public double getReservationWeight(Reservation reservation) {
+            double weight = 0.0f;
+
+            for (int i = reservation.startTimeSlot; i < reservation.startTimeSlot + reservation.numTimeSlots; i++) {
+                weight = Math.Max(weight, this.getCellWeight(i));
+            }
+
+            return weight;
+        }
+
+        public String Repr()
+        {
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < this.numberOfTimeSlots; i++)
             {
@@ -497,12 +506,14 @@ namespace Bowling.Scheduling
         public String ReservationRepr(Reservation reservation)
         {
             StringBuilder builder = new StringBuilder();
+            builder.Append(reservation.id);
+            builder.Append("1");
             builder.Append(reservation.numLanes);
-            builder.Append(",");
+            builder.Append("1");
             builder.Append(reservation.numTimeSlots);
-            builder.Append(",");
+            builder.Append("1");
             builder.Append(reservation.startTimeSlot);
-            builder.Append("->");
+            builder.Append("1");
             for (int i = reservation.startTimeSlot - reservation.numTimeSlots; i < reservation.startTimeSlot + reservation.numTimeSlots; i++)
             {
                 if (i < this.numberOfTimeSlots && i >= 0)
@@ -605,9 +616,9 @@ namespace Bowling.Scheduling
     class AppWeightPair
     {
         public bool applicable;
-        public float weight;
+        public double weight;
 
-        public AppWeightPair(bool applicable, float weight)
+        public AppWeightPair(bool applicable, double weight)
         {
             this.applicable = applicable;
             this.weight = weight;
