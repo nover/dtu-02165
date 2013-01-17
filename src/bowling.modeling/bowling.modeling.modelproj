@@ -54,8 +54,22 @@
       <SubType>Content</SubType>
       <DependentUpon>CreateReservation.activitydiagram</DependentUpon>
     </Content>
-    <Content Include="exampleCustomDiagram.dgml">
+    <Content Include="Examples\exampleCustomDiagram.dgml">
       <SubType>Content</SubType>
+    </Content>
+    <Content Include="Examples\exampleSequenceDiagram.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Examples\exampleSequenceDiagram.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Examples\exampleSequenceDiagram.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="Examples\exampleUMLComponentDiagram.componentdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Examples\exampleUMLComponentDiagram.componentdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Examples\exampleUMLComponentDiagram.componentdiagram</DependentUpon>
     </Content>
     <Content Include="MemberRegistration.activitydiagram">
       <SubType>Content</SubType>
@@ -66,20 +80,6 @@
     </Content>
     <Content Include="ModelDefinition\Package_1356.uml">
       <SubType>Content</SubType>
-    </Content>
-    <Content Include="exampleUMLComponentDiagram.componentdiagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="exampleUMLComponentDiagram.componentdiagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>exampleUMLComponentDiagram.componentdiagram</DependentUpon>
-    </Content>
-    <Content Include="exampleSequenceDiagram.sequencediagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="exampleSequenceDiagram.sequencediagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>exampleSequenceDiagram.sequencediagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="GurliMargrethe.usecasediagram">
@@ -92,6 +92,7 @@
     <Content Include="ModelDefinition\ModelingProject1.uml">
       <SubType>Content</SubType>
     </Content>
+    <Folder Include="Examples" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
@@ -100,16 +101,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Validate Include="exampleLayerDiagram.layerdiagram">
+    <Validate Include="Examples\exampleLayerDiagram.layerdiagram">
       <SubType>Content</SubType>
     </Validate>
-    <Validate Include="exampleLayerDiagram.layerdiagram.layout">
+    <Validate Include="Examples\exampleLayerDiagram.layerdiagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>exampleLayerDiagram.layerdiagram</DependentUpon>
+      <DependentUpon>Examples\exampleLayerDiagram.layerdiagram</DependentUpon>
     </Validate>
-    <Validate Include="exampleLayerDiagram.layerdiagram.suppressions">
+    <Validate Include="Examples\exampleLayerDiagram.layerdiagram.suppressions">
       <SubType>Content</SubType>
-      <DependentUpon>exampleLayerDiagram.layerdiagram</DependentUpon>
+      <DependentUpon>Examples\exampleLayerDiagram.layerdiagram</DependentUpon>
     </Validate>
     <Validate Include="SystemArchitecture.layerdiagram">
       <SubType>Content</SubType>
