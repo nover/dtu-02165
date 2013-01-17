@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm12="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="5f3efa4a-b78d-4998-98eb-cccab9613024" name="UMLUseCaseDiagram1" linkedPackageId="9faa3c3c-174a-4689-aeac-aed246f43418" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="5f3efa4a-b78d-4998-98eb-cccab9613024" name="UMLUseCaseDiagram1" linkedPackageId="9faa3c3c-174a-4689-aeac-aed246f43418" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
       <actor Id="c3efd339-4bee-4d3b-acdc-6280e04db23a" name="Gurli-Margrethe" isAbstract="false" isLeaf="false">
@@ -21,21 +21,21 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="ecf94184-ad00-433d-9f5e-d6dc3f263af8" />
           </association>
-          <association Id="118925c8-c2e8-484f-9483-b63fda6e39c1" isDerived="false" sourceEndRoleName="Gurli-Margrethe" targetEndRoleName="Register as member" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="2982834c-4d0b-492b-afe2-e8f0117c2a8e" LastKnownName="Register as member" />
+          <association Id="df460a1d-9cc8-4f28-9d5e-1e17541d90f8" isDerived="false" sourceEndRoleName="Gurli-Margrethe" targetEndRoleName="Regsiter as member" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e8e87785-7137-4eae-9569-9218403268c8" LastKnownName="Regsiter as member" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="43a0d5f7-2eaa-48d4-871b-6d9124214524" name="Gurli-Margrethe" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="1406cc03-b10a-486c-a690-6c337e6a452c" />
+                <memberEnd Id="1204acc0-3579-43fa-b05b-bb07d352c50a" name="Gurli-Margrethe" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f996095b-758d-4f5f-81bf-93f7db845964" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="5a65943c-71ff-4694-ae5e-a1768f596508" name="Register as member" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="6fb23e7b-6dd0-48c8-a309-98d6b055e64e" />
+                <memberEnd Id="7505a35c-6fda-43a2-9977-d13d469a8539" name="Regsiter as member" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4f55ebea-cda1-4bcc-9bfa-02eb29e474d8" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="77769fca-9053-49ad-b1e7-a5c9096b2a78" />
+            <elementDefinition Id="db79d911-57e4-4eb4-8164-dec92005504b" />
           </association>
         </targetEnds>
       </actor>
@@ -96,23 +96,23 @@
       </useCase>
     </packageHasNamedElement>
     <useCaseModelRootHasTypes>
-      <useCase Id="2982834c-4d0b-492b-afe2-e8f0117c2a8e" name="Register as member" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="00b3261d-e105-4c17-8c10-716fc54c706a" />
+      <useCase Id="e8e87785-7137-4eae-9569-9218403268c8" name="Regsiter as member" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="96f605e8-21c1-452a-8121-dca955dda3b8" />
         <additions>
-          <include Id="f49612a3-3fc1-483a-b821-977e6d8d8386">
-            <useCaseMoniker Id="48441e45-45ad-40dd-a715-a2241fe7721d" LastKnownName="Enter information" />
-            <elementDefinition Id="19c945b9-8957-4d4e-8bba-69e8a31b9f24" />
+          <include Id="7e2b4da2-5199-4cc0-9da4-e9aa1f60b57d">
+            <useCaseMoniker Id="cefcb18f-6be1-426f-83d6-480e929b2837" LastKnownName="Enter user information" />
+            <elementDefinition Id="8996a286-4c58-42d2-a619-2c938a27900c" />
           </include>
         </additions>
       </useCase>
     </useCaseModelRootHasTypes>
     <packageHasNamedElement>
-      <useCase Id="48441e45-45ad-40dd-a715-a2241fe7721d" name="Enter information" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="893bd543-1763-454c-9049-34a1ae327773" />
+      <useCase Id="cefcb18f-6be1-426f-83d6-480e929b2837" name="Enter user information" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d205dded-aa6c-44c1-b8b6-4b3318eebcd5" />
         <additions>
-          <include Id="b8bc7af4-7953-4dae-9ffb-53cf0538344e">
-            <useCaseMoniker Id="293a1457-6235-418d-92b4-f343ff02388f" LastKnownName="save the data into database" />
-            <elementDefinition Id="5f56ec7a-ad7b-4b23-ae1d-ede6464d0711" />
+          <include Id="ebe1e8bb-ab09-40e4-bd52-ac3b1f5f98e9">
+            <useCaseMoniker Id="70684834-0213-419f-bee6-549b9e004a6a" LastKnownName="Saving the data to database" />
+            <elementDefinition Id="fb7abed8-735e-4186-9578-339f2e385e86" />
           </include>
         </additions>
         <subjects>
@@ -121,8 +121,8 @@
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <useCase Id="293a1457-6235-418d-92b4-f343ff02388f" name="save the data into database" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="24c17f83-e3c2-4473-a2ae-14fe6f3dbcdd" />
+      <useCase Id="70684834-0213-419f-bee6-549b9e004a6a" name="Saving the data to database" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9e90c859-3a11-4302-b312-a1dde0d5fe5f" />
         <subjects>
           <subsystemMoniker Id="675db874-0acb-40a9-80b8-992adee121e8" LastKnownName="Backend" />
         </subjects>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="ea48f2fd-be87-4931-a086-78a8f56eb5a3"
   name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -109,6 +109,45 @@
                 <memberEnd
                   Id="eccb8d4a-d7f8-4f7b-b595-680a5f0c1ce4"
                   name="Create reservation"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="db79d911-57e4-4eb4-8164-dec92005504b"
+            isDerived="false"
+            sourceEndRoleName="Gurli-Margrethe"
+            targetEndRoleName="Regsiter as member"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="96f605e8-21c1-452a-8121-dca955dda3b8"
+              LastKnownName="Regsiter as member"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f996095b-758d-4f5f-81bf-93f7db845964"
+                  name="Gurli-Margrethe"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4f55ebea-cda1-4bcc-9bfa-02eb29e474d8"
+                  name="Regsiter as member"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -3004,6 +3043,60 @@
           </decisionNode>
         </nodes>
       </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="96f605e8-21c1-452a-8121-dca955dda3b8"
+        name="Regsiter as member"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="8996a286-4c58-42d2-a619-2c938a27900c">
+            <useCaseMoniker
+              Id="d205dded-aa6c-44c1-b8b6-4b3318eebcd5"
+              LastKnownName="Enter user information"
+              LastKnownLocation="ModelingProject1.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d205dded-aa6c-44c1-b8b6-4b3318eebcd5"
+        name="Enter user information"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="fb7abed8-735e-4186-9578-339f2e385e86">
+            <useCaseMoniker
+              Id="9e90c859-3a11-4302-b312-a1dde0d5fe5f"
+              LastKnownName="Saving the data to database"
+              LastKnownLocation="ModelingProject1.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="e9af2f62-b7a0-401a-a555-be4b0a487dfc"
+            LastKnownName="Frontend"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9e90c859-3a11-4302-b312-a1dde0d5fe5f"
+        name="Saving the data to database"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="e5750233-cbd4-4d0d-9955-db151b05b3ed"
+            LastKnownName="Backend"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
