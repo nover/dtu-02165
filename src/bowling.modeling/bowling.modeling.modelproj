@@ -40,25 +40,25 @@
       <SubType>Content</SubType>
       <DependentUpon>CreateReservation.activitydiagram</DependentUpon>
     </Content>
-    <Content Include="Graph1.dgml">
+    <Content Include="exampleCustomDiagram.dgml">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\Package_1356.uml">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UMLComponentDiagram1.componentdiagram">
+    <Content Include="exampleUMLComponentDiagram.componentdiagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UMLComponentDiagram1.componentdiagram.layout">
+    <Content Include="exampleUMLComponentDiagram.componentdiagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>UMLComponentDiagram1.componentdiagram</DependentUpon>
+      <DependentUpon>exampleUMLComponentDiagram.componentdiagram</DependentUpon>
     </Content>
-    <Content Include="UMLSequenceDiagram1.sequencediagram">
+    <Content Include="exampleSequenceDiagram.sequencediagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UMLSequenceDiagram1.sequencediagram.layout">
+    <Content Include="exampleSequenceDiagram.sequencediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>UMLSequenceDiagram1.sequencediagram</DependentUpon>
+      <DependentUpon>exampleSequenceDiagram.sequencediagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="GurliMargrethe.usecasediagram">
@@ -79,16 +79,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Validate Include="LayerDiagram1.layerdiagram">
+    <Validate Include="exampleLayerDiagram.layerdiagram">
       <SubType>Content</SubType>
     </Validate>
-    <Validate Include="LayerDiagram1.layerdiagram.layout">
+    <Validate Include="exampleLayerDiagram.layerdiagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>LayerDiagram1.layerdiagram</DependentUpon>
+      <DependentUpon>exampleLayerDiagram.layerdiagram</DependentUpon>
     </Validate>
-    <Validate Include="LayerDiagram1.layerdiagram.suppressions">
+    <Validate Include="exampleLayerDiagram.layerdiagram.suppressions">
       <SubType>Content</SubType>
-      <DependentUpon>LayerDiagram1.layerdiagram</DependentUpon>
+      <DependentUpon>exampleLayerDiagram.layerdiagram</DependentUpon>
     </Validate>
     <Validate Include="SystemArchitecture.layerdiagram">
       <SubType>Content</SubType>
