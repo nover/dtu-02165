@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace bowling.scheduling
 {
-    public static class WearData
+    public static class LaneWearData
     {
         private static List<int> wear = new List<int>();
 

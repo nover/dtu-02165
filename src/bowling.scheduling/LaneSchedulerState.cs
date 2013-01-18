@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace bowling.scheduling
 {
-    public class State
+    public class LaneSchedulerState
     {
         int[,] state;
         public int numberOfLanes;
         public int numberOfTimeSlots;
         double[] weight;
 
-        public State(int numberOfLanes, int numberOfTimeSlots, List<Reservation> reservations)
+        public LaneSchedulerState(int numberOfLanes, int numberOfTimeSlots, List<LaneSchedulerReservation> reservations)
         {
             this.numberOfLanes = numberOfLanes;
             this.numberOfTimeSlots = numberOfTimeSlots;
             this.state = new int[numberOfTimeSlots, numberOfLanes];
             this.weight = new double[numberOfTimeSlots];
 
-            foreach (Reservation reservation in reservations)
+            foreach (LaneSchedulerReservation reservation in reservations)
             {
                 for (int i = reservation.startTimeSlot; i < reservation.startTimeSlot + reservation.numTimeSlots; i++)
                 {
@@ -63,7 +63,7 @@ namespace bowling.scheduling
             }
         }
 
-        public bool IsPossible(Reservation reservation)
+        public bool IsPossible(LaneSchedulerReservation reservation)
         {
             for (int i = reservation.startTimeSlot; i < reservation.numTimeSlots + reservation.startTimeSlot; i++)
             {
@@ -120,7 +120,7 @@ namespace bowling.scheduling
                 weight += 1.0f;
             }
             // Take wear and tear into account. Use the reciprocal of the combined wear values for all used lanes, to ensure the combined lowest get the highest value.
-            int wear = WearData.GetWearForLanes(lane, numLanes);
+            int wear = LaneWearData.GetWearForLanes(lane, numLanes);
             if (wear == 0)
             {
                 wear = 1;
@@ -225,7 +225,7 @@ namespace bowling.scheduling
             return builder.ToString();
         }
 
-        public double GetReservationWeight(Reservation reservation)
+        public double GetReservationWeight(LaneSchedulerReservation reservation)
         {
             double weight = 0.0f;
 
@@ -250,7 +250,7 @@ namespace bowling.scheduling
             return builder.ToString();
         }
 
-        public String ReservationRepr(Reservation reservation)
+        public String ReservationRepr(LaneSchedulerReservation reservation)
         {
             StringBuilder builder = new StringBuilder();
             builder.Append(reservation.id);
@@ -276,9 +276,9 @@ namespace bowling.scheduling
             return builder.ToString();
         }
 
-        public List<State> CutInPieces(Reservation reservation)
+        public List<LaneSchedulerState> CutInPieces(LaneSchedulerReservation reservation)
         {
-            List<State> stateList = new List<State>();
+            List<LaneSchedulerState> stateList = new List<LaneSchedulerState>();
 
             // detect cutting lines
             // find cutting line for upper part
@@ -319,17 +319,17 @@ namespace bowling.scheduling
             }
 
             // do the cutting
-            State stateUpper = new State(this.numberOfLanes, this.numberOfTimeSlots, new List<Reservation>());
+            LaneSchedulerState stateUpper = new LaneSchedulerState(this.numberOfLanes, this.numberOfTimeSlots, new List<LaneSchedulerReservation>());
             stateUpper.weight = this.weight;
             stateUpper.weight = this.weight;
             stateUpper.state = new int[numberOfTimeSlots, numberOfLanes];
 
-            State stateMiddle = new State(this.numberOfLanes, this.numberOfTimeSlots, new List<Reservation>());
+            LaneSchedulerState stateMiddle = new LaneSchedulerState(this.numberOfLanes, this.numberOfTimeSlots, new List<LaneSchedulerReservation>());
             stateMiddle.weight = this.weight;
             stateMiddle.weight = this.weight;
             stateMiddle.state = new int[numberOfTimeSlots, numberOfLanes];
 
-            State stateLower = new State(this.numberOfLanes, this.numberOfTimeSlots, new List<Reservation>());
+            LaneSchedulerState stateLower = new LaneSchedulerState(this.numberOfLanes, this.numberOfTimeSlots, new List<LaneSchedulerReservation>());
             stateLower.weight = this.weight;
             stateLower.weight = this.weight;
             stateLower.state = new int[numberOfTimeSlots, numberOfLanes];

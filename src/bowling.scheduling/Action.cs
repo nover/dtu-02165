@@ -14,9 +14,9 @@ namespace bowling.scheduling
         public int numTimeSlots;
         public double weight;
 
-        public Reservation reservation;
+        public LaneSchedulerReservation reservation;
 
-        public Action(int leftmostLane, Reservation reservation, double weight)
+        public Action(int leftmostLane, LaneSchedulerReservation reservation, double weight)
         {
             this.leftmostLane = leftmostLane;
             this.lowestTimeSlot = reservation.startTimeSlot;

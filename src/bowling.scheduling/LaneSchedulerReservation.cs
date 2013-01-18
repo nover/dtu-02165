@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace bowling.scheduling
 {
-    public class Reservation
+    public class LaneSchedulerReservation
     {
         public int id;
         public int numLanes;
         public int numTimeSlots;
         public int startTimeSlot;
 
-        public Reservation(int id, int numLanes, int numTimeSlots, int startTimeSlot)
+        public LaneSchedulerReservation(int id, int numLanes, int numTimeSlots, int startTimeSlot)
         {
             this.id = id;
             this.numLanes = numLanes;

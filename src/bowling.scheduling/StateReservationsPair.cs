@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace bowling.scheduling
 {
-    public class StateReservationsPair {
-        public State state;
-        public List<Reservation> reservations;
+    public class LaneSchedulerStateReservationsPair {
+        public LaneSchedulerState state;
+        public List<LaneSchedulerReservation> reservations;
 
-        public StateReservationsPair(State state, List<Reservation> reservations) {
+        public LaneSchedulerStateReservationsPair(LaneSchedulerState state, List<LaneSchedulerReservation> reservations) {
             this.state = state;
             this.reservations = reservations;
         }

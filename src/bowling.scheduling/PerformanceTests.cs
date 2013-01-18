@@ -12,13 +12,13 @@ namespace bowling.scheduling
         public static bool Test_n_reservations(int numberOfLanes, int numberOfTimeSlots, int numberOfVisitors, int runLimit)
         {
             Debug.WriteLine("Testing scheduling of " + numberOfVisitors + " visitors in " + numberOfLanes + " lanes and " + numberOfTimeSlots + " timeslots");
-            WearData.Populate(numberOfLanes);
-            List<Reservation> reservations = new List<Reservation>();
+            LaneWearData.Populate(numberOfLanes);
+            List<LaneSchedulerReservation> reservations = new List<LaneSchedulerReservation>();
             // Reservation(int id, int numLanes, int numTimeSlots, int startTimeSlot)
             bool run = true;
             //State emptyState = new State(numberOfLanes, numberOfTimeSlots, reservations);
-            State state = new State(numberOfLanes, numberOfTimeSlots, reservations);
-            State newState = null;
+            LaneSchedulerState state = new LaneSchedulerState(numberOfLanes, numberOfTimeSlots, reservations);
+            LaneSchedulerState newState = null;
             int i = 0;
             int visitors = 0;
             int runs = 0;
@@ -59,13 +59,13 @@ namespace bowling.scheduling
 
                 long time1 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
                 int id = i + 1;
-                Reservation reservation = new Reservation(id, numLanes, numTimeSlots, startTimeSlot);
+                LaneSchedulerReservation reservation = new LaneSchedulerReservation(id, numLanes, numTimeSlots, startTimeSlot);
                 Debug.WriteLine("Making reservation id: " + id + " of " + numLanes + " lanes for " + numTimeSlots + " hours, at timeslot " + startTimeSlot);
 
-                List<Reservation> newReservations = new List<Reservation>(reservations);
+                List<LaneSchedulerReservation> newReservations = new List<LaneSchedulerReservation>(reservations);
                 newReservations.Add(reservation);
                 //emptyState = new State(numberOfLanes, numberOfTimeSlots, newReservations);
-                StateReservationsPair result = Scheduler.Search(state, reservations, reservation);
+                LaneSchedulerStateReservationsPair result = LaneScheduler.Search(state, reservations, reservation);
                 newState = result.state;
 
                 long time2 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
