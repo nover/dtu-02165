@@ -75,14 +75,6 @@ namespace bowling.scheduling
 
         public static State RecursiveSearch(State state, List<Reservation> reservations, int depth, long timelimit, long time)
         {
-            /*if (depth > 30) {
-                List<State> statePieces = state.cutInPieces(reservations[0]);
-                Debug.WriteLine("State Pieces: ");
-                foreach (State s in statePieces)
-                {
-                    Debug.WriteLine(s.toString());
-                }
-            }*/
             if (time > timelimit)
             {
                 //Debug.WriteLine("TIME LIMIT EXCEEDED-1! Time was: " + time);
