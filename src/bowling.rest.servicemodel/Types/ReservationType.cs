@@ -11,7 +11,7 @@ namespace Bowling.Rest.Service.Model.Types
 	public class ReservationType
 	{
 		public DateTime PlayAt { get; set; }
-		public TimeSpan StartPlayingAt {get; set;}
+		public TimeSpan TimeOfDay {get; set;}
 		public int NumberOfPlayers { get; set; }
 		public int HowManyHours { get; set; }
 	}
