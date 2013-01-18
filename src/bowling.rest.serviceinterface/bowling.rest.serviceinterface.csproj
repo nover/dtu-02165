@@ -90,6 +90,7 @@
     <Compile Include="Validation\Helpers\EmailValidator.cs" />
     <Compile Include="Validation\Helpers\IEmailValidator.cs" />
     <Compile Include="Validation\MembersValidator.cs" />
+    <Compile Include="Validation\ReservationPossibleValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\bowling.entitiy\bowling.entitiy.csproj">

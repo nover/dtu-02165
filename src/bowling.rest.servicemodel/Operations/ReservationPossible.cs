@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bowling.Rest.Service.Model.Types;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace Bowling.Rest.Service.Model.Operations
 {
 	public class ReservationPossible
 	{
+		public ReservationType Reservation { get; set; }
 	}
 }

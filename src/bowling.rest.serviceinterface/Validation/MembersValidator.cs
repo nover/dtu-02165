@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bowling.Rest.Service.Interface.Validation
 {
-    class MembersValidator : AbstractValidator<Members>
+    public class MembersValidator : AbstractValidator<Members>
     {
         public IEmailValidator EmailValidator { get; set; }
 

@@ -12,6 +12,7 @@ namespace Bowling.Rest.Service.Interface.Services
 	{
 		public override object OnGet(ReservationPossible request)
 		{
+
 			throw new NotImplementedException();
 		}
 	}

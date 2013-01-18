@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bowling.Rest.Service.Interface.Validation
 {
-    interface IEmailValidator
+    public interface IEmailValidator
     {
         bool IsValid(string email);
     }
