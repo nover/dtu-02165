@@ -19,6 +19,7 @@ namespace Bowling.Entity.Domain.Mapping
             References<Member>(x => x.Member);
             Map(x => x.Status).CustomSqlType("string");
             Map(x => x.CreatedAt);
+            HasManyToMany(x => x.Lanes);
         }
     }
 }

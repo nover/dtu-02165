@@ -8,6 +8,9 @@ namespace Bowling.Entity.Domain
 {
     public class Lane : SharpLite.Domain.Entity
     {
-        public int Number { get; set; }
+        public virtual int Number { get; set; }
+        public virtual IList<Reservation> Reservations { get; set; }
+
+
     }
 }

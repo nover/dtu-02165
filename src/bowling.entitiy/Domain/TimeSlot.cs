@@ -8,7 +8,7 @@ namespace Bowling.Entity.Domain
 {
     public class TimeSlot : SharpLite.Domain.Entity
     {
-        public DateTime From { get; set; }
-        public DateTime To { get; set; }
+        public virtual  DateTime From { get; set; }
+        public virtual DateTime To { get; set; }
     }
 }

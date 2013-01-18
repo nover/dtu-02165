@@ -65,8 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Lane.cs" />
+    <Compile Include="Domain\Mapping\LaneMap.cs" />
     <Compile Include="Domain\Mapping\MemberMap.cs" />
     <Compile Include="Domain\Mapping\ReservationMap.cs" />
+    <Compile Include="Domain\Mapping\TimeSlotMap.cs" />
     <Compile Include="Domain\Member.cs" />
     <Compile Include="Domain\Reservation.cs" />
     <Compile Include="Domain\ReservationStatus.cs" />

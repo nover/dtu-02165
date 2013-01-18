@@ -16,6 +16,7 @@ namespace Bowling.Entity.Domain
         public virtual Member Member { get; set; }
         public virtual ReservationStatus Status { get; set; }
         public virtual DateTime CreatedAt { get; set; }
-
+        public virtual IList<Lane> Lanes { get; set; }
+ 
     }
 }
