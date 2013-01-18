@@ -79,7 +79,7 @@ namespace bowling.rest.tests.Services
 					PlayAt = DateTime.Now
 				};
 
-				reservation.AddLane((from y in this.lanes select y).First<Lane>());
+				reservation.AddLane(this.lanes[i]);
 				reservation.AddTimeSlot((from y in this.timeSlots select y).First<TimeSlot>());
 
 				this._session.Save(reservation);

@@ -12,7 +12,7 @@ namespace bowling.scheduling
 		public int NumberOfLanes { get; set; }
 		public int NumberOfTimeSlots { get; set; }
 		public int StartTimeSlot { get; set; }
-
+		
 		public LaneSchedulerReservation()
 		{
 
