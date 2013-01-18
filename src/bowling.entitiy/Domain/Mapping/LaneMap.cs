@@ -14,7 +14,7 @@ namespace Bowling.Entity.Domain.Mapping
         {
             Id(x => x.Id);
             Map(x => x.Number);
-            HasManyToMany(x => x.Reservations);
+            HasManyToMany(x => x.Reservations).Inverse();
 
         }
     }

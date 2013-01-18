@@ -150,12 +150,12 @@
               <associationHasOwnedEnds>
                 <memberEnd Id="fbe0e362-8cb1-4c81-a1a8-cc8af3b9b3f8" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
                   <lowerValueInternal>
-                    <literalString Id="22ffb9d3-f7d5-4a05-9eae-2442d7ac4b80" name="Lower" value="0">
+                    <literalString Id="22ffb9d3-f7d5-4a05-9eae-2442d7ac4b80" name="Lower" value="1">
                       <elementDefinition Id="fb01d289-c7c3-43d5-98b4-b6ce4ef6a3f3" />
                     </literalString>
                   </lowerValueInternal>
                   <upperValueInternal>
-                    <literalString Id="856c7064-dbd1-4ca6-bb0c-853fdc41b37c" name="Upper" value="1">
+                    <literalString Id="856c7064-dbd1-4ca6-bb0c-853fdc41b37c" name="Upper" value="*">
                       <elementDefinition Id="f3708958-992f-4ef4-8395-0bad658576a5" />
                     </literalString>
                   </upperValueInternal>
