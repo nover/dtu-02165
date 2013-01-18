@@ -34,12 +34,12 @@ namespace bowling.rest.tests.Services
 			this._sessionFactory = LocalSessionInitializer.Initialize();
 			this._session = this._sessionFactory.GetCurrentSession();
 			
-			new SchemaExport(_configuration).Execute(false, true, false);
+			new SchemaExport(_configuration).Execute(true, true, false);
 
 
 			// add some lanes and timeslots to the database
 			// there are timeslots from 1000 hours => 2300 hours
-			for (int i = 0; i < 10; i+=2)
+			for (int i = 0; i < 10; i++)
 			{
 				var timeSlot = new TimeSlot() { Start = TimeSpan.FromHours(10 + i), End = TimeSpan.FromHours(11 + i) };
 				this.timeSlots.Add(timeSlot);
