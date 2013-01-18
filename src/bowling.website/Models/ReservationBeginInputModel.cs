@@ -20,6 +20,7 @@ namespace Bowling.Web.CustomerSite.Models
         public TimeSpan StartPlayingAt { get; set; }
 
         [Required]
+        [DataType(DataType.Time)]
         public TimeSpan StopPlayingAt { get; set; }
     }
 }

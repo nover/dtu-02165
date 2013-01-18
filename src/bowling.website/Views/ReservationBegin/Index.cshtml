@@ -1,6 +1,28 @@
 ﻿@{
     ViewBag.Title = "Begin registration";
-    Layout = "~/Views/Shared/_BootstrapLayout.basic.cshtml";
 }
 
-<h2>Create new reservation</h2>
+@using BootstrapSupport
+@model Object
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset class="form-horizontal">
+        <legend>Create new reservation</legend>
+        @foreach (var property in Model.VisibleProperties())
+        {
+            @Html.BeginControlGroupFor(property.Name)
+                @Html.Label(property.Name.ToSeparatedWords(), new { @class = "control-label" })
+                <div class="controls">
+                    @Html.Editor(property.Name, new { @class = "input-xlarge" })
+                    @Html.ValidationMessage(property.Name, null, new { @class = "help-inline" })
+		        </div>
+            @Html.EndControlGroup()
+        }
+		<div class="form-actions">
+            @Html.ActionLink("Take me back",  "Index", null, new {@class = "btn "})
+            <button type="submit" class="btn btn-primary">Continue with reservation &raquo;</button>
+          </div>
+    </fieldset>
+}
+
