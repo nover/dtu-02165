@@ -9,6 +9,7 @@ namespace Bowling.Web.CustomerSite.Models
     public class ReservationBeginInputModel
     {
         [Required]
+        [Range(1, 24, ErrorMessage="Please enter a number between 1 and 24. If you are more persons, please contact sales for a package deal")]
         public int NumberOfPeople { get; set; }
 
         [Required]
@@ -20,7 +21,7 @@ namespace Bowling.Web.CustomerSite.Models
         public TimeSpan StartPlayingAt { get; set; }
 
         [Required]
-        [DataType(DataType.Time)]
-        public TimeSpan StopPlayingAt { get; set; }
+        [Range(1, 9, ErrorMessage = "Please enter a number between 1 and 9")]
+        public int HowManyHours { get; set; }
     }
 }
