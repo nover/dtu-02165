@@ -13,6 +13,18 @@ namespace bowling.scheduling
         public int numberOfTimeSlots;
         double[] weight;
 
+        public int[,] State
+        {
+            get
+            {
+                return this.state;
+            }
+            set
+            {
+                this.state = value;
+            }
+        }
+
         public LaneSchedulerState(int numberOfLanes, int numberOfTimeSlots, List<LaneSchedulerReservation> reservations)
         {
             this.numberOfLanes = numberOfLanes;
