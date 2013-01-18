@@ -8,6 +8,8 @@ using Bowling.Entity.Domain;
 using TemplateSrc.Init;
 using Microsoft.Practices.ServiceLocation;
 using SharpLite.NHibernateProvider;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace bowling.rest.tests.Services
 {
@@ -17,24 +19,35 @@ namespace bowling.rest.tests.Services
 		protected Configuration _configuration = null;
 		protected ISession _session = null;
 		protected ISessionFactory _sessionFactory = null;
+
+		protected List<Lane> lanes;
+		protected List<TimeSlot> timeSlots;
+
 		[TestInitialize]
 		public void TestInit()
 		{
+			this.lanes = new List<Lane>();
+			this.timeSlots = new List<TimeSlot>();
 			DependencyResolverInitializer.Initialize();
-			
-			//this._configuration = NHibernateInitializer.Initialize();
+
+			this._configuration = ServiceLocator.Current.GetInstance<Configuration>();
 			this._sessionFactory = LocalSessionInitializer.Initialize();
 			this._session = this._sessionFactory.GetCurrentSession();
 			
-			//new SchemaExport(_configuration).Execute(false, true, false);
+			new SchemaExport(_configuration).Execute(false, true, false);
 
 
 			// add some lanes and timeslots to the database
 			// there are timeslots from 1000 hours => 2300 hours
 			for (int i = 0; i < 10; i+=2)
 			{
-				_session.Save(new TimeSlot() { Start = TimeSpan.FromHours(10 + i), End = TimeSpan.FromHours(11 + i) });
-				_session.Save(new Lane() { Number = i + 1 });
+				var timeSlot = new TimeSlot() { Start = TimeSpan.FromHours(10 + i), End = TimeSpan.FromHours(11 + i) };
+				this.timeSlots.Add(timeSlot);
+				_session.Save(timeSlot);
+
+				var lane = new Lane() { Number = i + 1 };
+				this.lanes.Add(lane);
+				_session.Save(lane);
 			}
 		}
 

@@ -9,6 +9,7 @@ using ServiceStack.ServiceClient.Web;
 using System.Web.Http;
 using Microsoft.Practices.ServiceLocation;
 using StructureMap.ServiceLocatorAdapter;
+using NHibernate.Cfg;
 
 namespace TemplateSrc.Init
 {
@@ -16,14 +17,16 @@ namespace TemplateSrc.Init
 	{
 		public static void Initialize()
 		{
+			var configuration = NHibernateInitializer.Initialize();
 			_container = new Container(x =>
 			{
 				x.For<ISessionFactory>()
 					.Singleton()
-					.Use(() => NHibernateInitializer.Initialize().BuildSessionFactory());
+					.Use(() => configuration.BuildSessionFactory());
 				x.For<IEntityDuplicateChecker>().Use<EntityDuplicateChecker>();
 				x.For(typeof(IRepository<>)).Use(typeof(Repository<>));
 				x.For(typeof(IRepositoryWithTypedId<,>)).Use(typeof(RepositoryWithTypedId<,>));
+				x.For(typeof(Configuration)).Use(configuration);
 			});
 
 			//IDependencyResolver drStructureMap = new StructureMapDependencyResolver(_container);
