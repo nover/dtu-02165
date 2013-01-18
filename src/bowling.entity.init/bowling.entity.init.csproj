@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DependencyResolverInitializer.cs" />
+    <Compile Include="LocalSessionInitalizer.cs" />
     <Compile Include="StructureMapDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
