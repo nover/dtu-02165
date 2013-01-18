@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.scheduling.unittest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.scheduling", "bowling.scheduling\bowling.scheduling.csproj", "{EFB72D51-8681-4AF0-84DA-7566A22F8181}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scheduling", "Scheduling", "{8EC8848B-A5E0-4629-9432-C6E172E2FE11}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 14
@@ -86,9 +88,11 @@ Global
 		SccProjectName11 = bowling.modeling
 		SccLocalPath11 = bowling.modeling
 		SccProjectUniqueName12 = bowling.scheduling.unittests\\bowling.scheduling.unittests.csproj
+		SccProjectTopLevelParentUniqueName12 = bowling.system.sln
 		SccProjectName12 = bowling.scheduling.unittests
 		SccLocalPath12 = bowling.scheduling.unittests
 		SccProjectUniqueName13 = bowling.scheduling\\bowling.scheduling.csproj
+		SccProjectTopLevelParentUniqueName13 = bowling.system.sln
 		SccProjectName13 = bowling.scheduling
 		SccLocalPath13 = bowling.scheduling
 	EndGlobalSection
@@ -165,5 +169,7 @@ Global
 		{99DE07D0-225D-465D-AF65-581BB65C2459} = {4AFC6CED-BD41-4D76-920E-E646D2A9C930}
 		{ABAC7F45-2523-4010-9417-410F9494D2F1} = {4AFC6CED-BD41-4D76-920E-E646D2A9C930}
 		{F96C74E5-26F9-471C-B1D7-0BE382C3C5DB} = {A37E736D-0F24-454D-9165-AEB0015FBE49}
+		{EFB72D51-8681-4AF0-84DA-7566A22F8181} = {8EC8848B-A5E0-4629-9432-C6E172E2FE11}
+		{49DF412E-FB20-4B1A-A4FB-5A7C82B98454} = {8EC8848B-A5E0-4629-9432-C6E172E2FE11}
 	EndGlobalSection
 EndGlobal
