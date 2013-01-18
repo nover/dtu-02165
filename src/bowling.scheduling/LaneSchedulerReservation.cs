@@ -8,17 +8,21 @@ namespace bowling.scheduling
 {
     public class LaneSchedulerReservation
     {
-        public int id;
-        public int numLanes;
-        public int numTimeSlots;
-        public int startTimeSlot;
+        public int Id {get; set;}
+		public int NumberOfLanes { get; set; }
+		public int NumberOfTimeSlots { get; set; }
+		public int StartTimeSlot { get; set; }
 
+		public LaneSchedulerReservation()
+		{
+
+		}
         public LaneSchedulerReservation(int id, int numLanes, int numTimeSlots, int startTimeSlot)
         {
-            this.id = id;
-            this.numLanes = numLanes;
-            this.numTimeSlots = numTimeSlots;
-            this.startTimeSlot = startTimeSlot;
+            this.Id = id;
+            this.NumberOfLanes = numLanes;
+            this.NumberOfTimeSlots = numTimeSlots;
+            this.StartTimeSlot = startTimeSlot;
         }
     }
 }

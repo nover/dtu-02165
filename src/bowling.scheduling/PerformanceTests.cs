@@ -87,7 +87,7 @@ namespace bowling.scheduling
                     Debug.WriteLine("    It failed. Alternative reservations are:");
                     for (int j = 0; j < result.reservations.Count; j++)
                     {
-                        Debug.WriteLine("        Reservation for " + result.reservations[j].numLanes + " lanes at slot: " + result.reservations[j].startTimeSlot + " for " + result.reservations[j].numTimeSlots + " hours");
+                        Debug.WriteLine("        Reservation for " + result.reservations[j].NumberOfLanes + " lanes at slot: " + result.reservations[j].StartTimeSlot + " for " + result.reservations[j].NumberOfTimeSlots + " hours");
                     }
                 }
                 if (visitors > numberOfVisitors)

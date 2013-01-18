@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace bowling.scheduling
 {
-    public class Action
+    public class LaneSchedulerAction
     {
         public int leftmostLane;
         public int lowestTimeSlot;
@@ -16,14 +16,14 @@ namespace bowling.scheduling
 
         public LaneSchedulerReservation reservation;
 
-        public Action(int leftmostLane, LaneSchedulerReservation reservation, double weight)
+        public LaneSchedulerAction(int leftmostLane, LaneSchedulerReservation reservation, double weight)
         {
             this.leftmostLane = leftmostLane;
-            this.lowestTimeSlot = reservation.startTimeSlot;
+            this.lowestTimeSlot = reservation.StartTimeSlot;
             this.reservation = reservation;
             this.weight = weight;
-            this.numLanes = reservation.numLanes;
-            this.numTimeSlots = reservation.numTimeSlots;
+            this.numLanes = reservation.NumberOfLanes;
+            this.numTimeSlots = reservation.NumberOfTimeSlots;
         }
     }
 }

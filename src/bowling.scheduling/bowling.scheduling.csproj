@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LaneSchedulerReservation.cs" />
-    <Compile Include="Action.cs" />
+    <Compile Include="LaneSchedulerAction.cs" />
     <Compile Include="LaneSchedulerState.cs" />
     <Compile Include="AppWeightPair.cs" />
     <Compile Include="WearData.cs" />

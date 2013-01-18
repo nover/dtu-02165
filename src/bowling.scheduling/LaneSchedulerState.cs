@@ -22,9 +22,9 @@ namespace bowling.scheduling
 
             foreach (LaneSchedulerReservation reservation in reservations)
             {
-                for (int i = reservation.startTimeSlot; i < reservation.startTimeSlot + reservation.numTimeSlots; i++)
+                for (int i = reservation.StartTimeSlot; i < reservation.StartTimeSlot + reservation.NumberOfTimeSlots; i++)
                 {
-                    for (int j = 0; j < reservation.numLanes; j++)
+                    for (int j = 0; j < reservation.NumberOfLanes; j++)
                     {
                         if (i < numberOfTimeSlots)
                         {
@@ -35,7 +35,7 @@ namespace bowling.scheduling
             }
         }
 
-        public void Apply(Action action)
+        public void Apply(LaneSchedulerAction action)
         {
             for (int i = action.lowestTimeSlot; i < action.lowestTimeSlot + action.numTimeSlots; i++)
             {
@@ -43,13 +43,13 @@ namespace bowling.scheduling
                 {
                     if (i < this.numberOfTimeSlots && j < this.numberOfLanes)
                     {
-                        this.state[i, j] = action.reservation.id;
+                        this.state[i, j] = action.reservation.Id;
                     }
                 }
             }
         }
 
-        public void Unapply(Action action)
+        public void Unapply(LaneSchedulerAction action)
         {
             for (int i = action.lowestTimeSlot; i < action.lowestTimeSlot + action.numTimeSlots; i++)
             {
@@ -65,7 +65,7 @@ namespace bowling.scheduling
 
         public bool IsPossible(LaneSchedulerReservation reservation)
         {
-            for (int i = reservation.startTimeSlot; i < reservation.numTimeSlots + reservation.startTimeSlot; i++)
+            for (int i = reservation.StartTimeSlot; i < reservation.NumberOfTimeSlots + reservation.StartTimeSlot; i++)
             {
                 if (i >= this.numberOfTimeSlots)
                 {
@@ -79,7 +79,7 @@ namespace bowling.scheduling
                         numFreeCells++;
                     }
                 }
-                if (numFreeCells < reservation.numLanes)
+                if (numFreeCells < reservation.NumberOfLanes)
                 {
                     return false;
                 }
@@ -229,11 +229,11 @@ namespace bowling.scheduling
         {
             double weight = 0.0f;
 
-            for (int i = reservation.startTimeSlot; i < reservation.startTimeSlot + reservation.numTimeSlots; i++)
+            for (int i = reservation.StartTimeSlot; i < reservation.StartTimeSlot + reservation.NumberOfTimeSlots; i++)
             {
                 weight = Math.Max(weight, this.GetCellWeight(i));
             }
-            weight += 1 / reservation.numLanes;
+            weight += 1 / reservation.NumberOfLanes;
             return weight;
         }
 
@@ -253,15 +253,15 @@ namespace bowling.scheduling
         public String ReservationRepr(LaneSchedulerReservation reservation)
         {
             StringBuilder builder = new StringBuilder();
-            builder.Append(reservation.id);
+            builder.Append(reservation.Id);
             builder.Append(",");
-            builder.Append(reservation.numLanes);
+            builder.Append(reservation.NumberOfLanes);
             builder.Append(",");
-            builder.Append(reservation.numTimeSlots);
+            builder.Append(reservation.NumberOfTimeSlots);
             builder.Append(",");
-            builder.Append(reservation.startTimeSlot);
+            builder.Append(reservation.StartTimeSlot);
             builder.Append("->");
-            for (int i = reservation.startTimeSlot - reservation.numTimeSlots; i < reservation.startTimeSlot + reservation.numTimeSlots; i++)
+            for (int i = reservation.StartTimeSlot - reservation.NumberOfTimeSlots; i < reservation.StartTimeSlot + reservation.NumberOfTimeSlots; i++)
             {
                 if (i < this.numberOfTimeSlots && i >= 0)
                 {
@@ -283,7 +283,7 @@ namespace bowling.scheduling
             // detect cutting lines
             // find cutting line for upper part
             int upperCut = -1;
-            for (int i = reservation.startTimeSlot + reservation.numTimeSlots; i < this.numberOfTimeSlots; i++)
+            for (int i = reservation.StartTimeSlot + reservation.NumberOfTimeSlots; i < this.numberOfTimeSlots; i++)
             {
                 bool foundAny = false;
                 for (int j = 0; j < this.numberOfLanes; j++)
@@ -301,7 +301,7 @@ namespace bowling.scheduling
             }
             // find cutting line for lower part
             int lowerCut = -1;
-            for (int i = reservation.startTimeSlot - 1; i >= 0; i--)
+            for (int i = reservation.StartTimeSlot - 1; i >= 0; i--)
             {
                 bool foundAny = false;
                 for (int j = 0; j < this.numberOfLanes; j++)
