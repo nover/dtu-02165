@@ -10,6 +10,7 @@ using Microsoft.Practices.ServiceLocation;
 using SharpLite.NHibernateProvider;
 using System.Collections.Generic;
 using System.Linq;
+using Bowling.Rest.Service.Interface;
 
 namespace bowling.rest.tests.Services
 {
@@ -26,6 +27,7 @@ namespace bowling.rest.tests.Services
 		[TestInitialize]
 		public void TestInit()
 		{
+			AutomapperConfig.CreateMapping();
 			this.lanes = new List<Lane>();
 			this.timeSlots = new List<TimeSlot>();
 			DependencyResolverInitializer.Initialize();

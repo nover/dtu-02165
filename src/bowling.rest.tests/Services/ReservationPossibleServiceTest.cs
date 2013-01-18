@@ -99,6 +99,11 @@ namespace bowling.rest.tests.Services
 
 			ReservationPossibleResponse response = service.OnGet(request) as ReservationPossibleResponse;
 			Assert.That(response.IsPossible, Is.False);
+			Assert.That(response.Suggestions.Count, Is.EqualTo(1));
+			Assert.That(response.Suggestions[0].HowManyHours, Is.EqualTo(request.Reservation.HowManyHours));
+			Assert.That(response.Suggestions[0].NumberOfPlayers, Is.EqualTo(request.Reservation.NumberOfPlayers));
+			Assert.That(response.Suggestions[0].PlayAt, Is.EqualTo(request.Reservation.PlayAt));
+			Assert.That(response.Suggestions[0].TimeOfDay, Is.EqualTo(request.Reservation.TimeOfDay));
 
 		}
 	}

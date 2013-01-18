@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using Bowling.Entity.Queries;
 using bowling.scheduling;
 using Bowling.Rest.Service.Interface.Helper;
+using AutoMapper;
+using Bowling.Rest.Service.Model.Types;
 
 namespace Bowling.Rest.Service.Interface.Services
 {
@@ -36,8 +38,8 @@ namespace Bowling.Rest.Service.Interface.Services
 
 			// convert these into a format the scheduler understands...
 			List<LaneSchedulerReservation> schedulerReservations;
-			var converter = ServiceLocator.Current.GetInstance<ReservationsToLaneSchedulerState>();
-			var schedulerState = converter.Convert(reservations.ToList(), out schedulerReservations);
+			var convertToState = ServiceLocator.Current.GetInstance<ReservationsToLaneSchedulerState>();
+			var schedulerState = convertToState.Convert(reservations.ToList(), out schedulerReservations);
 			
 			LaneSchedulerReservation newReservation = new LaneSchedulerReservation() {
 				Id = -1,
@@ -56,8 +58,22 @@ namespace Bowling.Rest.Service.Interface.Services
 
 			// The scheduler attempts to place the reservation +/- one time slot in the schedule if it's full, 
 			// so we have to try and handle that
+			Reservation theReservation;
+			var convertToReservation = ServiceLocator.Current.GetInstance<LaneSchedulerStateToReservations>();
 
-			response.IsPossible = true;
+			convertToReservation.Convert(newState.state, out theReservation);
+			// now that we have the actual reservation, we can check 
+			// the added time-slots against the requested timeslot
+			if (theReservation.TimeSlots[0].Start != startTimeSlot.Start)
+			{
+				response.IsPossible = false;
+				response.Suggestions.Add(Mapper.Map<Reservation, ReservationType>(theReservation));
+			}
+			else
+			{
+				response.IsPossible = true;
+			}
+			
 
 			return response;
 		}
