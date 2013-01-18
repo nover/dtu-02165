@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
   dslVersion="1.0.0.0"
   Id="ea48f2fd-be87-4931-a086-78a8f56eb5a3"
   name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -1099,11 +1099,11 @@
             isLeaf="false">
             <flowNodeTargets>
               <controlFlow
-                Id="b7b8efb0-09f9-4206-b8cf-2c17d5f5e66a"
+                Id="90ea9c03-98e0-4c83-93cc-f0cce4c8f31a"
                 isLeaf="false">
-                <activityFinalNodeMoniker
-                  Id="5583e494-b8ab-4788-9ca0-adb85436136a"
-                  LastKnownName="ActivityFinal1"
+                <decisionNodeMoniker
+                  Id="aca9a82d-00ab-4ada-97b8-867c0e6dfc6d"
+                  LastKnownName="Decision3"
                   LastKnownLocation="ModelingProject1.uml" />
               </controlFlow>
             </flowNodeTargets>
@@ -1112,6 +1112,44 @@
             Id="5583e494-b8ab-4788-9ca0-adb85436136a"
             name="ActivityFinal1"
             isLeaf="false" />
+          <opaqueAction
+            Id="f4fb2db9-077f-4fd7-8c09-808c9ae02011"
+            name="Optionally: Enter player information"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ab27dcc3-7c8b-41f8-87df-1d670c6b9c32"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="5583e494-b8ab-4788-9ca0-adb85436136a"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="aca9a82d-00ab-4ada-97b8-867c0e6dfc6d"
+            name="Decision3"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="20cae5b2-a920-4805-a41d-d82f3fceb7e0"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="f4fb2db9-077f-4fd7-8c09-808c9ae02011"
+                  LastKnownName="Optionally: Enter player information"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="de01b124-6c6a-4bd5-805a-2b714809afa5"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="5583e494-b8ab-4788-9ca0-adb85436136a"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
         </nodes>
       </activity>
     </packageHasNamedElement>
