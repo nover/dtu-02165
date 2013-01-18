@@ -1,0 +1,18 @@
+﻿using ServiceStack.ServiceHost;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bowling.Rest.Service.Model.Types
+{
+	[Route("/reservation/possible")]
+	public class ReservationType
+	{
+		public DateTime PlayAt { get; set; }
+		public TimeSpan StartPlayingAt {get; set;}
+		public int NumberOfPlayers { get; set; }
+		public int HowManyHours { get; set; }
+	}
+}
