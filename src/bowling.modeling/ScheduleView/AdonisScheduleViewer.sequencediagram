@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm12="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="b8322a9d-d9b2-4dfc-b0ab-dd5acafe0bdf" name="AdonisScheduleViewer" linkedPackageId="087890a3-718d-4fa3-bc87-fc7376dcd281" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="4c90f9ec-916c-4fb6-86d3-bb262e031258">
-      <profileInstance Id="dc7f5961-2b3d-4822-8461-4de53f3f0bb8" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="e3ad5ce0-2887-4ac8-b6be-a4c1f5d68a24">
-      <profileInstance Id="72f084aa-7ad0-4104-8613-e309541697a5" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="b8322a9d-d9b2-4dfc-b0ab-dd5acafe0bdf" name="AdonisScheduleViewer" linkedPackageId="087890a3-718d-4fa3-bc87-fc7376dcd281" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <interaction Id="30c43e0f-aaa8-4eea-acf9-fe7c39b40db1" name="AdonisScheduleViewer" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
@@ -151,16 +137,16 @@
               <lifelineMoniker Id="c052252e-4c61-4ad0-b480-d41bbcfa2c0e" LastKnownName="API" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="1a6f4c88-da5b-461d-8f60-144965981967" name="MessageOccurrenceSpecification14">
-            <elementDefinition Id="331fdc2a-64fc-4205-8930-2e24fef8dc8e" />
-            <covered>
-              <lifelineMoniker Id="c052252e-4c61-4ad0-b480-d41bbcfa2c0e" LastKnownName="API" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="acd8fe56-23fc-435f-b77d-b0445e8eaff9" name="MessageOccurrenceSpecification13">
             <elementDefinition Id="518dc6f8-af34-49c4-bd3a-19c18c675808" />
             <covered>
               <lifelineMoniker Id="a272647f-e1fa-4572-908a-4591b471b035" LastKnownName="Frontend" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="1a6f4c88-da5b-461d-8f60-144965981967" name="MessageOccurrenceSpecification14">
+            <elementDefinition Id="331fdc2a-64fc-4205-8930-2e24fef8dc8e" />
+            <covered>
+              <lifelineMoniker Id="c052252e-4c61-4ad0-b480-d41bbcfa2c0e" LastKnownName="API" />
             </covered>
           </messageOccurrenceSpecification>
           <behaviorExecutionSpecification Id="a2ed8f4b-7618-4cc0-8229-7971221ed195" name="BehaviorExecutionSpecification5">
@@ -455,5 +441,19 @@
   </packagedElements>
   <package Id="087890a3-718d-4fa3-bc87-fc7376dcd281" name="ModelingProject1">
     <elementDefinition Id="ea48f2fd-be87-4931-a086-78a8f56eb5a3" />
+    <profileInstances>
+      <packageHasProfileInstances Id="4c90f9ec-916c-4fb6-86d3-bb262e031258">
+        <profileInstance Id="dc7f5961-2b3d-4822-8461-4de53f3f0bb8" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="e3ad5ce0-2887-4ac8-b6be-a4c1f5d68a24">
+        <profileInstance Id="72f084aa-7ad0-4104-8613-e309541697a5" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </SequenceDesignerModel>
