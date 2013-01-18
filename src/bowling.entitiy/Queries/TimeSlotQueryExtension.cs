@@ -24,7 +24,7 @@ namespace Bowling.Entity.Queries
 		public static TimeSlot FindTimeSlotStartingAt(this IQueryable<TimeSlot> slots, TimeSpan timeOfDay)
 		{
 			return (from y in slots
-					where y.Start.Hours == timeOfDay.Hours
+					where y.Start == timeOfDay
 					select y).SingleOrDefault();
 		}
 	}

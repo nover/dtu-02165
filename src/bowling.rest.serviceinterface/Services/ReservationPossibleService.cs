@@ -34,7 +34,10 @@ namespace Bowling.Rest.Service.Interface.Services
 			var reservations = reservationRepos.GetAll().FindReservationsByDate(request.Reservation.PlayAt);
 
 			// convert these into a format the scheduler understands...
-			var schedulerReservations = (from y in reservations
+			var schedulerReservations = new List<LaneSchedulerReservation>();
+			if (reservations.Count() != 0)
+			{
+				schedulerReservations = (from y in reservations
 										 select new LaneSchedulerReservation()
 										 {
 											 Id = y.Id,
@@ -42,6 +45,8 @@ namespace Bowling.Rest.Service.Interface.Services
 											 NumberOfTimeSlots = y.TimeSlots.Count,
 											 StartTimeSlot = y.TimeSlots.First().Id
 										 }).ToList();
+			}
+
 			// construct state
 			LaneSchedulerState schedulerState = new LaneSchedulerState(
 				laneRepos.GetAll().Count(), 
