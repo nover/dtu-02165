@@ -18,6 +18,7 @@ namespace Bowling.Entity.Domain
         public virtual DateTime CreatedAt { get; set; }
 
         private IList<Lane> lanes = new List<Lane>();
+        private IList<TimeSlot> timeSlots = new List<TimeSlot>();
 
         public virtual IList<Lane> Lanes
         {
@@ -31,9 +32,30 @@ namespace Bowling.Entity.Domain
             }
         }
 
+
+        public virtual IList<TimeSlot> TimeSlots
+        {
+            get
+            {
+                return this.timeSlots;
+            }
+            protected set
+            {
+                this.timeSlots = value;
+            }
+        }
+
+
         public virtual void AddLane(Lane lane)
         {
             Lanes.Add(lane);
         }
+
+
+        public virtual void AddTimeSlot(TimeSlot timeSlot)
+        {
+            TimeSlots.Add(timeSlot);
+        }
+    
     }
 }

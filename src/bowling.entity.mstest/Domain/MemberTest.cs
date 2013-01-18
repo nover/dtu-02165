@@ -1,4 +1,4 @@
-﻿using bowling.entity.mstest;
+﻿    using bowling.entity.mstest;
 using FluentNHibernate;
 using FluentNHibernate.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

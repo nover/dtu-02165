@@ -76,9 +76,11 @@
     <Compile Include="DateTimeEqualityComparer.cs" />
     <Compile Include="Domain\MemberTest.cs" />
     <Compile Include="Domain\ReservationTest.cs" />
+    <Compile Include="Domain\LaneTest.cs" />
     <Compile Include="NHibernateProvider\MappingIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EntityTestBase.cs" />
+    <Compile Include="Domain\TimeSlotTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

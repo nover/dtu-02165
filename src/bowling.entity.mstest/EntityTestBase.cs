@@ -41,5 +41,11 @@ namespace bowling.entity.mstest
             this._sessionFactory.Close();
             this._sessionFactory.Dispose();
         }
+
+        [ClassCleanup]
+        public void ClassCleanup()
+        {
+            this.TestCleanup();
+        }
     }
 }

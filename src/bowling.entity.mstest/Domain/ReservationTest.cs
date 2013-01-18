@@ -11,6 +11,36 @@ namespace bowling.entity.mstest.Domain
         [TestMethod]
         public void TestReservationCRUD()
         {
+            var theLanes = new Lane[] { 
+                        new Lane { 
+                            Number = 1 }, 
+                        new Lane { 
+                            Number = 2 }, 
+                        new Lane { 
+                            Number = 3 } 
+                        };
+            var theSlots = new TimeSlot[] { 
+                        new TimeSlot { 
+                            Start = new TimeSpan(13, 0, 0),
+                            End = new TimeSpan(14, 0,0) }, 
+                        new TimeSlot { 
+                            Start = new TimeSpan(14, 0, 0),
+                            End = new TimeSpan(15, 0,0) }, 
+                        new TimeSlot { 
+                            Start = new TimeSpan(15, 0, 0),
+                            End = new TimeSpan(16, 0,0)} 
+                        };
+
+            foreach (var lane in theLanes)
+            {
+                this._session.Save(lane);
+            }
+            foreach (var slot in theSlots)
+            {
+                this._session.Save(slot);
+            }
+
+
             new PersistenceSpecification<Reservation>(this._session)
               .CheckProperty(c => c.Id, 1)
               .CheckProperty(c => c.Name, "John Doe")
@@ -33,15 +63,13 @@ namespace bowling.entity.mstest.Domain
                     })
                .CheckComponentList(
                     x => x.Lanes, 
-                    new Lane[] { 
-                        new Lane { 
-                            Number = 1 }, 
-                        new Lane { 
-                            Number = 2 }, 
-                        new Lane { 
-                            Number = 3 } 
-                        },(r, l) => {
+                    theLanes,(r, l) => {
                             r.AddLane(l);
+                        })
+              .CheckComponentList(
+                    x => x.TimeSlots,
+                   theSlots, (r, t) => {
+                            r.AddTimeSlot(t);
                         })
               .VerifyTheMappings();
         }
