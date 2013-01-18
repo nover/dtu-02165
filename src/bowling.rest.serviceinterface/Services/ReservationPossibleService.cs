@@ -37,13 +37,13 @@ namespace Bowling.Rest.Service.Interface.Services
 			var schedulerReservations = new List<LaneSchedulerReservation>();
 			if (reservations.Count() != 0)
 			{
-				schedulerReservations = (from y in reservations
+				schedulerReservations = (from y in reservations.ToList()
 										 select new LaneSchedulerReservation()
 										 {
 											 Id = y.Id,
 											 NumberOfLanes = (int)Math.Ceiling(y.NumberOfPlayers / 6.0m),
 											 NumberOfTimeSlots = y.TimeSlots.Count,
-											 StartTimeSlot = y.TimeSlots.First().Id
+											 StartTimeSlot = y.TimeSlots[0].Id
 										 }).ToList();
 			}
 
