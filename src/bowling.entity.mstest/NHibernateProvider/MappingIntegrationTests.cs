@@ -4,6 +4,7 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace TemplateSrc.Tests.NHibernateProvider
 {
@@ -21,6 +22,35 @@ namespace TemplateSrc.Tests.NHibernateProvider
         public virtual void SetUp() {
             _configuration = NHibernateInitializer.Initialize();
             _sessionFactory = _configuration.BuildSessionFactory();
+        }
+
+        [TestCleanup]
+        public void TestCleanup()
+        {
+            try
+            {
+                var session = this._sessionFactory.GetCurrentSession();
+
+                if (session != null)
+                {
+                    if (session.Transaction.IsActive)
+                    {
+                        session.Transaction.Rollback();
+                    }
+                    session.Disconnect();
+                    session.Clear();
+                    session.Close();
+                    session.Dispose();
+                    session = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            this._sessionFactory.Close();
+            this._sessionFactory.Dispose();
         }
 
         [TestMethod]
