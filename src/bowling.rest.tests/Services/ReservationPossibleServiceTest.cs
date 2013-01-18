@@ -20,7 +20,7 @@ namespace bowling.rest.tests.Services
 
 
 			var request = new ReservationPossible() {
-				Reservation = new ReservationType() {
+				Reservation = new ReservationType(){ 
 					HowManyHours = 2,
 					NumberOfPlayers = 4,
 					PlayAt = DateTime.Now,

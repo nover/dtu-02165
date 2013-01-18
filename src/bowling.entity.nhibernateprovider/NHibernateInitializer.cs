@@ -41,7 +41,10 @@ namespace TemplateSrc.NHibernateProvider
                             .Conventions.Add(ConventionBuilder.Id.Always(x => x.Unique()));
                         //.Conventions.Add(Cache.Is(x => x.NonStrictReadWrite()));
                     })
-                    .Database(SQLiteConfiguration.Standard.ConnectionString("Data Source=BowlingDatabase.db;Version=3;").UsingFile("BowlingDatabase.db"))
+                    .Database(SQLiteConfiguration.Standard
+                            .ShowSql()
+                            .UsingFile("BowlingDatabase.db")
+                            .IsolationLevel(System.Data.IsolationLevel.ReadCommitted))
                     .ExposeConfiguration(cfg => cfg.CurrentSessionContext<LazySessionContext>())
                     .BuildConfiguration();
             if (!NhibernateSchemaValidator.ValidateSchema(config))
