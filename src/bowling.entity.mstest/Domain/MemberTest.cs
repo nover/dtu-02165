@@ -14,7 +14,7 @@ namespace TemplateSrc.Tests.Domain
     public class MemberTest : EntityTestBase
     {
         [TestMethod]
-        public void TestCRUD()
+        public void TestMemberCRUD()
         {
             new PersistenceSpecification<Bowling.Entity.Domain.Member>(this._session)
                 .CheckProperty(c => c.Id, 1)
