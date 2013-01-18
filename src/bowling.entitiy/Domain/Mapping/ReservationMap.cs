@@ -13,7 +13,7 @@ namespace Bowling.Entity.Domain.Mapping
         {
             Id(x => x.Id);
             Map(x => x.PlayAt);
-            Map(x => x.NumOfPlayers);
+            Map(x => x.NumberOfPlayers);
             Map(x => x.Name);
             Map(x => x.PhoneNumber);
             References<Member>(x => x.Member);
