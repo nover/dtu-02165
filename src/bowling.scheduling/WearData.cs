@@ -20,17 +20,17 @@ namespace bowling.scheduling
             }
         }
 
-        public static void countUpWearForLane(int lane)
+        public static void CountUpWearForLane(int lane)
         {
             wear[lane] = +1;
         }
 
-        public static int getWearForLane(int lane)
+        public static int GetWearForLane(int lane)
         {
             return wear[lane];
         }
 
-        public static int getWearForLanes(int lane, int numOfLanes)
+        public static int GetWearForLanes(int lane, int numOfLanes)
         {
             int wearVal = 0;
             for (int i = lane; i < lane + numOfLanes; i++)
