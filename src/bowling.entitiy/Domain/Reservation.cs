@@ -46,15 +46,25 @@ namespace Bowling.Entity.Domain
         }
 
 
-        public virtual void AddLane(Lane lane)
+        public virtual bool AddLane(Lane lane)
         {
+			if (this.lanes.Contains(lane))
+			{
+				return false;
+			}
             Lanes.Add(lane);
+			return true;
         }
 
 
-        public virtual void AddTimeSlot(TimeSlot timeSlot)
+        public virtual bool AddTimeSlot(TimeSlot timeSlot)
         {
+			if (this.timeSlots.Contains(timeSlot))
+			{
+				return false;
+			}
             TimeSlots.Add(timeSlot);
+			return true;
         }
     
     }
