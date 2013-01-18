@@ -26,20 +26,6 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
-    <Content Include="AdonisScheduleViewer.sequencediagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="AdonisScheduleViewer.sequencediagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>AdonisScheduleViewer.sequencediagram</DependentUpon>
-    </Content>
-    <Content Include="AdonisScheduleViewer.usecasediagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="AdonisScheduleViewer.usecasediagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>AdonisScheduleViewer.usecasediagram</DependentUpon>
-    </Content>
     <Content Include="ClassDiagramForDefinitTermsAndRelationships.classdiagram">
       <SubType>Content</SubType>
     </Content>
@@ -47,12 +33,12 @@
       <SubType>Content</SubType>
       <DependentUpon>ClassDiagramForDefinitTermsAndRelationships.classdiagram</DependentUpon>
     </Content>
-    <Content Include="CreateReservation.activitydiagram">
+    <Content Include="CreateReservation\CreateReservation.activitydiagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="CreateReservation.activitydiagram.layout">
+    <Content Include="CreateReservation\CreateReservation.activitydiagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>CreateReservation.activitydiagram</DependentUpon>
+      <DependentUpon>CreateReservation\CreateReservation.activitydiagram</DependentUpon>
     </Content>
     <Content Include="Examples\exampleCustomDiagram.dgml">
       <SubType>Content</SubType>
@@ -71,22 +57,36 @@
       <SubType>Content</SubType>
       <DependentUpon>Examples\exampleUMLComponentDiagram.componentdiagram</DependentUpon>
     </Content>
-    <Content Include="MemberRegistration.activitydiagram">
+    <Content Include="MemberRegistration\MemberRegistration.activitydiagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="MemberRegistration.activitydiagram.layout">
+    <Content Include="MemberRegistration\MemberRegistration.activitydiagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>MemberRegistration.activitydiagram</DependentUpon>
+      <DependentUpon>MemberRegistration\MemberRegistration.activitydiagram</DependentUpon>
     </Content>
-    <Content Include="MemberRegistration.sequencediagram">
+    <Content Include="MemberRegistration\MemberRegistration.sequencediagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="MemberRegistration.sequencediagram.layout">
+    <Content Include="MemberRegistration\MemberRegistration.sequencediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>MemberRegistration.sequencediagram</DependentUpon>
+      <DependentUpon>MemberRegistration\MemberRegistration.sequencediagram</DependentUpon>
     </Content>
     <Content Include="ModelDefinition\Package_1356.uml">
       <SubType>Content</SubType>
+    </Content>
+    <Content Include="ScheduleView\AdonisScheduleViewer.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ScheduleView\AdonisScheduleViewer.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ScheduleView\AdonisScheduleViewer.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="ScheduleView\AdonisScheduleViewer.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ScheduleView\AdonisScheduleViewer.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ScheduleView\AdonisScheduleViewer.usecasediagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="GurliMargrethe.usecasediagram">
@@ -100,6 +100,9 @@
       <SubType>Content</SubType>
     </Content>
     <Folder Include="Examples" />
+    <Folder Include="MemberRegistration" />
+    <Folder Include="CreateReservation" />
+    <Folder Include="ScheduleView" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
