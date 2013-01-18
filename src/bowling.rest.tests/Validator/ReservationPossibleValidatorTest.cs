@@ -18,7 +18,7 @@ namespace bowling.rest.tests.Validator
 				HowManyHours = 2,
 				NumberOfPlayers = 20,
 				PlayAt = DateTime.Now.AddDays(1),
-				StartPlayingAt = TimeSpan.FromHours(13)
+				TimeOfDay = TimeSpan.FromHours(13)
 			};
 
 			ReservationPossible request = new ReservationPossible() { Reservation = resv };
@@ -34,7 +34,7 @@ namespace bowling.rest.tests.Validator
 				HowManyHours = 42,
 				NumberOfPlayers = 20,
 				PlayAt = DateTime.Now.AddDays(1),
-				StartPlayingAt = TimeSpan.FromHours(13)
+				TimeOfDay = TimeSpan.FromHours(13)
 			};
 
 			ReservationPossible request = new ReservationPossible() { Reservation = resv };
@@ -52,7 +52,7 @@ namespace bowling.rest.tests.Validator
 				HowManyHours = 3,
 				NumberOfPlayers = 66,
 				PlayAt = DateTime.Now.AddDays(1),
-				StartPlayingAt = TimeSpan.FromHours(13)
+				TimeOfDay = TimeSpan.FromHours(13)
 			};
 
 			ReservationPossible request = new ReservationPossible() { Reservation = resv };
@@ -70,7 +70,7 @@ namespace bowling.rest.tests.Validator
 				HowManyHours = 3,
 				NumberOfPlayers = 20,
 				PlayAt = DateTime.Now.AddDays(-1),
-				StartPlayingAt = TimeSpan.FromHours(13)
+				TimeOfDay = TimeSpan.FromHours(13)
 			};
 
 			ReservationPossible request = new ReservationPossible() { Reservation = resv };
@@ -88,7 +88,7 @@ namespace bowling.rest.tests.Validator
 				HowManyHours = -1,
 				NumberOfPlayers = 44,
 				PlayAt = DateTime.Now.AddDays(1),
-				StartPlayingAt = TimeSpan.FromHours(13)
+				TimeOfDay = TimeSpan.FromHours(13)
 			};
 
 			ReservationPossible request = new ReservationPossible() { Reservation = resv };
