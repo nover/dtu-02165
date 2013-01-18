@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Bowling.Entity.Queries;
 using bowling.scheduling;
+using Bowling.Rest.Service.Interface.Helper;
 
 namespace Bowling.Rest.Service.Interface.Services
 {
@@ -34,25 +35,10 @@ namespace Bowling.Rest.Service.Interface.Services
 			var reservations = reservationRepos.GetAll().FindReservationsByDate(request.Reservation.PlayAt);
 
 			// convert these into a format the scheduler understands...
-			var schedulerReservations = new List<LaneSchedulerReservation>();
-			if (reservations.Count() != 0)
-			{
-				schedulerReservations = (from y in reservations.ToList()
-										 select new LaneSchedulerReservation()
-										 {
-											 Id = y.Id,
-											 NumberOfLanes = (int)Math.Ceiling(y.NumberOfPlayers / 6.0m),
-											 NumberOfTimeSlots = y.TimeSlots.Count,
-											 StartTimeSlot = y.TimeSlots[0].Id
-										 }).ToList();
-			}
-
-			// construct state
-			LaneSchedulerState schedulerState = new LaneSchedulerState(
-				laneRepos.GetAll().Count(), 
-				timeSlotRepos.GetAll().Count(),
-				schedulerReservations);
-
+			List<LaneSchedulerReservation> schedulerReservations;
+			var converter = ServiceLocator.Current.GetInstance<ReservationsToLaneSchedulerState>();
+			var schedulerState = converter.Convert(reservations.ToList(), out schedulerReservations);
+			
 			LaneSchedulerReservation newReservation = new LaneSchedulerReservation() {
 				Id = -1,
 				NumberOfLanes = (int)Math.Ceiling(request.Reservation.NumberOfPlayers / 6.0m),
@@ -67,6 +53,9 @@ namespace Bowling.Rest.Service.Interface.Services
 			{
 				return response;
 			}
+
+			// The scheduler attempts to place the reservation +/- one time slot in the schedule if it's full, 
+			// so we have to try and handle that
 
 			response.IsPossible = true;
 
