@@ -25,11 +25,11 @@ namespace bowling.scheduling
         {
             Scheduler.closedStateList = new Dictionary<string, int>();
             Debug.WriteLine("Adding new Reservation");
-            if (!state.isPossible(newReservation))
+            if (!state.IsPossible(newReservation))
             {
                 Debug.WriteLine("    It failed the first check");
                 // get other reservations
-                return new StateReservationsPair(null, Scheduler.getAlternativeReservations(state, newReservation));
+                return new StateReservationsPair(null, Scheduler.GetAlternativeReservations(state, newReservation));
             }
             // if it can be applied easily
             List<Action> actions = Expand(state, newReservation);
@@ -69,7 +69,7 @@ namespace bowling.scheduling
             {
                 // get other reservations
                 Debug.WriteLine("    Returning other reservations");
-                return new StateReservationsPair(null, Scheduler.getAlternativeReservations(state, newReservation));
+                return new StateReservationsPair(null, Scheduler.GetAlternativeReservations(state, newReservation));
             }
         }
 
@@ -96,7 +96,7 @@ namespace bowling.scheduling
                 return state;
             }
             reservations = (from y in reservations
-                            select y).OrderBy(y => state.getReservationWeight(y)).ToList<Reservation>();
+                            select y).OrderBy(y => state.GetReservationWeight(y)).ToList<Reservation>();
             foreach (Reservation reservation in reservations)
             {
                 // Get applicable actions
@@ -170,7 +170,7 @@ namespace bowling.scheduling
         public static List<Action> Expand(State state, Reservation reservation)
         {
             List<Action> actions = new List<Action>();
-            if (state.isPossible(reservation))
+            if (state.IsPossible(reservation))
             {
                 for (int lane = 0; lane < state.numberOfLanes; lane++)
                 {
@@ -184,7 +184,7 @@ namespace bowling.scheduling
             return actions;
         }
 
-        public static List<Reservation> getAlternativeReservations(State state, Reservation reservation)
+        public static List<Reservation> GetAlternativeReservations(State state, Reservation reservation)
         {
             List<Reservation> reservations = new List<Reservation>();
 

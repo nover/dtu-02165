@@ -1,11 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="33b57b08-e328-4c3d-9f27-f0cac6700738" name="Activity1" linkedPackageId="499e4d81-3234-4e90-a113-51269c116fc4" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="33b57b08-e328-4c3d-9f27-f0cac6700738" name="Activity1" linkedPackageId="499e4d81-3234-4e90-a113-51269c116fc4" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
   <ownedCommentsInternal>
     <comment Id="38b3fbb7-7e36-4fb4-a5d6-0fd785a8c5d9">
       <elementDefinition Id="52567dc1-46d8-49e5-80f4-be95ae186d8d" />
-      <body>Is there any available space. Yes: allow confirm order, No, select new date</body>
+      <body>Is there any available space.
+Yes: Perform reservation
+No: Return alternative reservations</body>
       <annotatedElements>
         <decisionNodeMoniker Id="f86fc7bc-f0f6-4c7d-a81a-866a907ec2a6" LastKnownName="Decision1" />
+      </annotatedElements>
+    </comment>
+    <comment Id="98561c3c-3875-4a70-aebc-4fcb0da6a3ab">
+      <elementDefinition Id="5e07b267-055c-45da-ba1a-a6b3d217962e" />
+      <body>Is one of the alternative reservations acceptable?
+Yes: Perform the reservation
+No: Select a new time.</body>
+      <annotatedElements>
+        <decisionNodeMoniker Id="4d2a99f3-acdd-4cab-98af-ca2a81932850" LastKnownName="Decision4" />
       </annotatedElements>
     </comment>
   </ownedCommentsInternal>
@@ -71,13 +82,13 @@
           <decisionNode Id="f86fc7bc-f0f6-4c7d-a81a-866a907ec2a6" name="Decision1" isLeaf="false">
             <elementDefinition Id="a2a327d3-a07c-4694-bf6c-2c6cabe61a5d" />
             <flowNodeTargets>
-              <controlFlow Id="617ab0bb-5713-4689-b6b5-f8f23c494eff" isLeaf="false">
-                <opaqueActionMoniker Id="beff4bc3-e751-4e2e-877c-fff884ba07be" LastKnownName="Select date" />
-                <elementDefinition Id="f0e3453b-3ed1-403f-9f83-f0af606ec28a" />
+              <controlFlow Id="14b30810-5701-483c-b8af-c71f314d013e" isLeaf="false">
+                <decisionNodeMoniker Id="4d2a99f3-acdd-4cab-98af-ca2a81932850" LastKnownName="Decision4" />
+                <elementDefinition Id="8b91db75-9e31-4bd2-ba0b-2a59308555d1" />
               </controlFlow>
-              <controlFlow Id="9687297a-24cd-4dcd-bacc-93e8292c4ced" isLeaf="false">
+              <controlFlow Id="537256aa-ea28-4237-8d7d-30de4775ccdb" isLeaf="false">
                 <opaqueActionMoniker Id="19e3a8e6-5492-4d2c-a1e5-2f0ffdbdba14" LastKnownName="Proceed" />
-                <elementDefinition Id="7b3b60df-3b98-45c6-a791-c63ee0d9dac3" />
+                <elementDefinition Id="e6f523f7-7aa5-474f-b0ed-251181c459e6" />
               </controlFlow>
             </flowNodeTargets>
           </decisionNode>
@@ -152,6 +163,19 @@
               <controlFlow Id="84b05f7c-7378-4db7-875b-6637e3666a45" isLeaf="false">
                 <activityFinalNodeMoniker Id="59ecfec5-425e-46d6-a8aa-ed4e4cc2267f" LastKnownName="ActivityFinal1" />
                 <elementDefinition Id="de01b124-6c6a-4bd5-805a-2b714809afa5" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <decisionNode Id="4d2a99f3-acdd-4cab-98af-ca2a81932850" name="Decision4" isLeaf="false">
+            <elementDefinition Id="ad4a6753-1ace-4e65-820b-9d9ad1806694" />
+            <flowNodeTargets>
+              <controlFlow Id="5fbba628-6ca7-4978-bb0a-a625174a7a0c" isLeaf="false">
+                <opaqueActionMoniker Id="72c6914a-4369-47bb-bd96-3abab37cd72f" LastKnownName="Select time" />
+                <elementDefinition Id="92cb9d46-d895-4bb2-b2c6-39a8ec523665" />
+              </controlFlow>
+              <controlFlow Id="8939bd18-77a3-42d5-8e52-1d8bd0bf5a72" isLeaf="false">
+                <opaqueActionMoniker Id="19e3a8e6-5492-4d2c-a1e5-2f0ffdbdba14" LastKnownName="Proceed" />
+                <elementDefinition Id="b3138ccc-32bc-434b-b87c-3c6b1f43c44b" />
               </controlFlow>
             </flowNodeTargets>
           </decisionNode>

@@ -63,7 +63,7 @@ namespace bowling.scheduling
             }
         }
 
-        public bool isPossible(Reservation reservation)
+        public bool IsPossible(Reservation reservation)
         {
             for (int i = reservation.startTimeSlot; i < reservation.numTimeSlots + reservation.startTimeSlot; i++)
             {
@@ -109,7 +109,7 @@ namespace bowling.scheduling
                         //Debug.WriteLine("Weight updated with: " + this.getCellWeight(i) + " to: " + weight);
                     }
                 }
-                weight = Math.Max(weight, this.getCellWeight(i));
+                weight = Math.Max(weight, this.GetCellWeight(i));
             }
             weight += 1 / numLanes;
             //Debug.WriteLine("    Weight starts at: " + weight);
@@ -120,7 +120,7 @@ namespace bowling.scheduling
                 weight += 1.0f;
             }
             // Take wear and tear into account. Use the reciprocal of the combined wear values for all used lanes, to ensure the combined lowest get the highest value.
-            int wear = WearData.getWearForLanes(lane, numLanes);
+            int wear = WearData.GetWearForLanes(lane, numLanes);
             if (wear == 0)
             {
                 wear = 1;
@@ -130,7 +130,7 @@ namespace bowling.scheduling
 
             // Try to spread reservations out
             // Get combined distance to other reservations
-            double distance = this.getCombinedDistanceToOthers(lane, numLanes, startTimeSlot);
+            double distance = this.GetCombinedDistanceToOthers(lane, numLanes, startTimeSlot);
             // Favour those with most distance to others - but not too much.
             //Debug.WriteLine("    Weight before distance: " + weight + " distance was: " + distance);
 
@@ -144,7 +144,7 @@ namespace bowling.scheduling
             return new AppWeightPair(true, weight);
         }
 
-        public double getCombinedDistanceToOthers(int lane, int numLanes, int startTimeSlot)
+        public double GetCombinedDistanceToOthers(int lane, int numLanes, int startTimeSlot)
         {
             double distanceRight = 0.0f;
             double distanceLeft = 0.0f;
@@ -185,12 +185,12 @@ namespace bowling.scheduling
             return distance;
         }
 
-        public double getCellWeight(int timeslot)
+        public double GetCellWeight(int timeslot)
         {
             return this.weight[timeslot];
         }
 
-        public string toString()
+        public string ToString()
         {
             StringBuilder builder = new StringBuilder();
             for (int i = this.numberOfTimeSlots - 1; i >= 0; i--)
@@ -225,13 +225,13 @@ namespace bowling.scheduling
             return builder.ToString();
         }
 
-        public double getReservationWeight(Reservation reservation)
+        public double GetReservationWeight(Reservation reservation)
         {
             double weight = 0.0f;
 
             for (int i = reservation.startTimeSlot; i < reservation.startTimeSlot + reservation.numTimeSlots; i++)
             {
-                weight = Math.Max(weight, this.getCellWeight(i));
+                weight = Math.Max(weight, this.GetCellWeight(i));
             }
             weight += 1 / reservation.numLanes;
             return weight;
@@ -276,7 +276,7 @@ namespace bowling.scheduling
             return builder.ToString();
         }
 
-        public List<State> cutInPieces(Reservation reservation)
+        public List<State> CutInPieces(Reservation reservation)
         {
             List<State> stateList = new List<State>();
 

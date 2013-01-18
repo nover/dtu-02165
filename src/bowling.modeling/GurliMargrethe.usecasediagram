@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="5f3efa4a-b78d-4998-98eb-cccab9613024" name="UMLUseCaseDiagram1" linkedPackageId="9faa3c3c-174a-4689-aeac-aed246f43418" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="5f3efa4a-b78d-4998-98eb-cccab9613024" name="UMLUseCaseDiagram1" linkedPackageId="9faa3c3c-174a-4689-aeac-aed246f43418" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
       <actor Id="c3efd339-4bee-4d3b-acdc-6280e04db23a" name="Gurli-Margrethe" isAbstract="false" isLeaf="false">
@@ -43,16 +43,24 @@
     <useCaseModelRootHasTypes>
       <useCase Id="819bcf06-6ce4-4c56-b706-508b5d714d12" name="Create reservation" isAbstract="false" isLeaf="false">
         <elementDefinition Id="3c6c295a-ce92-4014-8ffb-bfa72cd4ad5e" />
-        <additions>
-          <include Id="70fc70aa-8edd-4c32-92d4-50ba878105ef">
-            <useCaseMoniker Id="c27a0c1a-262f-45d6-9598-1e77ed3831d5" LastKnownName="Select date" />
-            <elementDefinition Id="27385d80-b15c-443f-96bc-b2bd983da4c5" />
-          </include>
-          <include Id="95d5bd08-91dc-4fc0-9495-dd0ea69ca039">
-            <useCaseMoniker Id="76669f10-083c-4bcd-a5b4-9664c2db57fc" LastKnownName="Enter players" />
-            <elementDefinition Id="7e79108e-b785-485c-8a5d-eeca381996c4" />
-          </include>
-        </additions>
+        <targetEnds>
+          <association Id="324b95bb-2ce2-4a0b-a590-e3882387cc01" isDerived="false" sourceEndRoleName="Create reservation" targetEndRoleName="Enter Date, Time and number of Players" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="c27a0c1a-262f-45d6-9598-1e77ed3831d5" LastKnownName="Enter Date, Time and number of Players" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="433f6395-ee4a-4de0-9328-e7f358e02831" name="Create reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ddad1d3a-9d48-43bc-9973-980bcd6e045f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="dbac85de-6323-4a03-b454-f5b1bcd77e7c" name="Enter Date, Time and number of Players" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d96881cd-6998-46ae-a6a3-df9840b4b168" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="cde00fa0-7487-447e-9710-d897ee94a935" />
+          </association>
+        </targetEnds>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
@@ -61,34 +69,38 @@
       </subsystem>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="c27a0c1a-262f-45d6-9598-1e77ed3831d5" name="Select date" isAbstract="false" isLeaf="false">
+      <useCase Id="c27a0c1a-262f-45d6-9598-1e77ed3831d5" name="Enter Date, Time and number of Players" isAbstract="false" isLeaf="false">
         <elementDefinition Id="4d48e876-8739-40d6-aec5-86f50dd6f5eb" />
+        <targetEnds>
+          <association Id="36165eeb-4e24-4923-b901-57e3cc4f3360" isDerived="false" sourceEndRoleName="Enter Date, Time and number of Players" targetEndRoleName="Query for free days" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="64555831-5233-4adc-a5b9-2c50824f412c" LastKnownName="Query for availible reservations." />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="36057a27-de83-408f-be7f-2c75ae602fec" name="Enter Date, Time and number of Players" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3c662f71-b7bd-4c5d-b37f-8780d1ff88cb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="82a7606f-e936-4f4a-afb9-3426bd14892b" name="Query for free days" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="08da09e5-8ad9-4a1b-8ffc-d7241e6d8318" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7ef845f9-1786-4ffc-807b-574ace3c67ba" />
+          </association>
+        </targetEnds>
         <subjects>
           <subsystemMoniker Id="89b41a66-afac-4035-9943-11b1cd98cb6e" LastKnownName="Frontend" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
-    <packageHasNamedElement>
-      <useCase Id="76669f10-083c-4bcd-a5b4-9664c2db57fc" name="Enter players" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="69e82205-14af-4fb4-a9f7-d6986bd31380" />
-        <additions>
-          <include Id="19850af1-cbc2-4bc2-b414-b22cc80ef167">
-            <useCaseMoniker Id="64555831-5233-4adc-a5b9-2c50824f412c" LastKnownName="Query for free days" />
-            <elementDefinition Id="16d8a7a1-d736-40f2-ad26-78ca7af0ad88" />
-          </include>
-        </additions>
-        <subjects>
-          <subsystemMoniker Id="89b41a66-afac-4035-9943-11b1cd98cb6e" LastKnownName="Frontend" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
     <useCaseModelRootHasTypes>
       <subsystem Id="675db874-0acb-40a9-80b8-992adee121e8" name="Backend" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="e5750233-cbd4-4d0d-9955-db151b05b3ed" />
       </subsystem>
     </useCaseModelRootHasTypes>
     <packageHasNamedElement>
-      <useCase Id="64555831-5233-4adc-a5b9-2c50824f412c" name="Query for free days" isAbstract="false" isLeaf="false">
+      <useCase Id="64555831-5233-4adc-a5b9-2c50824f412c" name="Query for availible reservations." isAbstract="false" isLeaf="false">
         <elementDefinition Id="2fe8886f-f330-40e1-90e6-10d8e2b43074" />
         <subjects>
           <subsystemMoniker Id="675db874-0acb-40a9-80b8-992adee121e8" LastKnownName="Backend" />
@@ -98,23 +110,47 @@
     <useCaseModelRootHasTypes>
       <useCase Id="e8e87785-7137-4eae-9569-9218403268c8" name="Regsiter as member" isAbstract="false" isLeaf="false">
         <elementDefinition Id="96f605e8-21c1-452a-8121-dca955dda3b8" />
-        <additions>
-          <include Id="7e2b4da2-5199-4cc0-9da4-e9aa1f60b57d">
+        <targetEnds>
+          <association Id="54c0848b-9480-4384-8226-e567542ba33c" isDerived="false" sourceEndRoleName="Regsiter as member" targetEndRoleName="Enter user information" isLeaf="false" isAbstract="false">
             <useCaseMoniker Id="cefcb18f-6be1-426f-83d6-480e929b2837" LastKnownName="Enter user information" />
-            <elementDefinition Id="8996a286-4c58-42d2-a619-2c938a27900c" />
-          </include>
-        </additions>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="150f237b-cd11-4926-95cf-0f6c584457da" name="Regsiter as member" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="fb2ee130-9edc-4a57-94a3-97f9087fb98e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e8463c1a-5154-43d9-a8a7-0f538555ebbb" name="Enter user information" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="957aaf0f-126d-4771-af2f-bb23a763f697" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d8888bf7-f8c2-4087-9203-b62ddddb4d31" />
+          </association>
+        </targetEnds>
       </useCase>
     </useCaseModelRootHasTypes>
     <packageHasNamedElement>
       <useCase Id="cefcb18f-6be1-426f-83d6-480e929b2837" name="Enter user information" isAbstract="false" isLeaf="false">
         <elementDefinition Id="d205dded-aa6c-44c1-b8b6-4b3318eebcd5" />
-        <additions>
-          <include Id="ebe1e8bb-ab09-40e4-bd52-ac3b1f5f98e9">
+        <targetEnds>
+          <association Id="944f5b8f-a27a-4df7-9207-45fe08521e61" isDerived="false" sourceEndRoleName="Enter user information" targetEndRoleName="Saving the data to database" isLeaf="false" isAbstract="false">
             <useCaseMoniker Id="70684834-0213-419f-bee6-549b9e004a6a" LastKnownName="Saving the data to database" />
-            <elementDefinition Id="fb7abed8-735e-4186-9578-339f2e385e86" />
-          </include>
-        </additions>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="07d11642-3383-4038-bc90-c73f36ff57e3" name="Enter user information" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f6db0f61-c438-4cb0-a932-581948774e26" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5d1da05f-2d02-42f5-9ab7-f1f95219a476" name="Saving the data to database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3f164580-466f-4ebf-8768-b57b128d800e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9bc7cff8-0213-4651-9153-2c840fcf9eab" />
+          </association>
+        </targetEnds>
         <subjects>
           <subsystemMoniker Id="89b41a66-afac-4035-9943-11b1cd98cb6e" LastKnownName="Frontend" />
         </subjects>

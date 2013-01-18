@@ -74,7 +74,7 @@ namespace bowling.scheduling
                 if (newState != null)
                 {
                     Debug.WriteLine("    It SUCCEEDED!!!!!!!!");
-                    Debug.WriteLine(newState.toString());
+                    Debug.WriteLine(newState.ToString());
 
                     reservations = newReservations;
                     state = newState;
@@ -103,7 +103,7 @@ namespace bowling.scheduling
             Debug.WriteLine("The last scheduling took: " + timeSpent + " miliseconds");
             if (state != null)
             {
-                Debug.WriteLine(state.toString());
+                Debug.WriteLine(state.ToString());
             }
             return true;
         }

@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="ea48f2fd-be87-4931-a086-78a8f56eb5a3"
   name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <ownedCommentsInternal>
     <comment
       Id="52567dc1-46d8-49e5-80f4-be95ae186d8d">
-      <body>Is there any available space. Yes: allow confirm order, No, select new date</body>
+      <body>Is there any available space.
+Yes: Perform reservation
+No: Return alternative reservations</body>
       <annotatedElements>
         <decisionNodeMoniker
           Id="a2a327d3-a07c-4694-bf6c-2c6cabe61a5d"
@@ -17,6 +19,18 @@
     <comment
       Id="7952f106-8b21-4f23-b398-6336bb749286">
       <body>Data was invalid ----&gt;</body>
+    </comment>
+    <comment
+      Id="5e07b267-055c-45da-ba1a-a6b3d217962e">
+      <body>Is one of the alternative reservations acceptable?
+Yes: Perform the reservation
+No: Select a new time.</body>
+      <annotatedElements>
+        <decisionNodeMoniker
+          Id="ad4a6753-1ace-4e65-820b-9d9ad1806694"
+          LastKnownName="Decision4"
+          LastKnownLocation="ModelingProject1.uml" />
+      </annotatedElements>
     </comment>
   </ownedCommentsInternal>
   <profileInstances>
@@ -1016,7 +1030,15 @@
                   LastKnownLocation="ModelingProject1.uml" />
               </controlFlow>
               <controlFlow
-                Id="7b3b60df-3b98-45c6-a791-c63ee0d9dac3"
+                Id="8b91db75-9e31-4bd2-ba0b-2a59308555d1"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="ad4a6753-1ace-4e65-820b-9d9ad1806694"
+                  LastKnownName="Decision4"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="e6f523f7-7aa5-474f-b0ed-251181c459e6"
                 isLeaf="false">
                 <opaqueActionMoniker
                   Id="abfdffad-eb23-48ea-ba36-5a69711a7ab3"
@@ -1146,6 +1168,29 @@
                 <activityFinalNodeMoniker
                   Id="5583e494-b8ab-4788-9ca0-adb85436136a"
                   LastKnownName="ActivityFinal1"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <decisionNode
+            Id="ad4a6753-1ace-4e65-820b-9d9ad1806694"
+            name="Decision4"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="92cb9d46-d895-4bb2-b2c6-39a8ec523665"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e610b756-d570-4ee0-8d51-f6fbf1b34b84"
+                  LastKnownName="Select time"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="b3138ccc-32bc-434b-b87c-3c6b1f43c44b"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="abfdffad-eb23-48ea-ba36-5a69711a7ab3"
+                  LastKnownName="Proceed"
                   LastKnownLocation="ModelingProject1.uml" />
               </controlFlow>
             </flowNodeTargets>
@@ -2402,22 +2447,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="518dc6f8-af34-49c4-bd3a-19c18c675808"
-            name="MessageOccurrenceSpecification13">
-            <covered>
-              <lifelineMoniker
-                Id="9dbf2084-13a0-4334-8a4f-a48c2ddfe4be"
-                LastKnownName="Frontend"
-                LastKnownLocation="ModelingProject1.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="331fdc2a-64fc-4205-8930-2e24fef8dc8e"
             name="MessageOccurrenceSpecification14">
             <covered>
               <lifelineMoniker
                 Id="6a835bdf-77da-4a04-bb2d-996ab87e03a2"
                 LastKnownName="API"
+                LastKnownLocation="ModelingProject1.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="518dc6f8-af34-49c4-bd3a-19c18c675808"
+            name="MessageOccurrenceSpecification13">
+            <covered>
+              <lifelineMoniker
+                Id="9dbf2084-13a0-4334-8a4f-a48c2ddfe4be"
+                LastKnownName="Frontend"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
