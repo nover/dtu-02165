@@ -78,6 +78,13 @@
       <SubType>Content</SubType>
       <DependentUpon>MemberRegistration.activitydiagram</DependentUpon>
     </Content>
+    <Content Include="MemberRegistration.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="MemberRegistration.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>MemberRegistration.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="ModelDefinition\Package_1356.uml">
       <SubType>Content</SubType>
     </Content>
