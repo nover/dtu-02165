@@ -57,5 +57,49 @@ namespace bowling.administration.website.Controllers
 		{
 			return View(new TimeSlotInputModel());
 		}
+
+		public ActionResult Delete(int id)
+		{
+			try
+			{
+				this.repos.Delete(this.repos.Get(id));
+				Information("The time slot was successfully removed");
+
+				return RedirectToAction("Index");
+			}
+			catch (Exception ex)
+			{
+				Error("Something went horribly wrong while removing the timeslot<br/>Techincal stuff: " + ex.Message);
+				return RedirectToAction(Request.UrlReferrer.LocalPath);
+			}
+		}
+
+		public ActionResult Edit(int id)
+		{
+			var model = Mapper.Map<TimeSlotInputModel>(this.repos.Get(id));
+			return View("Create", model);
+		}
+
+		[HttpPost]
+		public ActionResult Edit(TimeSlotInputModel model, int id)
+		{
+			if (ModelState.IsValid)
+			{
+				var timeslot = Mapper.Map<TimeSlot>(model);
+				this.repos.SaveOrUpdate(timeslot);
+				this.repos.DbContext.CommitChanges();
+
+				Success("Timeslot was successfully updated");
+				return RedirectToAction("Index");
+			}
+			return View("Create", model);
+		}
+
+		public ActionResult Details(int id)
+		{
+			var model = Mapper.Map<TimeSlotInputModel>(this.repos.Get(id));
+			return View(model);
+		}
+
 	}
 }
