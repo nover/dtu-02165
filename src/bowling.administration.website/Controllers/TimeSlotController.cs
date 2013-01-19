@@ -13,13 +13,17 @@ namespace bowling.administration.website.Controllers
 {
     public class TimeSlotController : BootstrapBaseController
     {
+		private IRepository<TimeSlot> repos;
+		public TimeSlotController(IRepository<TimeSlot> repos)
+		{
+			this.repos = repos;
+		}
         //
         // GET: /TimeSlot/
 
         public ActionResult Index()
         {
-			var repos = DependencyResolver.Current.GetService<IRepository<TimeSlot>>();
-			var slots = Mapper.Map<List<TimeSlot>, List<TimeSlotInputModel>>( repos.GetAll().ToList());
+			var slots = Mapper.Map<List<TimeSlot>, List<TimeSlotInputModel>>( this.repos.GetAll().ToList());
 
             return View(slots);
         }
@@ -30,11 +34,10 @@ namespace bowling.administration.website.Controllers
 			if (ModelState.IsValid)
 			{
 				var toSave = Mapper.Map<TimeSlot>(model);
-				var repos = DependencyResolver.Current.GetService<IRepository<TimeSlot>>();
 				try
 				{
-					repos.SaveOrUpdate(toSave);
-					repos.DbContext.CommitChanges();
+					this.repos.SaveOrUpdate(toSave);
+					this.repos.DbContext.CommitChanges();
 				}
 				catch (Exception ex)
 				{
