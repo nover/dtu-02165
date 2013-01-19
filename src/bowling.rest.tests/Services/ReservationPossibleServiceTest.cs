@@ -103,8 +103,7 @@ namespace bowling.rest.tests.Services
 			Assert.That(response.Suggestions[0].HowManyHours, Is.EqualTo(request.Reservation.HowManyHours));
 			Assert.That(response.Suggestions[0].NumberOfPlayers, Is.EqualTo(request.Reservation.NumberOfPlayers));
 			Assert.That(response.Suggestions[0].PlayAt, Is.EqualTo(request.Reservation.PlayAt));
-			Assert.That(response.Suggestions[0].TimeOfDay.Add(TimeSpan.FromHours(1)), Is.EqualTo(request.Reservation.TimeOfDay));
-
+			Assert.That(response.Suggestions[0].TimeOfDay, Is.Not.EqualTo(request.Reservation.TimeOfDay));
 		}
 	}
 }
