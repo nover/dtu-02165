@@ -14,6 +14,8 @@ namespace bowling.administration.website
 		{
 			Mapper.CreateMap<TimeSlot, TimeSlotInputModel>();
 			Mapper.CreateMap<TimeSlotInputModel, TimeSlot>();
+			Mapper.CreateMap<Lane, LaneInputModel>();
+			Mapper.CreateMap<LaneInputModel, Lane>();
 		}
 	}
 }

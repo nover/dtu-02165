@@ -17,13 +17,8 @@ namespace BootstrapMvcSample
 			//routes.MapNavigationRoute<HomeController>("Automatic Scaffolding", c => c.Index());
 
 			routes.MapNavigationRoute<HomeController>("Manage stuff", c => c.Index())
-				.AddChildRoute<TimeSlotController>("Time slots", c => c.Index());
-
-			//routes.MapNavigationRoute<ExampleLayoutsController>("Example Layouts", c => c.Starter())
-			//	  .AddChildRoute<ExampleLayoutsController>("Marketing", c => c.Marketing())
-			//	  .AddChildRoute<ExampleLayoutsController>("Fluid", c => c.Fluid())
-			//	  .AddChildRoute<ExampleLayoutsController>("Sign In", c => c.SignIn())
-			//	;
+				.AddChildRoute<TimeSlotController>("Time slots", c => c.Index())
+				.AddChildRoute<LaneController>("Lanes", c => c.Index());
         }
     }
 }
