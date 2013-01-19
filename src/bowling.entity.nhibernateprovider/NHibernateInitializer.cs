@@ -10,6 +10,7 @@ using NHibernate.Tool.hbm2ddl;
 using SharpLite.NHibernateProvider;
 using SharpLite.NHibernateProvider.ConfigurationCaching;
 using System;
+using System.IO;
 
 namespace TemplateSrc.NHibernateProvider
 {
@@ -43,10 +44,12 @@ namespace TemplateSrc.NHibernateProvider
                     })
                     .Database(SQLiteConfiguration.Standard
                             .ShowSql()
-                            .UsingFile("BowlingDatabase.db")
+                            .UsingFile(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData), "BowlingDatabase.db"))
                             .IsolationLevel(System.Data.IsolationLevel.ReadCommitted))
                     .ExposeConfiguration(cfg => cfg.CurrentSessionContext<LazySessionContext>())
+					.ExposeConfiguration(cfg => cfg.SetInterceptor(new BowlingAppStatementInterceptor()))
                     .BuildConfiguration();
+
             if (!NhibernateSchemaValidator.ValidateSchema(config))
             {
                 new SchemaUpdate(config).Execute(false, true);

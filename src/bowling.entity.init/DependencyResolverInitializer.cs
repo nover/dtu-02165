@@ -29,8 +29,8 @@ namespace TemplateSrc.Init
 				x.For(typeof(Configuration)).Use(configuration);
 			});
 
-			//IDependencyResolver drStructureMap = new StructureMapDependencyResolver(_container);
-			//DependencyResolver.SetResolver(drStructureMap);
+			IDependencyResolver drStructureMap = new StructureMapDependencyResolver(_container);
+			DependencyResolver.SetResolver(drStructureMap);
 			var smServiceLocator = new StructureMapServiceLocator(_container);
 			ServiceLocator.SetLocatorProvider(() => smServiceLocator);
 

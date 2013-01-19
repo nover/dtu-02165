@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BowlingAppStatementInterceptor.cs" />
     <Compile Include="NHibernateInitializer.cs" />
     <Compile Include="NhibernateSchemaValidator.cs" />
     <Compile Include="Overrides\IOverride.cs" />
