@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Bowling.Web.CustomerSite.Models
 {
-    public class ReservationBeginInputModel
+    public class ReservationInputModel
     {
         [Required]
         [Range(1, 24, ErrorMessage="Please enter a number between 1 and 24. If you are more persons, please contact sales for a package deal")]

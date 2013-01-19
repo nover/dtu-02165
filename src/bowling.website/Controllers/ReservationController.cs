@@ -12,18 +12,18 @@ using Bowling.Rest.Service.Model.Types;
 
 namespace Bowling.Web.CustomerSite.Controllers
 {
-	public class ReservationBeginController : BootstrapBaseController
+	public class ReservationController : BootstrapBaseController
 	{
 		//
 		// GET: /ReservationBegin/
 
 		public ActionResult Index()
 		{
-			return View(new ReservationBeginInputModel());
+			return View(new ReservationInputModel());
 		}
 
 		[HttpPost]
-		public ActionResult Index(ReservationBeginInputModel model)
+		public ActionResult Index(ReservationInputModel model)
 		{
 			if (ModelState.IsValid)
 			{

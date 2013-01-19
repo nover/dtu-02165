@@ -164,13 +164,13 @@
     <Compile Include="Controllers\ExampleLayoutsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
-    <Compile Include="Controllers\ReservationBeginController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\MemberInputModel.cs" />
     <Compile Include="Models\MemberLoginInputModel.cs" />
-    <Compile Include="Models\ReservationBeginInputModel.cs" />
+    <Compile Include="Models\ReservationInputModel.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />
     <Compile Include="NavigationRoutes\NavigationExtensions.cs" />
@@ -228,7 +228,7 @@
     <Content Include="Views\Member\signup.cshtml" />
     <Content Include="Views\Member\myprofile.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\ReservationBegin\Index.cshtml" />
+    <Content Include="Views\Reservation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
