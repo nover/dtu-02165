@@ -10,6 +10,7 @@ namespace Bowling.Rest.Service.Model.Types
 	[Route("/reservation/possible")]
 	public class ReservationType
 	{
+		public int Id { get; set; }
 		public DateTime PlayAt { get; set; }
 		public TimeSpan TimeOfDay {get; set;}
 		public int NumberOfPlayers { get; set; }
