@@ -163,11 +163,11 @@
     <Compile Include="Controllers\BootstrapBaseController.cs" />
     <Compile Include="Controllers\ExampleLayoutsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Models\TimeSlotController.cs" />
+    <Compile Include="Controllers\TimeSlotController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\HomeInputModel.cs" />
+    <Compile Include="Models\HomeInputModel.cs" />
     <Compile Include="Models\TimeSlotInputModel.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />
