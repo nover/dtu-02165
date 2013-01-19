@@ -170,6 +170,7 @@
     </Compile>
     <Compile Include="Models\MemberInputModel.cs" />
     <Compile Include="Models\MemberLoginInputModel.cs" />
+    <Compile Include="Models\ReservationContactInfoInputModel.cs" />
     <Compile Include="Models\ReservationInputModel.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />
@@ -229,6 +230,7 @@
     <Content Include="Views\Member\myprofile.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Reservation\Index.cshtml" />
+    <Content Include="Views\Reservation\ContactInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

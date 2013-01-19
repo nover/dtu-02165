@@ -38,7 +38,8 @@ namespace Bowling.Web.CustomerSite.Controllers
 
 					if (response.IsPossible)
 					{
-						return RedirectToAction("Index", "ReservationContinue");
+						this.CurrentReservation = Mapper.Map<ReservationType>(model);
+						return RedirectToAction("ContactInfo");
 					}
 
 					Information("Unfortunately this particular reservation is not possible, but please look at the page for suggestions.");
@@ -55,6 +56,17 @@ namespace Bowling.Web.CustomerSite.Controllers
 
 			Error("Darn, Something in your input was not correct. Please check it.");
 			return View(model);
+		}
+
+		public ActionResult ContactInfo()
+		{
+			return View(new ReservationContactInfoInputModel());
+		}
+
+		[HttpPost]
+		public ActionResult ContactInfo(ReservationContactInfoInputModel model)
+		{
+			throw new NotImplementedException("POST NOT YET SUPPORTED");
 		}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using BootstrapSupport;
 using ServiceStack.ServiceClient.Web;
+using Bowling.Rest.Service.Model.Types;
 
 namespace BootstrapMvcSample.Controllers
 {
@@ -41,5 +42,24 @@ namespace BootstrapMvcSample.Controllers
                 return instance;
             }
         }
+
+		public ReservationType CurrentReservation
+		{
+			get
+			{
+				ReservationType resv = Session["reservation"] as ReservationType;
+				if (resv == null)
+				{
+					resv = new ReservationType();
+					Session["reservation"] = resv;
+				}
+
+				return resv;
+			}
+			set
+			{
+				Session["reservation"] = value;
+			}
+		}
     }
 }
