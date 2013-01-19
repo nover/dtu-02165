@@ -15,11 +15,11 @@ namespace bowling.entity.mstest.Domain
 		{
 			var theLanes = new Lane[] { 
 						new Lane { 
-							Number = 1 }, 
+							Name = "1" }, 
 						new Lane { 
-							Number = 2 }, 
+							Name = "2" }, 
 						new Lane { 
-							Number = 3 } 
+							Name = "3" } 
 						};
 			var theSlots = new TimeSlot[] { 
 						new TimeSlot { 
@@ -79,8 +79,8 @@ namespace bowling.entity.mstest.Domain
 		[TestMethod]
 		public void TestAddingSameLaneReturnsFalse()
 		{
-			var lane1 = new Lane { Number = 42 };
-			var lane2 = new Lane { Number = 45 };
+			var lane1 = new Lane { Name = "42" };
+			var lane2 = new Lane { Name = "45" };
 			this._session.Save(lane1);
 			this._session.Save(lane2);
 

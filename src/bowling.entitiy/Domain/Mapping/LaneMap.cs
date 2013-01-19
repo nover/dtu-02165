@@ -13,7 +13,7 @@ namespace Bowling.Entity.Domain.Mapping
         public LaneMap() 
         {
             Id(x => x.Id);
-            Map(x => x.Number);
+            Map(x => x.Name);
             HasManyToMany(x => x.Reservations).Inverse().Cascade.None();
 
         }

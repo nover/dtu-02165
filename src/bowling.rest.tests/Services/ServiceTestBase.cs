@@ -47,7 +47,7 @@ namespace bowling.rest.tests.Services
 				this.timeSlots.Add(timeSlot);
 				_session.Save(timeSlot);
 
-				var lane = new Lane() { Number = i + 1 };
+				var lane = new Lane() { Name = (i + 1).ToString() };
 				this.lanes.Add(lane);
 				_session.Save(lane);
 			}
