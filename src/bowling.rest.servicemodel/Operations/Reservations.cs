@@ -11,11 +11,12 @@ namespace Bowling.Rest.Service.Model.Operations
     [Route("/reservation")]
     public class Reservations
     {
-        public DateTime PlayAt { get; set; }
-        public int NumOfPlayers { get; set; }
-        public String Name { get; set; }
-        public String PhoneNumber { get; set; }
-        public MemberType member { get; set; }
+		public ReservationType Reservation { get; set; }
+		
+		public Reservations()
+		{
+			this.Reservation = new ReservationType();
+		}
     }
     
 }
