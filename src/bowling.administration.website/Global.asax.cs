@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Microsoft.Practices.ServiceLocation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using TemplateSrc.Init;
 
 namespace bowling.administration.website
 {
@@ -21,6 +23,9 @@ namespace bowling.administration.website
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
             BootstrapSupport.BootstrapBundleConfig.RegisterBundles(System.Web.Optimization.BundleTable.Bundles);
             BootstrapMvcSample.MenuConfig.RegisterRoutes(RouteTable.Routes);
+
+			DependencyResolverInitializer.Initialize();
+			AutomapperConfig.CreateMappings();
 		}
 	}
 }

@@ -1,5 +1,8 @@
-﻿using BootstrapMvcSample.Controllers;
+﻿using AutoMapper;
+using BootstrapMvcSample.Controllers;
 using bowling.administration.website.Models;
+using Bowling.Entity.Domain;
+using SharpLite.Domain.DataInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +18,10 @@ namespace bowling.administration.website.Controllers
 
         public ActionResult Index()
         {
-            return View();
+			var repos = DependencyResolver.Current.GetService<IRepository<TimeSlot>>();
+			var slots = Mapper.Map<List<TimeSlot>, List<TimeSlotInputModel>>( repos.GetAll().ToList());
+
+            return View(slots);
         }
 
 
