@@ -37,11 +37,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.scheduling", "bowli
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scheduling", "Scheduling", "{8EC8848B-A5E0-4629-9432-C6E172E2FE11}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Admin", "Admin", "{69FD02FA-4275-4C0F-9F75-FDE5460377C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.administration.website", "bowling.administration.website\bowling.administration.website.csproj", "{B3B04AAC-8281-4259-8D26-4ECFEDE9DB4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.administration.website.tests", "bowling.administration.website.tests\bowling.administration.website.tests.csproj", "{3A70F856-B014-46BE-8141-ADABA1E912CF}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 14
+		SccNumberOfProjects = 16
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://w20:8080/tfs/defaultcollection
+		SccTeamFoundationServer = http://w20.b45x.dtu.dk:8080/tfs/defaultcollection
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = bowling.rest.serviceinterface\\bowling.rest.serviceinterface.csproj
 		SccProjectTopLevelParentUniqueName1 = bowling.system.sln
@@ -95,6 +101,14 @@ Global
 		SccProjectTopLevelParentUniqueName13 = bowling.system.sln
 		SccProjectName13 = bowling.scheduling
 		SccLocalPath13 = bowling.scheduling
+		SccProjectUniqueName14 = bowling.administration.website\\bowling.administration.website.csproj
+		SccProjectTopLevelParentUniqueName14 = bowling.system.sln
+		SccProjectName14 = bowling.administration.website
+		SccLocalPath14 = bowling.administration.website
+		SccProjectUniqueName15 = bowling.administration.website.tests\\bowling.administration.website.tests.csproj
+		SccProjectTopLevelParentUniqueName15 = bowling.system.sln
+		SccProjectName15 = bowling.administration.website.tests
+		SccLocalPath15 = bowling.administration.website.tests
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +167,14 @@ Global
 		{EFB72D51-8681-4AF0-84DA-7566A22F8181}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFB72D51-8681-4AF0-84DA-7566A22F8181}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFB72D51-8681-4AF0-84DA-7566A22F8181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3B04AAC-8281-4259-8D26-4ECFEDE9DB4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3B04AAC-8281-4259-8D26-4ECFEDE9DB4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3B04AAC-8281-4259-8D26-4ECFEDE9DB4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3B04AAC-8281-4259-8D26-4ECFEDE9DB4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A70F856-B014-46BE-8141-ADABA1E912CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A70F856-B014-46BE-8141-ADABA1E912CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A70F856-B014-46BE-8141-ADABA1E912CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A70F856-B014-46BE-8141-ADABA1E912CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,5 +193,7 @@ Global
 		{F96C74E5-26F9-471C-B1D7-0BE382C3C5DB} = {A37E736D-0F24-454D-9165-AEB0015FBE49}
 		{EFB72D51-8681-4AF0-84DA-7566A22F8181} = {8EC8848B-A5E0-4629-9432-C6E172E2FE11}
 		{49DF412E-FB20-4B1A-A4FB-5A7C82B98454} = {8EC8848B-A5E0-4629-9432-C6E172E2FE11}
+		{B3B04AAC-8281-4259-8D26-4ECFEDE9DB4D} = {69FD02FA-4275-4C0F-9F75-FDE5460377C8}
+		{3A70F856-B014-46BE-8141-ADABA1E912CF} = {69FD02FA-4275-4C0F-9F75-FDE5460377C8}
 	EndGlobalSection
 EndGlobal
