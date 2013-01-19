@@ -60,8 +60,10 @@ namespace Bowling.Rest.Service.Interface.Services
 			// so we have to try and handle that
 			Reservation theReservation;
 			var convertToReservation = ServiceLocator.Current.GetInstance<LaneSchedulerStateToReservations>();
-
 			convertToReservation.Convert(newState.state, out theReservation);
+			theReservation.NumberOfPlayers = request.Reservation.NumberOfPlayers;
+			theReservation.PlayAt = request.Reservation.PlayAt;
+
 			// now that we have the actual reservation, we can check 
 			// the added time-slots against the requested timeslot
 			if (theReservation.TimeSlots[0].Start != startTimeSlot.Start)
