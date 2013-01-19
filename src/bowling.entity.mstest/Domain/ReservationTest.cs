@@ -90,5 +90,19 @@ namespace bowling.entity.mstest.Domain
 			Assert.That(resv.AddLane(lane2), Is.True);
 			Assert.That(resv.AddLane(lane1), Is.False);
 		}
+
+		[TestMethod]
+		public void TestAddingSameTimeSlotReturnsFalse()
+		{
+			var slot1 = new TimeSlot { Start = TimeSpan.FromHours(10), End = TimeSpan.FromHours(11) };
+			var slot2 = new TimeSlot { Start = TimeSpan.FromHours(11), End = TimeSpan.FromHours(12) };
+			this._session.Save(slot1);
+			this._session.Save(slot2);
+
+			Reservation resv = new Reservation();
+			Assert.That(resv.AddTimeSlot(slot1), Is.True);
+			Assert.That(resv.AddTimeSlot(slot2), Is.True);
+			Assert.That(resv.AddTimeSlot(slot2), Is.False);
+		}
 	}
 }
