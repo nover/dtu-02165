@@ -28,7 +28,7 @@ namespace bowling.rest.tests.Services
 				}
 			};
 			
-			ReservationPossibleResponse response = service.OnGet(request) as ReservationPossibleResponse;
+			ReservationPossibleResponse response = service.OnPost(request) as ReservationPossibleResponse;
 			Assert.That(response.IsPossible, Is.True);
 		}
 
@@ -62,7 +62,7 @@ namespace bowling.rest.tests.Services
 				}
 			};
 
-			ReservationPossibleResponse response = service.OnGet(request) as ReservationPossibleResponse;
+			ReservationPossibleResponse response = service.OnPost(request) as ReservationPossibleResponse;
 			Assert.That(response.IsPossible, Is.True);
 		}
 		[TestMethod]
@@ -97,7 +97,7 @@ namespace bowling.rest.tests.Services
 				}
 			};
 
-			ReservationPossibleResponse response = service.OnGet(request) as ReservationPossibleResponse;
+			ReservationPossibleResponse response = service.OnPost(request) as ReservationPossibleResponse;
 			Assert.That(response.IsPossible, Is.False);
 			Assert.That(response.Suggestions.Count, Is.EqualTo(0));
 		}

@@ -15,7 +15,7 @@ namespace bowling.entity.mstest
         public void TestLaneCRUD()
         {
             new PersistenceSpecification<Bowling.Entity.Domain.Lane>(this._session)
-            .CheckProperty(c => c.Name, 2)
+            .CheckProperty(c => c.Name, "2")
             .VerifyTheMappings();
         }
     }
