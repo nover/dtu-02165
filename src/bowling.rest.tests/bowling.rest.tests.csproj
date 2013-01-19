@@ -151,6 +151,10 @@
       <Project>{fb1f8289-827d-435a-b437-2359d7df4ba2}</Project>
       <Name>bowling.rest.servicemodel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\bowling.scheduling\bowling.scheduling.csproj">
+      <Project>{efb72d51-8681-4af0-84da-7566a22f8181}</Project>
+      <Name>bowling.scheduling</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -167,6 +171,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

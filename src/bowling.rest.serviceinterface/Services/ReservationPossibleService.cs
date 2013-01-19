@@ -45,7 +45,7 @@ namespace Bowling.Rest.Service.Interface.Services
 				Id = -1,
 				NumberOfLanes = (int)Math.Ceiling(request.Reservation.NumberOfPlayers / 6.0m),
 				NumberOfTimeSlots = request.Reservation.HowManyHours,
-				StartTimeSlot = startTimeSlot.Id
+				StartTimeSlot = startTimeSlot.Id-1
 			};
 
 			// do the scheduling

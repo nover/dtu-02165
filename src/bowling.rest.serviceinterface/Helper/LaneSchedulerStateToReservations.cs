@@ -35,9 +35,9 @@ namespace Bowling.Rest.Service.Interface.Helper
 
 			List<ReservationLaneTimeSlotPair> pairs = new List<ReservationLaneTimeSlotPair>();
 
-			for (int i = 0; i < laneCount; i++)
+			for (int i = 0; i < timeSlotCount; i++)
 			{
-				for (int j = 0; j < timeSlotCount; j++)
+				for (int j = 0; j < laneCount; j++)
 				{
 					current = internalState[i, j];
 					if (current == 0)

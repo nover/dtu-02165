@@ -24,7 +24,7 @@ namespace bowling.rest.tests.Services
 					HowManyHours = 2,
 					NumberOfPlayers = 4,
 					PlayAt = DateTime.Now,
-					TimeOfDay = TimeSpan.FromHours(13)
+					TimeOfDay = TimeSpan.FromHours(10)
 				}
 			};
 			
