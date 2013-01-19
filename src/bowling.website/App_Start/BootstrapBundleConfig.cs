@@ -24,6 +24,9 @@ namespace BootstrapSupport
             bundles.Add(new StyleBundle("~/content/css-responsive").Include(
                 "~/Content/bootstrap-responsive.css"
                 ));
+			bundles.Add(new StyleBundle("~/bundles/modernizr").Include(
+				"~/Content/modernizr-*"
+				));
         }
     }
 }
