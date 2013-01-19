@@ -78,15 +78,15 @@ namespace Bowling.Web.CustomerSite.Controllers
 						Reservation = this.CurrentReservation
 					};
 
-					this.CurrentAPIClient.Post<ReservationsResponse>("/reservation", request);
+					var response = this.CurrentAPIClient.Post<ReservationsResponse>("/reservation", request);
+					this.CurrentReservation.Id = response.Reservation.Id;
 
 					Success("Your reservation was created successfully");
-
 					return RedirectToAction("Complete");
 				}
 				catch (WebServiceException ex)
 				{
-					Error("Something bad happened while trying to save your reservation, please try again");
+					Error("Something bad happened while trying to save your reservation, please try again. Tech info:" + ex.Message);
 					return View(model);
 				}
 			}
@@ -97,7 +97,7 @@ namespace Bowling.Web.CustomerSite.Controllers
 
 		public ActionResult Complete()
 		{
-			throw new NotImplementedException();
+			return View(this.CurrentReservation);
 		}
 	}
 }

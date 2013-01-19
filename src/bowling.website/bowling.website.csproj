@@ -231,6 +231,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Reservation\Index.cshtml" />
     <Content Include="Views\Reservation\ContactInfo.cshtml" />
+    <Content Include="Views\Reservation\Complete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

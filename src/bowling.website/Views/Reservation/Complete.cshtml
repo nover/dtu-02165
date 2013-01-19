@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Reservation complete";
+}
+@model Bowling.Rest.Service.Model.Types.ReservationType
+
+    <p class="lead text-info">Your reservation id is: @Model.Id . Please save this for future reference.</p>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>Date</td>
+                <td>@Model.PlayAt.ToString("d")</td>
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td>@Model.TimeOfDay</td>
+            </tr>
+            <tr>
+               <td>Number of players</td>
+               <td>@Model.NumberOfPlayers</td>
+            </tr>
+            <tr>
+                <td>You have the lanes for</td>
+                <td>@Model.HowManyHours hours</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</fieldset>
