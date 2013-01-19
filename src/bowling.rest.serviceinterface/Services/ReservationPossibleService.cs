@@ -51,7 +51,7 @@ namespace Bowling.Rest.Service.Interface.Services
 			// do the scheduling
 			var newState = LaneScheduler.Search(schedulerState, schedulerReservations, newReservation);
 
-			if (newState == null)
+			if (newState.state == null)
 			{
 				return response;
 			}

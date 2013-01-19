@@ -47,11 +47,11 @@ namespace Bowling.Rest.Service.Interface.Helper
 					{
 						laneId = lane.Id-1;
 						slotId = slot.Id-1;
-						if (internalState[laneId, slotId] != 0)
+						if (internalState[slotId, laneId] != 0)
 						{
 							throw new InvalidOperationException(String.Format("The scheduler state at position  {0}, {1} is already taken. This means that one or more reservations have been allocated to the same lane and slot. Not so good"));
 						}
-						internalState[laneId, slotId] = resv.Id;
+						internalState[slotId, laneId] = resv.Id;
 					}
 				}
 			}
