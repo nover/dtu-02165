@@ -84,6 +84,10 @@ namespace Bowling.Rest.Service.Interface.Helper
 			var rescheduledReservations = convertToReservation.Convert(newState.state, out theReservation);
 			theReservation.NumberOfPlayers = reservation.NumberOfPlayers;
 			theReservation.PlayAt = reservation.PlayAt;
+			theReservation.Name = reservation.Name;
+			theReservation.PhoneNumber = reservation.PhoneNumber;
+			theReservation.Status = ReservationStatus.Pending;
+			theReservation.CreatedAt = DateTime.Now;
 
 			// now that we have the actual reservation, we can check 
 			// the added time-slots against the requested timeslot
