@@ -46,8 +46,8 @@ namespace Bowling.Rest.Service.Interface.Helper
 					}
 					var pair = new ReservationLaneTimeSlotPair()
 					{
-						LaneId = i+1,
-						TimeSlotId = j+1,
+						LaneId = j+1,
+						TimeSlotId = i+1,
 						ReservationId = current
 					};
 
