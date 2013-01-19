@@ -66,7 +66,19 @@ namespace Bowling.Web.CustomerSite.Controllers
 		[HttpPost]
 		public ActionResult ContactInfo(ReservationContactInfoInputModel model)
 		{
-			throw new NotImplementedException("POST NOT YET SUPPORTED");
+			if (ModelState.IsValid)
+			{
+				this.CurrentReservation.Name = model.Name;
+				this.CurrentReservation.PhoneNumber = model.Cellphone;
+
+				// TODO: Post to the reservation service...
+
+				Error("The webservice call is still not implemented");
+				return View(model);
+			}
+
+			Error("There is an error in your data");
+			return View(model);
 		}
 	}
 }
