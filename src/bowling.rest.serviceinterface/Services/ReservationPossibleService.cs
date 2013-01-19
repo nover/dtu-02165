@@ -18,7 +18,7 @@ namespace Bowling.Rest.Service.Interface.Services
 {
 	public class ReservationPossibleService : RestServiceBase<ReservationPossible>
 	{
-		public override object OnGet(ReservationPossible request)
+		public override object OnPost(ReservationPossible request)
 		{
 			var response = new ReservationPossibleResponse();
 
