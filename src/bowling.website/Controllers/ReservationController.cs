@@ -68,17 +68,36 @@ namespace Bowling.Web.CustomerSite.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				this.CurrentReservation.Name = model.Name;
-				this.CurrentReservation.PhoneNumber = model.Cellphone;
+				try
+				{
+					this.CurrentReservation.Name = model.Name;
+					this.CurrentReservation.PhoneNumber = model.Cellphone;
 
-				// TODO: Post to the reservation service...
+					var request = new Reservations()
+					{
+						Reservation = this.CurrentReservation
+					};
 
-				Error("The webservice call is still not implemented");
-				return View(model);
+					this.CurrentAPIClient.Post<ReservationsResponse>("/reservation", request);
+
+					Success("Your reservation was created successfully");
+
+					return RedirectToAction("Complete");
+				}
+				catch (WebServiceException ex)
+				{
+					Error("Something bad happened while trying to save your reservation, please try again");
+					return View(model);
+				}
 			}
 
 			Error("There is an error in your data");
 			return View(model);
+		}
+
+		public ActionResult Complete()
+		{
+			throw new NotImplementedException();
 		}
 	}
 }
