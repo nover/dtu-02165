@@ -32,7 +32,7 @@ namespace Bowling.Rest.Service.Interface
         public override void Configure(Container container)
         {
             // enable fluent validation
-            //Plugins.Add(new ValidationFeature());
+            Plugins.Add(new ValidationFeature());
 
             //This method scans the assembly for validators
             container.RegisterValidators(typeof(MembersValidator).Assembly);
