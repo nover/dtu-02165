@@ -8,6 +8,7 @@ namespace Bowling.Rest.Service.Model.Types
 {
     public class MemberType
     {
+        public int Id { get; set; }
         public String Email { get; set; }
         public String Password { get; set; }
         public String Name { get; set; }

@@ -22,6 +22,8 @@ namespace Bowling.Rest.Service.Interface
 				.ForMember(dest => dest.NumberOfPlayers, opt => opt.MapFrom(src => src.NumberOfPlayers))
 				.ForMember(dest => dest.PlayAt, opt => opt.MapFrom(src => src.PlayAt))
 				.ForMember(dest => dest.TimeOfDay, opt => opt.MapFrom(src => src.TimeSlots[0].Start));
+
+            Mapper.AssertConfigurationIsValid();
 		}
 	}
 }
