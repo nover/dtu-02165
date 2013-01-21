@@ -40,7 +40,7 @@ namespace bowling.rest.tests.Services
 				CreatedAt = DateTime.Now,
 				Name = "Gert",
 				NumberOfPlayers = 4,
-				PhoneNumber = "1234",
+				PhoneNumber = 1234,
 				PlayAt =DateTime.Now
 			};
 
@@ -75,7 +75,7 @@ namespace bowling.rest.tests.Services
 					CreatedAt = DateTime.Now,
 					Name = "Gert",
 					NumberOfPlayers = 4,
-					PhoneNumber = "1234",
+					PhoneNumber = 1234,
 					PlayAt = DateTime.Now
 				};
 
