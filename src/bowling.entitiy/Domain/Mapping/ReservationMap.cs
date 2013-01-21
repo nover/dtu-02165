@@ -16,11 +16,11 @@ namespace Bowling.Entity.Domain.Mapping
             Map(x => x.NumberOfPlayers);
             Map(x => x.Name);
             Map(x => x.PhoneNumber);
-            References<Member>(x => x.Member);
+            References<Member>(x => x.Member).Not.LazyLoad();
             Map(x => x.Status).CustomSqlType("string");
             Map(x => x.CreatedAt);
-            HasManyToMany(x => x.Lanes).Cascade.None();
-            HasManyToMany(x => x.TimeSlots).Cascade.None();
+            HasManyToMany(x => x.Lanes).Cascade.None().Not.LazyLoad();
+            HasManyToMany(x => x.TimeSlots).Cascade.None().Not.LazyLoad();
         }
     }
 }
