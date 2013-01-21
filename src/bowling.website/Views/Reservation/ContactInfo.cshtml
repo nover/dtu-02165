@@ -11,7 +11,11 @@
     @Html.ValidationSummary(true)
     <fieldset class="form-horizontal">
         <legend>Your contact info</legend>
-        <p class="lead text-info">You're almost there, we just need your contact info and the lane resevation is ready!</p>
+        @if (Session["member"] == null)
+        {
+            <p class="lead text-info">You're almost there, we just need your contact info and the lane resevation is ready!</p>    
+        }
+        
         @foreach (var property in Model.VisibleProperties())
         {
             @Html.BeginControlGroupFor(property.Name)

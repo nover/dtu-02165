@@ -19,6 +19,17 @@ namespace Bowling.Web.CustomerSite.Controllers
 
 		public ActionResult Index()
 		{
+			var member = this.LoggedInMember;
+			if (member != null)
+			{
+                var rim = new ReservationInputModel
+                {
+                    NumberOfPlayers = member.DefaultNumberOfPlayers
+                };
+
+                Information("We filled in the number of players for you, based on your profile settings");
+                return View(rim);
+			}
 			return View(new ReservationInputModel());
 		}
 
@@ -60,6 +71,18 @@ namespace Bowling.Web.CustomerSite.Controllers
 
 		public ActionResult ContactInfo()
 		{
+            var member = this.LoggedInMember;
+            if (member != null)
+            {
+                var r = new ReservationContactInfoInputModel
+                {
+                    Cellphone = member.CellPhone.ToString(),
+                    Name = member.Name
+                };
+
+                Information("We filled out your contact information from you profile, please verify that it's correct");
+                return View(r);
+            }
 			return View(new ReservationContactInfoInputModel());
 		}
 
