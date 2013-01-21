@@ -26,7 +26,7 @@ namespace Bowling.Web.CustomerSite.Controllers
         public ActionResult MyProfile()
         {
             //this.
-            var member = Session["member"] as MemberInputModel;
+            var member = this.LoggedInMember;
             if (member != null)
             {
                 return View(member);
@@ -53,7 +53,7 @@ namespace Bowling.Web.CustomerSite.Controllers
                 var member = Mapper.Map<MemberType, MemberInputModel>(response.Member);
                 // if we get here, all is OK
                 FormsAuthentication.SetAuthCookie(model.Email, false);
-                Session.Add("member", member);
+                this.LoggedInMember = member;
 
 				Success("User created successfully!");
                 
@@ -87,7 +87,7 @@ namespace Bowling.Web.CustomerSite.Controllers
                     }
                     // if we get here, all is OK
                     FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
-                    Session.Add("member", Mapper.Map<MemberInputModel>(response.Member));
+                    this.LoggedInMember = Mapper.Map<MemberInputModel>(response.Member);
 
                     Success("You are now logged in!");
                     return Redirect("MyProfile");
@@ -107,7 +107,7 @@ namespace Bowling.Web.CustomerSite.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            Session["member"] = null;
+            this.LoggedInMember = null;
 
             Information("Successfully logged out");
             return RedirectToAction("Index", "Home");

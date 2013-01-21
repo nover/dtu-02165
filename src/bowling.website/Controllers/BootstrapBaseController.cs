@@ -2,6 +2,7 @@
 using BootstrapSupport;
 using ServiceStack.ServiceClient.Web;
 using Bowling.Rest.Service.Model.Types;
+using Bowling.Web.CustomerSite.Models;
 
 namespace BootstrapMvcSample.Controllers
 {
@@ -61,5 +62,24 @@ namespace BootstrapMvcSample.Controllers
 				Session["reservation"] = value;
 			}
 		}
+
+        public MemberInputModel LoggedInMember
+        {
+            get
+            {
+                MemberInputModel instance = Session["member"] as MemberInputModel;
+                if (instance == null)
+                {
+                    instance = new MemberInputModel();
+                    Session["member"] = instance;
+                }
+
+                return instance;
+            }
+            set
+            {
+                Session["member"] = value;
+            }
+        }
     }
 }
