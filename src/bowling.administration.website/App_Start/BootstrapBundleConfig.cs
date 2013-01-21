@@ -8,6 +8,9 @@ namespace BootstrapSupport
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/js-jquery").Include(
+                "~/Scripts/jquery-1.*"));
+
             bundles.Add(new ScriptBundle("~/js").Include(
                 "~/Scripts/jquery-1.*",
                 "~/Scripts/bootstrap.js",
