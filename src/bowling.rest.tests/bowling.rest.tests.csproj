@@ -126,6 +126,7 @@
   <ItemGroup>
     <Compile Include="Services\ReservationPossibleServiceTest.cs" />
     <Compile Include="Services\ServiceTestBase.cs" />
+    <Compile Include="Services\ReservationServiceTest.cs" />
     <Compile Include="Validator\EmailValidatorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validator\ReservationPossibleValidatorTest.cs" />

@@ -18,5 +18,16 @@ namespace Bowling.Rest.Service.Model.Types
 		public string Name { get; set; }
 		public int PhoneNumber { get; set; }
 		public int? MemberId { get; set; }
+        public ReservationStatusType Status {get; set;}
+
+		public IList<TimeSlotType> TimeSlots { get; set; }
+
+		public IList<LaneType> Lanes { get; set; }
+
+		public ReservationType ()
+		{
+			this.TimeSlots = new List<TimeSlotType>();
+			this.Lanes = new List<LaneType>();
+		}
 	}
 }

@@ -85,9 +85,12 @@
     <Compile Include="Operations\Reservations.cs" />
     <Compile Include="Operations\ReservationsResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\LaneType.cs" />
     <Compile Include="Types\MemberTitle.cs" />
     <Compile Include="Types\MemberType.cs" />
+    <Compile Include="Types\ReservationStatusType.cs" />
     <Compile Include="Types\ReservationType.cs" />
+    <Compile Include="Types\TimeSlotType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

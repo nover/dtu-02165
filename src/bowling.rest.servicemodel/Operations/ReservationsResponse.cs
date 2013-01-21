@@ -8,8 +8,19 @@ using System.Threading.Tasks;
 namespace Bowling.Rest.Service.Model.Operations
 {
 	public class ReservationsResponse
-	{
-		public ReservationType Reservation { get; set; }
+    {
+        #region GET collection
+        /// <summary>
+        /// The list of operations associated with the parameters from the GET on the collection
+        /// </summary>
+        public IList<ReservationType> ReservationList { get; set; }
+        #endregion
+        #region POST/GET member operation
+        /// <summary>
+        /// The hydrated DB member resulting from either a POST or a GET for a sigle element
+        /// </summary>
+        public ReservationType Reservation { get; set; }
+        #endregion
 
 		public ReservationsResponse()
 		{

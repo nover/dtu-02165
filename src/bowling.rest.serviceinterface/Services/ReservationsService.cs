@@ -11,11 +11,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bowling.Entity.Queries;
 
 namespace Bowling.Rest.Service.Interface.Services
 {
 	public class ReservationsService : RestServiceBase<Reservations>
 	{
+		public override object OnGet(Reservations request)
+		{
+			var reservationRepos = ServiceLocator.Current.GetInstance<IRepository<Reservation>>();
+			var reservations = reservationRepos.GetAll().FindReservationsByDate(request.Date.Value);
+
+			var response = new ReservationsResponse();
+
+			foreach (var r in reservations)
+			{
+				response.ReservationList.Add(Mapper.Map<ReservationType>(r));
+			}
+
+			return response;
+		}
 		public override object OnPost(Reservations request)
 		{
 			// first check if the reservation is possible, then save the full reschedule including
