@@ -19,7 +19,7 @@ namespace Bowling.Rest.Service.Interface.Validation
                     RuleFor(r => r.Member.Name).NotEmpty();
                     RuleFor(r => r.Member.Password).NotEmpty();
                     RuleFor(r => r.Member.Email).Must(x => EmailValidator.IsValid(x));
-                    RuleFor(r => r.Member.ReceiveNewsLetter).NotEmpty();
+                    RuleFor(r => r.Member.ReceiveNewsLetter).NotNull();
                 });
         }
     }
