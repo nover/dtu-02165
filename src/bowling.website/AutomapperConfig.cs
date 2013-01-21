@@ -20,7 +20,10 @@ namespace Bowling.Web.CustomerSite
                 .ForMember(dest => dest.Id, cfg => cfg.Ignore())
                 .ForMember(dest => dest.Name, cfg => cfg.Ignore())
                 .ForMember(dest => dest.PhoneNumber, cfg => cfg.Ignore())
-                .ForMember(dest => dest.MemberId, cfg => cfg.Ignore());
+                .ForMember(dest => dest.MemberId, cfg => cfg.Ignore())
+                .ForMember(dest => dest.Status, cfg => cfg.Ignore())
+                .ForMember(dest => dest.Lanes, cfg => cfg.Ignore())
+                .ForMember(dest => dest.TimeSlots, cfg => cfg.Ignore());
 
             Mapper.AssertConfigurationIsValid();
         }
