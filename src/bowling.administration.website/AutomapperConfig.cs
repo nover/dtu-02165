@@ -13,9 +13,13 @@ namespace bowling.administration.website
 		public static void CreateMappings()
 		{
 			Mapper.CreateMap<TimeSlot, TimeSlotInputModel>();
-			Mapper.CreateMap<TimeSlotInputModel, TimeSlot>();
+			Mapper.CreateMap<TimeSlotInputModel, TimeSlot>()
+                .ForMember(dest => dest.Reservations, cfg => cfg.Ignore());
 			Mapper.CreateMap<Lane, LaneInputModel>();
-			Mapper.CreateMap<LaneInputModel, Lane>();
+			Mapper.CreateMap<LaneInputModel, Lane>()
+                .ForMember(dest => dest.Reservations, cfg => cfg.Ignore());
+
+            Mapper.AssertConfigurationIsValid();
 		}
 	}
 }
