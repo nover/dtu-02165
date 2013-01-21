@@ -12,7 +12,7 @@ namespace Bowling.Web.CustomerSite.Models
 		public string Name { get; set; }
 		[Required]
 		[DataType(DataType.PhoneNumber)]
-		public string Cellphone { get; set; }
+		public int Cellphone { get; set; }
 
 		
 	}

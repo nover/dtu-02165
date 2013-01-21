@@ -76,7 +76,7 @@ namespace Bowling.Web.CustomerSite.Controllers
             {
                 var r = new ReservationContactInfoInputModel
                 {
-                    Cellphone = member.CellPhone.ToString(),
+                    Cellphone = member.CellPhone,
                     Name = member.Name
                 };
 
