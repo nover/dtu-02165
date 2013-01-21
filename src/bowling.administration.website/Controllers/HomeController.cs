@@ -16,5 +16,13 @@ namespace bowling.administration.website.Controllers
             return View();
         }
 
+        [HttpGet]
+        public JsonResult Reservations()
+        {
+            // TODO: Call the Service API to get the reservations for Today
+            // TODO: convert the response tree into JSON by using: return JSON(TheObject,JsonRequestBehavior.AllowGet); 
+            throw new NotImplementedException();
+        }
+
     }
 }

@@ -4,3 +4,14 @@
 
 <h2>Stuff will come here at a point</h2>
 
+
+<script type="text/javascript">
+
+    $(function ()
+    {
+        $.get("/Home/Reservations", function (data) {
+
+            alert(data.Hest);
+        })
+    });
+</script>
