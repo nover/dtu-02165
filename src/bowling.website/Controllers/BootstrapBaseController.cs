@@ -68,11 +68,6 @@ namespace BootstrapMvcSample.Controllers
             get
             {
                 MemberInputModel instance = Session["member"] as MemberInputModel;
-                if (instance == null)
-                {
-                    instance = new MemberInputModel();
-                    Session["member"] = instance;
-                }
 
                 return instance;
             }

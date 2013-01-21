@@ -93,8 +93,14 @@ namespace Bowling.Web.CustomerSite.Controllers
 			{
 				try
 				{
+                    var member = this.LoggedInMember;
+                    if (member != null)
+                    {
+                        this.CurrentReservation.MemberId = member.Id;
+                    }
 					this.CurrentReservation.Name = model.Name;
 					this.CurrentReservation.PhoneNumber = model.Cellphone;
+
 
 					var request = new Reservations()
 					{
