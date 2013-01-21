@@ -17,6 +17,8 @@ namespace Bowling.Web.CustomerSite
             Mapper.CreateMap<MemberType, MemberInputModel>();
 			Mapper.CreateMap<ReservationInputModel, ReservationType>()
 				.ForMember(dest => dest.TimeOfDay, cfg => cfg.MapFrom(src => src.StartPlayingAt));
+
+            Mapper.AssertConfigurationIsValid();
         }
     }
 }
