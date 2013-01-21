@@ -99,6 +99,7 @@
     <Compile Include="Helper\ReservationPossibleHelper.cs" />
     <Compile Include="Helper\ReservationsToLaneSchedulerState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MemberExistService.cs" />
     <Compile Include="Services\MembersLoginService.cs" />
     <Compile Include="Services\MembersService.cs" />
     <Compile Include="Services\ReservationPossibleService.cs" />

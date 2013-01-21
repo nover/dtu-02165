@@ -76,6 +76,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Operations\MemberExists.cs" />
+    <Compile Include="Operations\MemberExistsResponse.cs" />
     <Compile Include="Operations\Members.cs" />
     <Compile Include="Operations\MembersLogin.cs" />
     <Compile Include="Operations\MembersLoginResponse.cs" />

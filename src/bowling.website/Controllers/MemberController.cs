@@ -13,15 +13,15 @@ using System.Web.Security;
 
 namespace Bowling.Web.CustomerSite.Controllers
 {
-	public class MemberController : BootstrapBaseController
-	{
-		//
-		// GET: /Member/
+    public class MemberController : BootstrapBaseController
+    {
+        //
+        // GET: /Member/
 
-		public ActionResult Index()
-		{
-			return View();
-		}
+        public ActionResult Index()
+        {
+            return View();
+        }
 
         public ActionResult MyProfile()
         {
@@ -34,18 +34,31 @@ namespace Bowling.Web.CustomerSite.Controllers
 
             return View(new MemberInputModel());
         }
-		public ActionResult SignUp()
-		{
-			return View(new MemberInputModel());
-		}
+        public ActionResult SignUp()
+        {
+            return View(new MemberInputModel());
+        }
 
-		[HttpPost]
-		public ActionResult SignUp(MemberInputModel model)
-		{
-			if (ModelState.IsValid)
-			{
+        [HttpPost]
+        public ActionResult SignUp(MemberInputModel model)
+        {
+            if (ModelState.IsValid)
+            {
 
                 var jsonClient = this.CurrentAPIClient;
+                var emailResponse = jsonClient.Get<MemberExistsResponse>(
+                    String.Format(
+                        "/members/exist?email={0}",
+                        model.Email
+                        ));
+
+                if (emailResponse.DoesExist)
+                {
+                    Error("Sorry, the email is already used by another member!");
+                    return View(model);
+                }
+
+
                 Members request = new Members();
                 request.Member = Mapper.Map<MemberInputModel, MemberType>(model);
 
@@ -55,18 +68,18 @@ namespace Bowling.Web.CustomerSite.Controllers
                 FormsAuthentication.SetAuthCookie(model.Email, false);
                 this.LoggedInMember = member;
 
-				Success("User created successfully!");
-                
-				return RedirectToAction("MyProfile");
-			}
+                Success("User created successfully!");
 
-			Error("there were some errors in your form.");
-			return View(model);
-		}
+                return RedirectToAction("MyProfile");
+            }
+
+            Error("there were some errors in your form.");
+            return View(model);
+        }
 
         [HttpPost]
-		public ActionResult Login(MemberLoginInputModel model)
-		{
+        public ActionResult Login(MemberLoginInputModel model)
+        {
             if (ModelState.IsValid)
             {
                 // Authenticate with API
@@ -101,8 +114,8 @@ namespace Bowling.Web.CustomerSite.Controllers
 
 
             return View(model);
-			throw new NotImplementedException();
-		}
+            throw new NotImplementedException();
+        }
 
         public ActionResult Logout()
         {
@@ -113,5 +126,5 @@ namespace Bowling.Web.CustomerSite.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-	}
+    }
 }
