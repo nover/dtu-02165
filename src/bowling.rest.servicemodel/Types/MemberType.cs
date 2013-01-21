@@ -14,7 +14,7 @@ namespace Bowling.Rest.Service.Model.Types
         public String Title { get; set; }
         public String DialCode { get; set; }
         public String CellPhone { get; set; }
-        public int DefaultNumOfPlayers { get; set; }
+        public int DefaultNumberOfPlayers { get; set; }
         public bool? ReceiveNewsLetter { get; set; }
     }
 }

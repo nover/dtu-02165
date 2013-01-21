@@ -18,7 +18,7 @@ namespace Bowling.Entity.Domain.Mapping
             Map(x => x.Title);
             Map(x => x.DialCode);
             Map(x => x.CellPhone);
-            Map(x => x.DefaultNumOfPlayers);
+            Map(x => x.DefaultNumberOfPlayers);
             Map(x => x.ReceiveNewsLetter);
             
             

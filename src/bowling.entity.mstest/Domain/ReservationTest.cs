@@ -56,7 +56,7 @@ namespace bowling.entity.mstest.Domain
 					new Member()
 					{
 						Email = "my@email.dk",
-						DefaultNumOfPlayers = 42,
+						DefaultNumberOfPlayers = 42,
 						DialCode = "+45",
 						Name = "John Doe",
 						Password = "1234",

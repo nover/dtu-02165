@@ -10,7 +10,7 @@ namespace Bowling.Web.CustomerSite.Models
 	{
         public MemberInputModel()
         {
-            this.ReceieveNewsletter = true;
+            this.ReceiveNewsletter = true;
             this.DialCode = "+45";
             this.DefaultNumberOfPlayers = 1;
         }
@@ -39,6 +39,6 @@ namespace Bowling.Web.CustomerSite.Models
         [Range(1, 120, ErrorMessage = "Please enter a number between 1 and 120")]
         public int DefaultNumberOfPlayers { get; set; }
 
-        public bool ReceieveNewsletter { get; set; }
+        public bool ReceiveNewsletter { get; set; }
 	}
 }

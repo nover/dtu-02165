@@ -14,7 +14,7 @@ namespace Bowling.Entity.Domain
         public virtual String Title { get; set; }
         public virtual String DialCode { get; set; }
         public virtual String CellPhone { get; set; }
-        public virtual int DefaultNumOfPlayers { get; set; }
+        public virtual int DefaultNumberOfPlayers { get; set; }
         public virtual bool ReceiveNewsLetter { get; set; }
     }
 }
