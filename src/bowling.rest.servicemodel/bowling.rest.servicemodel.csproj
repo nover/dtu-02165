@@ -85,6 +85,7 @@
     <Compile Include="Operations\Reservations.cs" />
     <Compile Include="Operations\ReservationsResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\MemberTitle.cs" />
     <Compile Include="Types\MemberType.cs" />
     <Compile Include="Types\ReservationType.cs" />
   </ItemGroup>

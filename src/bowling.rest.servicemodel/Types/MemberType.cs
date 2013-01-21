@@ -12,9 +12,9 @@ namespace Bowling.Rest.Service.Model.Types
         public String Email { get; set; }
         public String Password { get; set; }
         public String Name { get; set; }
-        public String Title { get; set; }
+        public MemberTitle Title { get; set; }
         public String DialCode { get; set; }
-        public String CellPhone { get; set; }
+        public int CellPhone { get; set; }
         public int DefaultNumberOfPlayers { get; set; }
         public bool? ReceiveNewsLetter { get; set; }
     }

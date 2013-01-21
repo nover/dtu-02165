@@ -70,6 +70,7 @@
     <Compile Include="Domain\Mapping\ReservationMap.cs" />
     <Compile Include="Domain\Mapping\TimeSlotMap.cs" />
     <Compile Include="Domain\Member.cs" />
+    <Compile Include="Domain\MemberTitle.cs" />
     <Compile Include="Domain\Reservation.cs" />
     <Compile Include="Domain\ReservationStatus.cs" />
     <Compile Include="Domain\TimeSlot.cs" />

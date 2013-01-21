@@ -29,7 +29,7 @@ namespace Bowling.Web.CustomerSite.Models
         public string Password { get; set; }
 
         
-        public string Title { get; set; }
+        public MemberTitle Title { get; set; }
 
         public string DialCode { get; set; }
 

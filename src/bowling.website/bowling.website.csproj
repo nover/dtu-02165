@@ -170,6 +170,7 @@
     </Compile>
     <Compile Include="Models\MemberInputModel.cs" />
     <Compile Include="Models\MemberLoginInputModel.cs" />
+    <Compile Include="Models\MemberTitle.cs" />
     <Compile Include="Models\ReservationContactInfoInputModel.cs" />
     <Compile Include="Models\ReservationInputModel.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />

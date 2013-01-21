@@ -23,7 +23,7 @@ namespace TemplateSrc.Tests.Domain
                 .CheckProperty(c => c.Password, "blabla")
                 .CheckProperty(c => c.Title, "Mr.")
                 .CheckProperty(c => c.DialCode, "+45")
-                .CheckProperty(c => c.CellPhone, "28123456")
+                .CheckProperty(c => c.CellPhone, 28123456)
                 .CheckProperty(c => c.DefaultNumberOfPlayers, 2)
                 .CheckProperty(c => c.ReceiveNewsLetter, true)
                 .VerifyTheMappings();

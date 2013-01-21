@@ -16,7 +16,7 @@ namespace Bowling.Rest.Service.Model.Types
 		public int NumberOfPlayers { get; set; }
 		public int HowManyHours { get; set; }
 		public string Name { get; set; }
-		public string PhoneNumber { get; set; }
+		public int PhoneNumber { get; set; }
 		public int? MemberId { get; set; }
 	}
 }

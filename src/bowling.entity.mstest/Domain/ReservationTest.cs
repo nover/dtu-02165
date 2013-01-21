@@ -48,7 +48,7 @@ namespace bowling.entity.mstest.Domain
 			  .CheckProperty(c => c.Name, "John Doe")
 			  .CheckProperty(c => c.CreatedAt, DateTime.Now, new DateTimeEqualityComparer())
 			  .CheckProperty(c => c.NumberOfPlayers, 6)
-			  .CheckProperty(c => c.PhoneNumber, "12345678")
+			  .CheckProperty(c => c.PhoneNumber, 12345678)
 			  .CheckProperty(c => c.PlayAt, DateTime.Now.AddDays(1), new DateTimeEqualityComparer())
 			  .CheckProperty(c => c.Status, ReservationStatus.Pending)
 			  .CheckReference(
@@ -61,7 +61,7 @@ namespace bowling.entity.mstest.Domain
 						Name = "John Doe",
 						Password = "1234",
 						ReceiveNewsLetter = true,
-						Title = "Mr"
+						Title = MemberTitle.Dr
 					})
 			   .CheckComponentList(
 					x => x.Lanes, 
