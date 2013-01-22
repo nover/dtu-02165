@@ -18,28 +18,43 @@ namespace Bowling.Rest.Service.Interface.Services
 {
 	public class ReservationPossibleService : RestServiceBase<ReservationPossible>
 	{
+        private IRepository<TimeSlot> timeSlotRepos;
+
 		public override object OnPost(ReservationPossible request)
 		{
 			var response = new ReservationPossibleResponse();
 
 			Reservation theReservation;
 			bool isPossible;
+            var suggestions = new List<LaneSchedulerReservation>();
 			var helper = ServiceLocator.Current.GetInstance<ReservationPossibleHelper>();
 
-			try
-			{
-				helper.Go(request.Reservation, out theReservation, out isPossible);
+			helper.Go(request.Reservation, out theReservation, out isPossible, out suggestions);
+            response.IsPossible = isPossible;
+            if(!isPossible)
+            {
+                // TODO do suggestion dance and return
+               // response.Suggestions=Mapper.Map<List<ReservationType>>(suggestions);
 
-				response.IsPossible = isPossible;
-				return response;
-			}
-			catch (ArgumentException ex)
-			{
-				response.IsPossible = false;
-				//TODO add suggestions here!
+                var newReservation = new List<Reservation>();
+                var timeslotrepos = ServiceLocator.Current.GetInstance<IRepository<TimeSlot>>();
 
-				return response;
-			}
+                foreach (var suggestion in suggestions)
+                {
+                    // the scheduler is using 0 based indexes for it's search space
+                    // so we add one to get the actual DB id.
+                    var startTimeSlot = timeslotrepos.Get(suggestion.StartTimeSlot + 1);
+                    response.Suggestions.Add(new ReservationType
+                    {
+                        HowManyHours = suggestion.NumberOfTimeSlots,
+                        NumberOfPlayers = request.Reservation.NumberOfPlayers,
+                        PlayAt = request.Reservation.PlayAt,
+                        TimeOfDay = startTimeSlot.Start
+                    });
+                }
+            }
+            
+            return response;
 		}
 	}
 }

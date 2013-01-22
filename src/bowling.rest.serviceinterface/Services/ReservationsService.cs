@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bowling.Entity.Queries;
+using bowling.scheduling;
 
 namespace Bowling.Rest.Service.Interface.Services
 {
@@ -38,9 +39,9 @@ namespace Bowling.Rest.Service.Interface.Services
 
 			Reservation reservation;
 			bool isPossible;
-
+            var suggestions = new List<LaneSchedulerReservation>();
 			var helper = ServiceLocator.Current.GetInstance<ReservationPossibleHelper>();
-			var reschedule = helper.Go(request.Reservation, out reservation, out isPossible);
+			var reschedule = helper.Go(request.Reservation, out reservation, out isPossible, out suggestions);
 			if (!isPossible)
 			{
 				throw new InvalidOperationException("Your requested reservation is not possible, sorry");

@@ -46,7 +46,7 @@ namespace Bowling.Rest.Service.Interface.Helper
 		/// <param name="theReservation">An intance of a reservation, based on the data from <paramref name="reservation"/></param>
 		/// <returns>The list of rescheduled reservations and an instance ready to commit in <paramref name="theReservation"/></returns>
 		/// <exception cref="ArgumentException">If the <paramref name="reservation"/> is not possible</exception>
-		public List<Reservation> Go(ReservationType reservation, out Reservation theReservation, out bool isPossible)
+		public List<Reservation> Go(ReservationType reservation, out Reservation theReservation, out bool isPossible, out List<LaneSchedulerReservation> suggestions)
 		{
 			// quick pruning of the result - does the requested timeslot exist at all??
 			TimeSlot startTimeSlot = timeSlotRepos.GetAll().FindTimeSlotStartingAt(reservation.TimeOfDay);
@@ -75,9 +75,14 @@ namespace Bowling.Rest.Service.Interface.Helper
 
 			if (newState.state == null)
 			{
-				throw new ArgumentException("There is no place in the schedule for this reservation", "playat");
-			}
 
+                suggestions = newState.reservations;
+                isPossible = false;
+                theReservation = null;
+                return null;
+               
+			}
+            suggestions = null;
 			// The scheduler attempts to place the reservation +/- one time slot in the schedule if it's full, 
 			// so we have to try and handle that
 			var convertToReservation = ServiceLocator.Current.GetInstance<LaneSchedulerStateToReservations>();

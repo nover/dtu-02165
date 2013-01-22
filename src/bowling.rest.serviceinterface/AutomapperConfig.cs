@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using bowling.scheduling;
 using Bowling.Entity.Domain;
 using Bowling.Rest.Service.Model.Types;
 using System;
@@ -24,7 +25,7 @@ namespace Bowling.Rest.Service.Interface
                 .ForMember(dest => dest.TimeOfDay, opt => opt.MapFrom(src => src.TimeSlots[0].Start));
             Mapper.CreateMap<TimeSlot, TimeSlotType>();
             Mapper.CreateMap<Lane, LaneType>();
-
+           
             Mapper.AssertConfigurationIsValid();
 		}
 	}
