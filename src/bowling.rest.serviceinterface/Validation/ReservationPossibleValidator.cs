@@ -15,8 +15,8 @@ namespace Bowling.Rest.Service.Interface.Validation
 		{
 			RuleFor(x => x.Reservation.HowManyHours).InclusiveBetween(1, 4);
 			RuleFor(x => x.Reservation.NumberOfPlayers).InclusiveBetween(1, 24);
-			RuleFor(x => x.Reservation.PlayAt).GreaterThanOrEqualTo(DateTime.Now);
-			RuleFor(x => x.Reservation.TimeOfDay.Hours).GreaterThanOrEqualTo(0);
+			RuleFor(x => x.Reservation.PlayAt).GreaterThanOrEqualTo(DateTime.Now.Date);
+			RuleFor(x => x.Reservation.TimeOfDay.Hours).GreaterThanOrEqualTo(DateTime.Now.Hour);
 		}
 	}
 }
