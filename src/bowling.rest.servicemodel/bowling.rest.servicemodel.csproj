@@ -76,6 +76,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Operations\Lanes.cs" />
+    <Compile Include="Operations\LanesResponse.cs" />
     <Compile Include="Operations\MemberExists.cs" />
     <Compile Include="Operations\MemberExistsResponse.cs" />
     <Compile Include="Operations\Members.cs" />
@@ -86,6 +88,8 @@
     <Compile Include="Operations\ReservationPossibleResponse.cs" />
     <Compile Include="Operations\Reservations.cs" />
     <Compile Include="Operations\ReservationsResponse.cs" />
+    <Compile Include="Operations\TimeSlots.cs" />
+    <Compile Include="Operations\TimeSlotsResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\LaneType.cs" />
     <Compile Include="Types\MemberTitle.cs" />

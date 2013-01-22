@@ -8,6 +8,8 @@ namespace Bowling.Rest.Service.Model.Types
 {
     public class LaneType
     {
+        public int Id { get; set; }
 
+        public string Name { get; set; }
     }
 }
