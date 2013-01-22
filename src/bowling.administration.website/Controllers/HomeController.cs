@@ -44,44 +44,46 @@ namespace bowling.administration.website.Controllers
         [HttpGet]
         public JsonResult AjaxGetReservations()
         {
-            throw new NotImplementedException(); 
-            //var date = DateTime.Now;
-            //var reservations = client.Get<ReservationsResponse>(String.Format("/reservation?Date={0}", date.ToShortDateString()));
+            var date = DateTime.Now;
+            var reservations = client.Get<ReservationsResponse>(String.Format("/reservation?Date={0}", date.ToShortDateString()));
 
-            //var dataList = new List<DataCarrier>();
-            //foreach (var time in timeSlots.TimeSlots)
-            //{
-            //    var data = new DataCarrier();
-            //    data.TimeTag = String.Format("{0} - {1}", time.Start, time.End);
+            var dataList = new List<DataCarrier>();
 
-            //    var reservationsForTimeSlot = from y in reservations.ReservationList
-            //                                  where y.TimeSlots.Contains(time)
-            //                                  select y;
-            //    foreach (var lane in lanes.Lanes)
-            //    {
-            //        data.LanesForTime.Add(new Tuple<LaneType, ReservationType>(lane, null));
-            //    }
-            //    dataList.Add(data);
-            //}
+            foreach (var r in reservations.ReservationList)
+            {
+                foreach (var slot in r.TimeSlots)
+                {
+                    foreach (var lane in r.Lanes)
+                    {
+                        dataList.Add(new DataCarrier
+                        {
+                            LaneId = lane.Id,
+                            Name = r.Name,
+                            ReservationId = r.Id,
+                            ReservationStatus = r.Status,
+                            TimeSlotId = slot.Id
+                        });
+                    }
+                }
+            }
             
-
-            //return Json(new
-            //{
-            //    Schedule = dataList
-            //}, JsonRequestBehavior.AllowGet);
+            return Json(new
+            {
+                Reservations = dataList
+            }, JsonRequestBehavior.AllowGet);
         }
-
-
 
         private class DataCarrier
         {
-            public string TimeTag { get; set; }
-            public List<Tuple<LaneType, ReservationType>> LanesForTime { get; set; }
+            public string Name { get; set; }
 
-            public DataCarrier()
-            {
-                this.LanesForTime = new List<Tuple<LaneType, ReservationType>>();
-            }
+            public int ReservationId { get; set; }
+
+            public int LaneId { get; set; }
+
+            public int TimeSlotId { get; set; }
+
+            public ReservationStatusType ReservationStatus { get; set; }
         }
     }
 }

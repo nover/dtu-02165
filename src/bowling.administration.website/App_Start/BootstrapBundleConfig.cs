@@ -21,7 +21,8 @@ namespace BootstrapSupport
 				));
 
 			bundles.Add(new StyleBundle("~/content/css").Include(
-				"~/Content/bootstrap.css"
+				"~/Content/bootstrap.css",
+				"~/Content/mystyles.css"
 				));
 			bundles.Add(new StyleBundle("~/content/css-responsive").Include(
 				"~/Content/bootstrap-responsive.css"

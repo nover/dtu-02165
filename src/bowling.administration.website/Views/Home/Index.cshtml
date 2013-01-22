@@ -32,6 +32,24 @@
             }
             html += '</tfoot>';
             $('#scheduleTable').html(html);
+
+            $.get("/Home/AjaxGetReservations", function (data) {
+                
+                for (var i = 0; i < data.Reservations.length; i++) {
+                    var reservation = data.Reservations[i];
+                    var selector = '#' + reservation.TimeSlotId + '-' + reservation.LaneId;
+                    
+                    var stuff = "<a href='/#'>";
+                    if (reservation.ReservationStatus == 2) {
+                        $(selector).css('background-color', 'lightgreen');
+
+                        stuff += "<span class='badge badge-success'>" + reservation.Name;
+                    }
+
+                    stuff += '</span></a>';
+                    $(selector).html(stuff);
+                }
+            });
         })
     });
 </script>
@@ -40,7 +58,7 @@
 
     <div class="span8">
         <div id="scheduleContainer">
-            <table class="table" id="scheduleTable">
+            <table class="table table-bordered" id="scheduleTable">
             </table>
         </div>
     </div>
