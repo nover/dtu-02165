@@ -1,4 +1,5 @@
 ﻿using Bowling.Rest.Service.Model.Operations;
+using Bowling.Rest.Service.Model.Types;
 using ServiceStack.ServiceClient.Web;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,12 @@ namespace bowling.administration.website.Controllers
 {
     public class HomeController : Controller
     {
+        private JsonServiceClient client;
+
+        public HomeController()
+        {
+            this.client = new JsonServiceClient("http://localhost:24920/");
+        }
         //
         // GET: /Home/
 
@@ -19,21 +26,62 @@ namespace bowling.administration.website.Controllers
         }
 
         [HttpGet]
-        public JsonResult Reservations()
+        public JsonResult AjaxGetLanesAndTimeSlots()
         {
-            var client = new JsonServiceClient("http://localhost:24920/");
             var lanes = client.Get<LanesResponse>("/lanes");
-
             var timeSlots = client.Get<TimeSlotsResponse>("/timeslots");
-
-            var date = DateTime.Now;
-            var reservations = client.Get<ReservationsResponse>(String.Format("/reservation?Date={0}", date.ToShortDateString()));
+            timeSlots.TimeSlots = timeSlots.TimeSlots.OrderByDescending(x => x.End).ToList();
 
 
-            // TODO: Call the Service API to get the reservations for Today
-            // TODO: convert the response tree into JSON by using: return JSON(TheObject,JsonRequestBehavior.AllowGet); 
-            throw new NotImplementedException();
+            return Json(new
+            {
+                Lanes = lanes.Lanes,
+                TimeSlots = timeSlots.TimeSlots
+            }, JsonRequestBehavior.AllowGet);
+
         }
 
+        [HttpGet]
+        public JsonResult AjaxGetReservations()
+        {
+            throw new NotImplementedException(); 
+            //var date = DateTime.Now;
+            //var reservations = client.Get<ReservationsResponse>(String.Format("/reservation?Date={0}", date.ToShortDateString()));
+
+            //var dataList = new List<DataCarrier>();
+            //foreach (var time in timeSlots.TimeSlots)
+            //{
+            //    var data = new DataCarrier();
+            //    data.TimeTag = String.Format("{0} - {1}", time.Start, time.End);
+
+            //    var reservationsForTimeSlot = from y in reservations.ReservationList
+            //                                  where y.TimeSlots.Contains(time)
+            //                                  select y;
+            //    foreach (var lane in lanes.Lanes)
+            //    {
+            //        data.LanesForTime.Add(new Tuple<LaneType, ReservationType>(lane, null));
+            //    }
+            //    dataList.Add(data);
+            //}
+            
+
+            //return Json(new
+            //{
+            //    Schedule = dataList
+            //}, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+        private class DataCarrier
+        {
+            public string TimeTag { get; set; }
+            public List<Tuple<LaneType, ReservationType>> LanesForTime { get; set; }
+
+            public DataCarrier()
+            {
+                this.LanesForTime = new List<Tuple<LaneType, ReservationType>>();
+            }
+        }
     }
 }

@@ -9,9 +9,41 @@
 
     $(function ()
     {
-        $.get("/Home/Reservations", function (data) {
+        $.get("/Home/AjaxGetLanesAndTimeSlots", function (data) {
 
-            alert(data.Hest);
+            var html = '<tbody>';
+            for (var i = 0; i < data.TimeSlots.length; i++) {
+                var timeslot = data.TimeSlots[i];
+                html += '<tr>';
+                html += '<td>' + timeslot.Start.Hours + ' - ' + timeslot.End.Hours + '</td>';
+                for (var j = 0; j < data.Lanes.length; j++) {
+                    html += '<td></td>';
+                }
+                html += '</tr>';
+            }
+            html += '</tbody>'
+            html += '<tfoot>';
+            html += '<td></td>';
+            for (var j = 0; j < data.Lanes.length; j++) {
+                var lane = data.Lanes[j];
+
+                html += '<td>' + lane.Name + '</td>';
+            }
+            html += '</tfoot>';
+            $('#scheduleTable').html(html);
         })
     });
 </script>
+
+<div class="row">
+
+    <div class="span8">
+        <div id="scheduleContainer">
+            <table class="table" id="scheduleTable">
+            </table>
+        </div>
+    </div>
+    <div class="span4">
+        <div id="reservationContainer" />
+    </div>
+</div>
