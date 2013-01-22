@@ -44,33 +44,40 @@ namespace Bowling.Web.CustomerSite.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                var jsonClient = this.CurrentAPIClient;
-                var emailResponse = jsonClient.Get<MemberExistsResponse>(
-                    String.Format(
-                        "/members/exist?email={0}",
-                        model.Email
-                        ));
-
-                if (emailResponse.DoesExist)
+                try
                 {
-                    Error("Sorry, the email is already used by another member!");
+                    var jsonClient = this.CurrentAPIClient;
+                    var emailResponse = jsonClient.Get<MemberExistsResponse>(
+                        String.Format(
+                            "/members/exist?email={0}",
+                            model.Email
+                            ));
+
+                    if (emailResponse.DoesExist)
+                    {
+                        Error("Sorry, the email is already used by another member!");
+                        return View(model);
+                    }
+
+
+                    Members request = new Members();
+                    request.Member = Mapper.Map<MemberInputModel, MemberType>(model);
+
+                    var response = jsonClient.Post<MembersResponse>("/members", request);
+                    var member = Mapper.Map<MemberType, MemberInputModel>(response.Member);
+                    // if we get here, all is OK
+                    FormsAuthentication.SetAuthCookie(model.Email, false);
+                    this.LoggedInMember = member;
+
+                    Success("User created successfully!");
+
+                    return RedirectToAction("MyProfile");
+                }
+                catch (WebServiceException ex)
+                {
+                    Error("Something went totally haywire in the system - we suggest that you double check your input.");
                     return View(model);
                 }
-
-
-                Members request = new Members();
-                request.Member = Mapper.Map<MemberInputModel, MemberType>(model);
-
-                var response = jsonClient.Post<MembersResponse>("/members", request);
-                var member = Mapper.Map<MemberType, MemberInputModel>(response.Member);
-                // if we get here, all is OK
-                FormsAuthentication.SetAuthCookie(model.Email, false);
-                this.LoggedInMember = member;
-
-                Success("User created successfully!");
-
-                return RedirectToAction("MyProfile");
             }
 
             Error("there were some errors in your form.");
