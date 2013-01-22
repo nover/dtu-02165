@@ -15,9 +15,10 @@
             for (var i = 0; i < data.TimeSlots.length; i++) {
                 var timeslot = data.TimeSlots[i];
                 html += '<tr>';
-                html += '<td>' + timeslot.Start.Hours + ' - ' + timeslot.End.Hours + '</td>';
+                html += '<td><b>' + timeslot.Start.Hours + ' - ' + timeslot.End.Hours + '</b></td>';
                 for (var j = 0; j < data.Lanes.length; j++) {
-                    html += '<td></td>';
+                    var lane = data.Lanes[j];
+                    html += "<td id='"+ timeslot.Id + '-' + lane.Id + "'></td>";
                 }
                 html += '</tr>';
             }
@@ -27,7 +28,7 @@
             for (var j = 0; j < data.Lanes.length; j++) {
                 var lane = data.Lanes[j];
 
-                html += '<td>' + lane.Name + '</td>';
+                html += '<td><b>' + lane.Name + '</b></td>';
             }
             html += '</tfoot>';
             $('#scheduleTable').html(html);
