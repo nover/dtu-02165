@@ -55,10 +55,15 @@ namespace bowling.administration.website.Controllers
                 {
                     foreach (var lane in r.Lanes)
                     {
+                        var name = r.Name;
+                        if (name.Length > 8)
+                        {
+                            name = name.Substring(0, 8) + "...";
+                        }
                         dataList.Add(new DataCarrier
                         {
                             LaneId = lane.Id,
-                            Name = r.Name,
+                            Name = name,
                             ReservationId = r.Id,
                             ReservationStatus = r.Status,
                             TimeSlotId = slot.Id
