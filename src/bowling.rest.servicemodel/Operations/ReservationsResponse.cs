@@ -25,6 +25,8 @@ namespace Bowling.Rest.Service.Model.Operations
 		public ReservationsResponse()
 		{
 			this.Reservation = new ReservationType();
+            this.ReservationList = new List<ReservationType>();
+
 		}
 	}
 }

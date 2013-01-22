@@ -65,6 +65,18 @@
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="ServiceStack.Common, Version=3.9.33.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Common.3.9.33\lib\net35\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=3.9.33.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Common.3.9.33\lib\net35\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=3.9.33.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Text.3.9.33\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="SharpLite.Domain">
       <HintPath>..\resources\sharp-lite\SharpLite.Domain.dll</HintPath>
     </Reference>
@@ -255,6 +267,10 @@
     <ProjectReference Include="..\bowling.entity.nhibernateprovider\bowling.entity.nhibernateprovider.csproj">
       <Project>{4e471cac-a108-49ae-a4d6-155dc35712c9}</Project>
       <Name>bowling.entity.nhibernateprovider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bowling.rest.servicemodel\bowling.rest.servicemodel.csproj">
+      <Project>{fb1f8289-827d-435a-b437-2359d7df4ba2}</Project>
+      <Name>bowling.rest.servicemodel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

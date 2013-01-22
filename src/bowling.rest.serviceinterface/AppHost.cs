@@ -4,6 +4,7 @@ using Funq;
 using ServiceStack.CacheAccess;
 using ServiceStack.CacheAccess.Providers;
 using ServiceStack.ServiceInterface.Validation;
+using ServiceStack.Text;
 using ServiceStack.WebHost.Endpoints;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,8 @@ namespace Bowling.Rest.Service.Interface
         /// <param name="container">The built-in IoC used with ServiceStack.</param>
         public override void Configure(Container container)
         {
+            JsConfig.DateHandler = JsonDateHandler.ISO8601;
+
             // enable fluent validation
             Plugins.Add(new ValidationFeature());
 

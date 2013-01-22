@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bowling.Rest.Service.Model.Operations;
+using ServiceStack.ServiceClient.Web;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,6 +21,11 @@ namespace bowling.administration.website.Controllers
         [HttpGet]
         public JsonResult Reservations()
         {
+            var client = new JsonServiceClient("http://localhost:24920/");
+            var date = DateTime.Now;
+            var response = client.Get<ReservationsResponse>(String.Format("/reservation?Date={0}", date.ToShortDateString()));
+
+
             // TODO: Call the Service API to get the reservations for Today
             // TODO: convert the response tree into JSON by using: return JSON(TheObject,JsonRequestBehavior.AllowGet); 
             throw new NotImplementedException();
