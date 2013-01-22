@@ -8,10 +8,10 @@ namespace Bowling.Rest.Service.Model.Types
 {
     public enum ReservationStatusType
     {
-        Canceled,
+        Canceled = 1,
 
-        Active,
+        Active = 2,
 
-        Pendin
+        Pending = 3
     }
 }

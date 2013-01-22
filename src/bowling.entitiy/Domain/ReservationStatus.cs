@@ -8,10 +8,10 @@ namespace Bowling.Entity.Domain
 {
     public enum ReservationStatus
     {
-        Canceled,
+        Canceled = 1,
 
-        Active,
+        Active = 2,
 
-        Pending
+        Pending = 3
     }
 }

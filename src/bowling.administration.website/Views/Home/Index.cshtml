@@ -2,9 +2,6 @@
     ViewBag.Title = "Home";
 }
 
-<h2>Stuff will come here at a point</h2>
-
-
 <script type="text/javascript">
 
     $(function ()
@@ -40,10 +37,17 @@
                     var selector = '#' + reservation.TimeSlotId + '-' + reservation.LaneId;
                     
                     var stuff = "<a href='/#'>";
-                    if (reservation.ReservationStatus == 2) {
+                    if (reservation.ReservationStatus == 1) {
+                        $(selector).css('background-color', 'pink');
+                        stuff += "<span class='badge badge-important'>" + reservation.Name;
+                    }
+                    else if (reservation.ReservationStatus == 2) {
                         $(selector).css('background-color', 'lightgreen');
-
                         stuff += "<span class='badge badge-success'>" + reservation.Name;
+                    }
+                    else if (reservation.ReservationStatus == 3) {
+                        $(selector).css('background-color', 'lightblue');
+                        stuff += "<span class='badge badge-info'>" + reservation.Name;
                     }
 
                     stuff += '</span></a>';
@@ -57,12 +61,23 @@
 <div class="row">
 
     <div class="span8">
-        <div id="scheduleContainer">
+        <div id="scheduleContainer" >
+            <h2>Todays lane schedule</h2>
             <table class="table table-bordered" id="scheduleTable">
             </table>
         </div>
     </div>
     <div class="span4">
-        <div id="reservationContainer" />
+        <div class="well well-large" id="reservationContainer">
+            <h2>Last 10 reservations</h2>
+            <p>something here</p>
+            <p>something here</p>
+            <p>something here</p>
+            <p>something here</p>
+            <p>something here</p>
+            <p>something here</p>
+            <p>something here</p>
+            <p>something here</p>
+        </div>
     </div>
 </div>
