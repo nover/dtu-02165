@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bowling.Rest.Service.Model.Types;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -23,5 +24,12 @@ namespace Bowling.Web.CustomerSite.Models
         [Required]
         [Range(1, 9, ErrorMessage = "Please enter a number between 1 and 9")]
         public int HowManyHours { get; set; }
+
+        public IList<ReservationType> Suggestions { get; set; }
+
+        public ReservationInputModel()
+        {
+            this.Suggestions = new List<ReservationType>();
+        }
     }
 }

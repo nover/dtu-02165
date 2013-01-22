@@ -3,7 +3,7 @@
 }
 
 @using BootstrapSupport
-@model Object
+@model Bowling.Web.CustomerSite.Models.ReservationInputModel
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
@@ -11,18 +11,37 @@
         <legend>Create new reservation</legend>
         @foreach (var property in Model.VisibleProperties())
         {
+            if (property.Name == "Suggestions")
+            { continue; }
+                
             @Html.BeginControlGroupFor(property.Name)
-                @Html.Label(property.Name.ToSeparatedWords(), new { @class = "control-label" })
-                <div class="controls">
-                    @Html.Editor(property.Name, new { @class = "input-xlarge" })
-                    @Html.ValidationMessage(property.Name, null, new { @class = "help-inline" })
-		        </div>
+            @Html.Label(property.Name.ToSeparatedWords(), new { @class = "control-label" })
+            <div class="controls">
+                @Html.Editor(property.Name, new { @class = "input-xlarge" })
+                @Html.ValidationMessage(property.Name, null, new { @class = "help-inline" })
+            </div>
             @Html.EndControlGroup()
         }
-		<div class="form-actions">
-            @Html.ActionLink("Take me back",  "Index", "Home" , new {@class = "btn "})
+        <div class="form-actions">
+            @Html.ActionLink("Take me back", "Index", "Home", new { @class = "btn " })
             <button type="submit" class="btn btn-primary">Continue with reservation &raquo;</button>
-          </div>
+        </div>
+
+        @if (Model.Suggestions.Count > 0)
+        {
+            <fieldset class="form-horizontal">
+                <legend>Suggestions</legend>
+                <table class="table table-bordered">
+                    @foreach (var item in Model.Suggestions)
+                    { 
+                        <tr>
+                            <td>You could start playing at @Html.DisplayFor(x => x.StartPlayingAt) instead</td>
+                            <td></td>
+                        </tr>
+                    }
+                </table>
+            </fieldset> 
+        }
     </fieldset>
 }
 

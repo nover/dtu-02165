@@ -44,7 +44,7 @@ namespace bowling.administration.website.Controllers
         [HttpGet]
         public JsonResult AjaxGetReservations()
         {
-            var date = DateTime.Now;
+            var date = DateTime.Now.AddDays(1);
             var reservations = client.Get<ReservationsResponse>(String.Format("/reservation?Date={0}", date.ToShortDateString()));
 
             var dataList = new List<DataCarrier>();
