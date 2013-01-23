@@ -51,5 +51,12 @@
         </dependencyFromLayerToLayer>
       </dependencyToLayers>
     </layer>
+    <layer Id="e54404ca-5986-41df-a465-2d1f5ad5fb2d" name="Administration system">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="3974f914-d8b9-4b69-acbd-ec2c1226caed" direction="Forward">
+          <layerMoniker Id="11319023-a2a9-4cd6-9908-e7241e8c2fb7" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
   </layers>
 </layerModel>
