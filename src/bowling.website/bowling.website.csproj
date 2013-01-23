@@ -233,6 +233,7 @@
     <Content Include="Views\Reservation\Index.cshtml" />
     <Content Include="Views\Reservation\ContactInfo.cshtml" />
     <Content Include="Views\Reservation\Complete.cshtml" />
+    <Content Include="Views\Member\LogIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
