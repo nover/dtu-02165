@@ -11,13 +11,7 @@
             </dependencyFromLayerToLayer>
           </dependencyToLayers>
         </layer>
-        <layer Id="370cdadd-4421-4e86-8eef-6513abd15bf9" name="Lane scheduling&#xD;&#xA;">
-          <dependencyToLayers>
-            <dependencyFromLayerToLayer Id="20c3dcb3-b757-4d9f-a099-95537b25ce32" direction="Forward">
-              <layerMoniker Id="40b73363-fd8d-4af0-95d8-b089836d05a8" />
-            </dependencyFromLayerToLayer>
-          </dependencyToLayers>
-        </layer>
+        <layer Id="370cdadd-4421-4e86-8eef-6513abd15bf9" name="Lane scheduling&#xD;&#xA;" />
       </childLayers>
     </layer>
     <layer Id="11319023-a2a9-4cd6-9908-e7241e8c2fb7" name="API&#xD;&#xA;">
@@ -27,7 +21,27 @@
         </dependencyFromLayerToLayer>
       </dependencyToLayers>
       <childLayers>
-        <layer Id="c7501f4d-efd1-40be-b6e7-5f11aba2d89f" name="Service logic" />
+        <layer Id="c7501f4d-efd1-40be-b6e7-5f11aba2d89f" name="Service Interface&#xD;&#xA;">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="b541c886-277d-475d-a36e-33f452334ef8" direction="Forward">
+              <layerMoniker Id="b80917e8-a005-446d-9094-03e90d4c104f" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="0be8bf44-32e0-47b3-a8f5-79f101311456" direction="Forward">
+              <layerMoniker Id="370cdadd-4421-4e86-8eef-6513abd15bf9" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="f9cf0913-7ec7-4ffb-a242-f6da4592d327" direction="Forward">
+              <layerMoniker Id="40b73363-fd8d-4af0-95d8-b089836d05a8" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="2859e164-e421-4022-a97d-94039b6036aa" name="ASP.net WebSite container">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="5a3c228e-d8ef-4e1f-ae25-5a66e892d925" direction="Forward">
+              <layerMoniker Id="c7501f4d-efd1-40be-b6e7-5f11aba2d89f" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="b80917e8-a005-446d-9094-03e90d4c104f" name="Service Model" />
       </childLayers>
     </layer>
     <layer Id="85284fcc-d833-4d14-8b9d-7c2d97dff914" name="Customer website&#xD;&#xA;">
