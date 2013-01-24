@@ -55,7 +55,7 @@ namespace bowling.scheduling
 
             long time1 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
             LaneSchedulerState emptyState = new LaneSchedulerState(state.numberOfLanes, state.numberOfTimeSlots, newReservations);
-            LaneSchedulerState newState = LaneScheduler.RecursiveSearch(emptyState, newReservations, 0, 500, 0);
+            LaneSchedulerState newState = LaneScheduler.RecursiveSearch(emptyState, newReservations, 0, 1500, 0);
 
             long time2 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
             long runTime = time2 - time1;
