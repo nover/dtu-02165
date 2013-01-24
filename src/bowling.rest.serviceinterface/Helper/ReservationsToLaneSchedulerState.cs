@@ -28,7 +28,7 @@ namespace Bowling.Rest.Service.Interface.Helper
 											 Id = y.Id,
 											 NumberOfLanes = (int)Math.Ceiling(y.NumberOfPlayers / 6.0m),
 											 NumberOfTimeSlots = y.TimeSlots.Count,
-											 StartTimeSlot = y.TimeSlots[0].Id
+											 StartTimeSlot = y.TimeSlots[0].Id -1
 										 }).ToList();
 			
 			var state =  new LaneSchedulerState(
