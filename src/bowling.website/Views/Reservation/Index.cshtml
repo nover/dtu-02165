@@ -35,7 +35,7 @@
                     @foreach (var item in Model.Suggestions)
                     { 
                         <tr>
-                            <td>You could start playing at @Html.DisplayFor(x => x.StartPlayingAt) instead</td>
+                            <td>You could start playing at @item.TimeOfDay.ToString() instead</td>
                             <td></td>
                         </tr>
                     }
