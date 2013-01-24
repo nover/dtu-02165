@@ -99,7 +99,8 @@ namespace bowling.rest.tests.Services
 
 			ReservationPossibleResponse response = service.OnPost(request) as ReservationPossibleResponse;
 			Assert.That(response.IsPossible, Is.False);
-			Assert.That(response.Suggestions.Count, Is.EqualTo(0));
+			Assert.That(response.Suggestions.Count, Is.EqualTo(2));
+
 		}
 	}
 }
