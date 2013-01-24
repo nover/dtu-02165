@@ -30,7 +30,7 @@ namespace bowling.administration.website.Controllers
         {
             var lanes = client.Get<LanesResponse>("/lanes");
             var timeSlots = client.Get<TimeSlotsResponse>("/timeslots");
-            timeSlots.TimeSlots = timeSlots.TimeSlots.OrderByDescending(x => x.End).ToList();
+            timeSlots.TimeSlots = timeSlots.TimeSlots.OrderByDescending(x => x.Id).ToList();
 
 
             return Json(new
